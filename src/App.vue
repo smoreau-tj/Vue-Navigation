@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <Navigation />
-    <div id="components-demo">
-  <button-counter></button-counter>
-</div>
+    <Navigation/>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
