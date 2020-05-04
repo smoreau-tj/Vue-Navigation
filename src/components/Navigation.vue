@@ -1,5 +1,8 @@
 <template>
   <header class="header-main" data-header-main>
+    <div class="header-main__promo">
+      Free Shipping on $75+ and Free Returns on ALL Orders
+    </div>
     <div class="header-main__inner container">
       <div class="header-mobile-left"></div>
       <div class="header-desktop-item left">
@@ -36,52 +39,59 @@ export default {
 
 <style lang="scss">
 
+
 .header-main {
     @media screen and (min-width: 1280px) {
-    
+     padding: 0 48px;
+  }
+
+  .header-main__promo {
+    @media screen and (min-width: 1280px) {
+      height: 50px;
+      line-height: 50px;
+    }
   }
 
   .header-main__inner {
     @media screen and (min-width: 1280px) {
       height: 66px;
-      padding: 0 48px;
     }
-  }
+  
+    .header-desktop-item {
+      display: none;
 
-  .header-desktop-item {
-    display: none;
-
-    @media screen and (min-width: 1280px) {
-      display: inline-block;
-      width: 33.3333%;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-
-      li {
-        list-style-type: none;
+      @media screen and (min-width: 1280px) {
         display: inline-block;
+        width: 33.3333%;
       }
-    }
 
-    &.left {
       ul {
-        text-align: left;
-      }
+        margin: 0;
+        padding: 0;
 
-      li {
-        &:not(:last-child){
-          margin-right: 40px;
+        li {
+          list-style-type: none;
+          display: inline-block;
         }
       }
-    }
 
-    &.right{
-      li {
-         &:not(:last-child){
-          margin-right: 24px;
+      &.left {
+        ul {
+          text-align: left;
+        }
+
+        li {
+          &:not(:last-child){
+            margin-right: 40px;
+          }
+        }
+      }
+
+      &.right{
+        li {
+          &:not(:last-child){
+            margin-right: 24px;
+          }
         }
       }
     }
