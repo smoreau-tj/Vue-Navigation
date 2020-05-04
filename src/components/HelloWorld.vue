@@ -1,3 +1,15 @@
+<style lang="scss">
+$primaryColor: blue;
+
+.hello {
+  h3 {
+    color: $primaryColor;
+  }
+}
+
+</style>
+
+
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
