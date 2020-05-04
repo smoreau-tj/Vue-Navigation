@@ -28,7 +28,28 @@ export default {
 <style lang="scss">
 
 .header-main {
-  margin-top: 32px;
+
+  @media screen and (min-width: 480px) {
+
+  }
+   @media screen and (min-width: 600px) {
+    
+  }
+   @media screen and (min-width: 768px) {
+    
+  }
+   @media screen and (min-width: 992px) {
+    
+  }
+   @media screen and (min-width: 1024px) {
+    
+  }
+   @media screen and (min-width: 1280px) {
+    
+  }
+   @media screen and (min-width: 1440px) {
+    
+  }
 }
 
 
