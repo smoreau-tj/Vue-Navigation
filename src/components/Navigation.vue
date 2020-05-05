@@ -15,7 +15,7 @@
       </div>
       <div class="header-desktop-item center">
         <a href="/" title="Tommy John Home" class="header-logo" aria-label="Tommy John Logo" tabindex="0">
-        TJ Logo
+          <img alt="Tommy John Logo" src="../assets/tj-logo_horizontal.svg"/>
         </a>
       </div>
       <div class="header-desktop-item right">
@@ -38,31 +38,49 @@ export default {
 
 
 <style lang="scss">
+  @font-face {
+    font-family: "Basetica";
+    src: url('../assets/basetica-regular.woff') format("woff");
+    font-weight: 400;
+  }
+
+  $basetica: "Basetica", sans-serif;
+
+  $grey-dark: #4d4d4d;
+  $grey-light: #f5f5f5;
+  $grey-neutral: #767676;
+  $red: #b73d31;
+
 
 
 .header-main {
-    @media screen and (min-width: 1280px) {
-     padding: 0 48px;
-  }
-
   .header-main__promo {
     @media screen and (min-width: 1280px) {
       height: 50px;
       line-height: 50px;
+      background-color: $grey-light;
+      font-family: $basetica;
+      color: $grey-dark;
+      font-size: 14px;
     }
   }
 
   .header-main__inner {
     @media screen and (min-width: 1280px) {
       height: 66px;
+      padding: 0 48px;
     }
   
     .header-desktop-item {
       display: none;
+      font-family: $basetica;
+      color: $grey-dark;
 
       @media screen and (min-width: 1280px) {
         display: inline-block;
         width: 33.3333%;
+        font-size: 16px;
+        line-height: 66px;
       }
 
       ul {
@@ -72,6 +90,11 @@ export default {
         li {
           list-style-type: none;
           display: inline-block;
+
+          a {
+            text-decoration: none;
+            color: $grey-dark;
+          }
         }
       }
 
@@ -83,6 +106,19 @@ export default {
         li {
           &:not(:last-child){
             margin-right: 40px;
+          }
+        }
+      }
+
+      &.center {
+
+        a {
+          display: inline-block;
+
+          img {
+            // height: 36px;
+            width: 182px;
+            vertical-align: middle;
           }
         }
       }
