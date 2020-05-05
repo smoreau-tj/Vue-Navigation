@@ -1,18 +1,21 @@
 <template>
   <div id="app">
+    <SiteNotice/>
     <Navigation/>
-    <img alt="Vue logo" src="./assets/images/logo.png">
+    <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
+import SiteNotice from './components/SiteNotice.vue'
 import Navigation from './components/Navigation.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
+    SiteNotice,
     Navigation,
     HelloWorld,
   }

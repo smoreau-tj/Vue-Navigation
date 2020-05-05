@@ -1,8 +1,5 @@
 <template>
   <header class="header-main" data-header-main>
-    <div class="header-main__promo">
-      Free Shipping on $75+ and Free Returns on ALL Orders
-    </div>
     <div class="header-main__inner container">
       <div class="header-mobile-left"></div>
       <div class="header-desktop-item left">
@@ -41,36 +38,34 @@ export default {
 
 
 <style lang="scss">
+
+@font-face {
+  font-family: "Basetica";
+  src: url("../assets/fonts/basetica-regular.woff") format("woff");
+  font-weight: 400;
+}
+
   @font-face {
-    font-family: "Basetica";
-    src: url("../assets/fonts/basetica-regular.woff") format("woff");
-    font-weight: 400;
-  }
+  font-family: "Fontello";
+  src: url("../assets/fonts/fontello.eot");
+  src: url( "../assets/fonts/fontello.eot?#iefix") format('embedded-opentype'),
+      url("../assets/fonts/fontello.woff") format('woff'),
+      url("../assets/fonts/fontello.woff2") format('woff2'),
+      url("../assets/fonts/fontello.ttf")  format('truetype'),
+      url("../assets/fonts/fontello.svg") format('svg');
+  font-style: normal;
+  font-weight: 400;
+}
 
-    @font-face {
-   font-family: "Fontello";
-   src: url("../assets/fonts/fontello.eot");
-   src: url( "../assets/fonts/fontello.eot?#iefix") format('embedded-opentype'),
-        url("../assets/fonts/fontello.woff") format('woff'),
-        url("../assets/fonts/fontello.woff2") format('woff2'),
-        url("../assets/fonts/fontello.ttf")  format('truetype'),
-        url("../assets/fonts/fontello.svg") format('svg');
-   font-style: normal;
-   font-weight: 400;
-  }
+$basetica: "Basetica", sans-serif;
+$fontello: "Fontello";
+$grey-dark: #4d4d4d;
+$grey-light: #f5f5f5;
+$grey-neutral: #767676;
+$red: #b73d31;
+$blue-light: #587679;
+$white: #FFFFFF;
 
-  $basetica: "Basetica", sans-serif;
-  $fontello: "Fontello";
-
-  $grey-dark: #4d4d4d;
-  $grey-light: #f5f5f5;
-  $grey-neutral: #767676;
-  $red: #b73d31;
-  $blue-light: #587679;
-
-
-
-.header-main {
   .header-main__promo {
     @media screen and (min-width: 1280px) {
       height: 50px;
@@ -82,10 +77,18 @@ export default {
     }
   }
 
+.header-main {
+  @media screen and (min-width: 1280px) {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+
   .header-main__inner {
     @media screen and (min-width: 1280px) {
       height: 66px;
       padding: 0 48px;
+      background-color: $white;
     }
   
     .header-desktop-item {
