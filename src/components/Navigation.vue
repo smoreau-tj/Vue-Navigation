@@ -7,22 +7,25 @@
       <div class="header-mobile-left"></div>
       <div class="header-desktop-item left">
         <ul class="header-desktop__list">
-          <li class="list-item"><a href="">Example 1</a></li>
-          <li class="list-item"><a href="">Example 2</a></li>
-          <li class="list-item"><a href="">Example 3</a></li>
-          <li class="list-item"><a href="">Example 4</a></li>
+          <li class="list-item"><a href="">Men</a></li>
+          <li class="list-item"><a href="">Women</a></li>
+          <li class="list-item"><a href="">Gift Guide</a></li>
+          <li class="list-item"><a href="">Sale</a></li>
         </ul>
       </div>
       <div class="header-desktop-item center">
         <a href="/" title="Tommy John Home" class="header-logo" aria-label="Tommy John Logo" tabindex="0">
-          <img alt="Tommy John Logo" src="../assets/tj-logo_horizontal.svg"/>
+          <img alt="Tommy John Logo" src="../assets/images/tj-logo_horizontal.svg"/>
         </a>
       </div>
       <div class="header-desktop-item right">
         <ul class="header-desktop__list">
-          <li class="header-list-item">Search</li>
-          <li class="header-list-item">Sign-in</li>
-          <li class="header-list-item">Cart</li>
+          <li class="header-list-item search-item">
+            <img alt="Search Icon" src="../assets/images/svg-search.svg"/>
+            <input type="text" placeholder="Search"/>
+          </li>
+          <li class="header-list-item account-item">Hi, Sign-in<i class="icon-down-open"></i></li>
+          <li class="header-list-item cart-item"><i class="icon-shopping-cart"></i> (1)</li>
         </ul>
       </div>
       <div class="header-mobile-right"></div>
@@ -40,11 +43,24 @@ export default {
 <style lang="scss">
   @font-face {
     font-family: "Basetica";
-    src: url('../assets/basetica-regular.woff') format("woff");
+    src: url("../assets/fonts/basetica-regular.woff") format("woff");
     font-weight: 400;
   }
 
+    @font-face {
+   font-family: "Fontello";
+   src: url("../assets/fonts/fontello.eot");
+   src: url( "../assets/fonts/fontello.eot?#iefix") format('embedded-opentype'),
+        url("../assets/fonts/fontello.woff") format('woff'),
+        url("../assets/fonts/fontello.woff2") format('woff2'),
+        url("../assets/fonts/fontello.ttf")  format('truetype'),
+        url("../assets/fonts/fontello.svg") format('svg');
+   font-style: normal;
+   font-weight: 400;
+  }
+
   $basetica: "Basetica", sans-serif;
+  $fontello: "Fontello";
 
   $grey-dark: #4d4d4d;
   $grey-light: #f5f5f5;
@@ -124,9 +140,65 @@ export default {
       }
 
       &.right{
+        text-align: right;
+        font-size: 14px;
+
         li {
           &:not(:last-child){
             margin-right: 24px;
+          }
+
+          &.search-item {
+            img {
+              vertical-align: middle;
+            }
+            
+            input {
+              width: 134px;
+              border: none;
+              border-bottom: 1px solid $grey-neutral;
+              font-size: 14px;
+              font-family: "Basetica";
+              color: $grey-dark;
+              margin-left: 8px;
+
+              &::placeholder {
+                color: $grey-neutral;
+              }
+
+              &::-ms-input-placeholder {
+                color: $grey-neutral;
+              }
+            }
+          }
+
+          &.account-item {
+            .icon-down-open {
+              font-family: $fontello;
+              font-size: 16px;
+              margin-left: 8px;
+
+              &::before {
+                content: '\e812';
+                font-style: normal;
+                position: relative;
+                top: 4px;
+                font-weight: bold;
+              }
+            }
+          }
+
+          &.cart-item {
+            color: $red;
+
+            .icon-shopping-cart {
+              font-family: $fontello;
+
+              &::before {
+                content: '\e822';
+                font-style: normal;
+              }
+            }
           }
         }
       }
