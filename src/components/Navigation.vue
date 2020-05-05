@@ -66,6 +66,7 @@ export default {
   $grey-light: #f5f5f5;
   $grey-neutral: #767676;
   $red: #b73d31;
+  $blue-light: #587679;
 
 
 
@@ -110,6 +111,10 @@ export default {
           a {
             text-decoration: none;
             color: $grey-dark;
+
+            &:hover {
+              color: $blue-light;
+            }
           }
         }
       }
@@ -152,7 +157,7 @@ export default {
             img {
               vertical-align: middle;
             }
-            
+
             input {
               width: 134px;
               border: none;
@@ -177,6 +182,7 @@ export default {
               font-family: $fontello;
               font-size: 16px;
               margin-left: 8px;
+              cursor: pointer;
 
               &::before {
                 content: '\e812';
@@ -193,6 +199,7 @@ export default {
 
             .icon-shopping-cart {
               font-family: $fontello;
+              cursor: pointer;
 
               &::before {
                 content: '\e822';
