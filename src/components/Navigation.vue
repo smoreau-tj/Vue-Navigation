@@ -11,18 +11,31 @@
         </ul>
       </div>
       <div class="header-desktop-item center">
-        <a href="/" title="Tommy John Home" class="header-logo" aria-label="Tommy John Logo" tabindex="0">
-          <img alt="Tommy John Logo" src="../assets/images/tj-logo_horizontal.svg"/>
+        <a
+          href="/"
+          title="Tommy John Home"
+          class="header-logo"
+          aria-label="Tommy John Logo"
+          tabindex="0"
+        >
+          <img
+            alt="Tommy John Logo"
+            src="../assets/images/tj-logo_horizontal.svg"
+          />
         </a>
       </div>
       <div class="header-desktop-item right">
         <ul class="header-desktop__list">
           <li class="header-list-item search-item">
-            <img alt="Search Icon" src="../assets/images/svg-search.svg"/>
-            <input type="text" placeholder="Search"/>
+            <img alt="Search Icon" src="../assets/images/svg-search.svg" />
+            <input type="text" placeholder="Search" />
           </li>
-          <li class="header-list-item account-item">Hi, Sign-in<i class="icon-down-open"></i></li>
-          <li class="header-list-item cart-item"><i class="icon-shopping-cart"></i> (1)</li>
+          <li class="header-list-item account-item">
+            Hi, Sign-in<i class="icon-down-open"></i>
+          </li>
+          <li class="header-list-item cart-item">
+            <i class="icon-shopping-cart"></i> (1)
+          </li>
         </ul>
       </div>
       <div class="header-mobile-right"></div>
@@ -32,24 +45,23 @@
 
 <script>
 export default {
-  name: 'Navigation',
-}
+  name: "Navigation",
+};
 </script>
 
-
 <style lang="scss" scoped>
-  @import "../scss/_global.scss";
+@import "../scss/_global.scss";
 
-  .header-main__promo {
-    @media screen and (min-width: 1280px) {
-      height: 50px;
-      line-height: 50px;
-      background-color: $grey-light;
-      font-family: $basetica;
-      color: $grey-dark;
-      font-size: 14px;
-    }
+.header-main__promo {
+  @media screen and (min-width: 1280px) {
+    height: 50px;
+    line-height: 50px;
+    background-color: $grey-light;
+    font-family: $basetica;
+    color: $grey-dark;
+    font-size: 14px;
   }
+}
 
 .header-main {
   @media screen and (min-width: 1280px) {
@@ -64,7 +76,7 @@ export default {
       padding: 0 48px;
       background-color: $white;
     }
-  
+
     .header-desktop-item {
       display: none;
       font-family: $basetica;
@@ -102,14 +114,13 @@ export default {
         }
 
         li {
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-right: 40px;
           }
         }
       }
 
       &.center {
-
         a {
           display: inline-block;
 
@@ -121,12 +132,12 @@ export default {
         }
       }
 
-      &.right{
+      &.right {
         text-align: right;
         font-size: 14px;
 
         li {
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-right: 24px;
           }
 
@@ -162,7 +173,7 @@ export default {
               cursor: pointer;
 
               &::before {
-                content: '\e812';
+                content: "\e812";
                 font-style: normal;
                 position: relative;
                 top: 4px;
@@ -179,7 +190,7 @@ export default {
               cursor: pointer;
 
               &::before {
-                content: '\e822';
+                content: "\e822";
                 font-style: normal;
               }
             }
@@ -188,26 +199,5 @@ export default {
       }
     }
   }
-
-  @media screen and (min-width: 480px) {
-
-  }
-   @media screen and (min-width: 600px) {
-    
-  }
-   @media screen and (min-width: 768px) {
-    
-  }
-   @media screen and (min-width: 992px) {
-    
-  }
-   @media screen and (min-width: 1024px) {
-    
-  }
-   @media screen and (min-width: 1440px) {
-    
-  }
 }
-
-
 </style>
