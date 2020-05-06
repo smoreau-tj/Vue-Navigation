@@ -11,18 +11,31 @@
         </ul>
       </div>
       <div class="header-desktop-item center">
-        <a href="/" title="Tommy John Home" class="header-logo" aria-label="Tommy John Logo" tabindex="0">
-          <img alt="Tommy John Logo" src="../assets/images/tj-logo_horizontal.svg"/>
+        <a
+          href="/"
+          title="Tommy John Home"
+          class="header-logo"
+          aria-label="Tommy John Logo"
+          tabindex="0"
+        >
+          <img
+            alt="Tommy John Logo"
+            src="../assets/images/tj-logo_horizontal.svg"
+          />
         </a>
       </div>
       <div class="header-desktop-item right">
         <ul class="header-desktop__list">
           <li class="header-list-item search-item">
-            <img alt="Search Icon" src="../assets/images/svg-search.svg"/>
-            <input type="text" placeholder="Search"/>
+            <img alt="Search Icon" src="../assets/images/svg-search.svg" />
+            <input type="text" placeholder="Search" />
           </li>
-          <li class="header-list-item account-item">Hi, Sign-in<i class="icon-down-open"></i></li>
-          <li class="header-list-item cart-item"><i class="icon-shopping-cart"></i> (1)</li>
+          <li class="header-list-item account-item">
+            Hi, Sign-in<i class="icon-down-open"></i>
+          </li>
+          <li class="header-list-item cart-item">
+            <i class="icon-shopping-cart"></i> (1)
+          </li>
         </ul>
       </div>
       <div class="header-mobile-right"></div>
@@ -32,50 +45,23 @@
 
 <script>
 export default {
-  name: 'Navigation',
-}
+  name: "Navigation",
+};
 </script>
 
+<style lang="scss" scoped>
+@import "../scss/_global.scss";
 
-<style lang="scss">
-
-@font-face {
-  font-family: "Basetica";
-  src: url("../assets/fonts/basetica-regular.woff") format("woff");
-  font-weight: 400;
-}
-
-  @font-face {
-  font-family: "Fontello";
-  src: url("../assets/fonts/fontello.eot");
-  src: url( "../assets/fonts/fontello.eot?#iefix") format('embedded-opentype'),
-      url("../assets/fonts/fontello.woff") format('woff'),
-      url("../assets/fonts/fontello.woff2") format('woff2'),
-      url("../assets/fonts/fontello.ttf")  format('truetype'),
-      url("../assets/fonts/fontello.svg") format('svg');
-  font-style: normal;
-  font-weight: 400;
-}
-
-$basetica: "Basetica", sans-serif;
-$fontello: "Fontello";
-$grey-dark: #4d4d4d;
-$grey-light: #f5f5f5;
-$grey-neutral: #767676;
-$red: #b73d31;
-$blue-light: #587679;
-$white: #FFFFFF;
-
-  .header-main__promo {
-    @media screen and (min-width: 1280px) {
-      height: 50px;
-      line-height: 50px;
-      background-color: $grey-light;
-      font-family: $basetica;
-      color: $grey-dark;
-      font-size: 14px;
-    }
+.header-main__promo {
+  @media screen and (min-width: 1280px) {
+    height: 50px;
+    line-height: 50px;
+    background-color: $grey-light;
+    font-family: $basetica;
+    color: $grey-dark;
+    font-size: 14px;
   }
+}
 
 .header-main {
   @media screen and (min-width: 1280px) {
@@ -90,7 +76,7 @@ $white: #FFFFFF;
       padding: 0 48px;
       background-color: $white;
     }
-  
+
     .header-desktop-item {
       display: none;
       font-family: $basetica;
@@ -128,14 +114,13 @@ $white: #FFFFFF;
         }
 
         li {
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-right: 40px;
           }
         }
       }
 
       &.center {
-
         a {
           display: inline-block;
 
@@ -147,12 +132,12 @@ $white: #FFFFFF;
         }
       }
 
-      &.right{
+      &.right {
         text-align: right;
         font-size: 14px;
 
         li {
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-right: 24px;
           }
 
@@ -188,7 +173,7 @@ $white: #FFFFFF;
               cursor: pointer;
 
               &::before {
-                content: '\e812';
+                content: "\e812";
                 font-style: normal;
                 position: relative;
                 top: 4px;
@@ -205,7 +190,7 @@ $white: #FFFFFF;
               cursor: pointer;
 
               &::before {
-                content: '\e822';
+                content: "\e822";
                 font-style: normal;
               }
             }
@@ -214,26 +199,5 @@ $white: #FFFFFF;
       }
     }
   }
-
-  @media screen and (min-width: 480px) {
-
-  }
-   @media screen and (min-width: 600px) {
-    
-  }
-   @media screen and (min-width: 768px) {
-    
-  }
-   @media screen and (min-width: 992px) {
-    
-  }
-   @media screen and (min-width: 1024px) {
-    
-  }
-   @media screen and (min-width: 1440px) {
-    
-  }
 }
-
-
 </style>

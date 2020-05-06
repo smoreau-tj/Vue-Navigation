@@ -22,7 +22,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+
 body {
   margin: 0;
 }
@@ -34,4 +36,7 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+
+
 </style>
