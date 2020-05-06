@@ -37,34 +37,8 @@ export default {
 </script>
 
 
-<style lang="scss">
-
-@font-face {
-  font-family: "Basetica";
-  src: url("../assets/fonts/basetica-regular.woff") format("woff");
-  font-weight: 400;
-}
-
-  @font-face {
-  font-family: "Fontello";
-  src: url("../assets/fonts/fontello.eot");
-  src: url( "../assets/fonts/fontello.eot?#iefix") format('embedded-opentype'),
-      url("../assets/fonts/fontello.woff") format('woff'),
-      url("../assets/fonts/fontello.woff2") format('woff2'),
-      url("../assets/fonts/fontello.ttf")  format('truetype'),
-      url("../assets/fonts/fontello.svg") format('svg');
-  font-style: normal;
-  font-weight: 400;
-}
-
-$basetica: "Basetica", sans-serif;
-$fontello: "Fontello";
-$grey-dark: #4d4d4d;
-$grey-light: #f5f5f5;
-$grey-neutral: #767676;
-$red: #b73d31;
-$blue-light: #587679;
-$white: #FFFFFF;
+<style lang="scss" scoped>
+  @import "../scss/_global.scss";
 
   .header-main__promo {
     @media screen and (min-width: 1280px) {
