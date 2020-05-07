@@ -1,12 +1,12 @@
 <template>
   <ul class="header-item__list">
-       <NavItem 
-        v-for="navItem in navLevelTwoData" 
-        :key="navItem.id" 
-        :title="navItem.title"
-        :titleUrl="navItem.titleUrl"
-        :titleColor="navItem.titleColor"
-        />
+    <NavItem class="level-two"
+      v-for="navItem in navLevelTwoData" 
+      :key="navItem.id" 
+      :title="navItem.title"
+      :titleUrl="navItem.titleUrl"
+      :titleColor="navItem.titleColor"
+    />
   </ul>
 </template>
 

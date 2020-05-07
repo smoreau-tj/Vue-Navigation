@@ -1,17 +1,12 @@
 <template>
   <ul class="header-item__list">
-      <!-- <li class="list-item"><a href="">Men</a></li>
-      <li class="list-item"><a href="">Women</a></li>
-      <li class="list-item"><a href="">Gift Guide</a></li>
-      <li class="list-item"><a href="">Sale</a></li> -->
-      <NavItem 
-        v-for="navItem in navLevelZeroData" 
-        :key="navItem.id" 
-        :title="navItem.title"
-        :titleUrl="navItem.titleUrl"
-        :titleColor="navItem.titleColor"
-        />
-       
+    <NavItem class="level-zero"
+      v-for="navItem in navLevelZeroData"
+      :key="navItem.id" 
+      :title="navItem.title"
+      :titleUrl="navItem.titleUrl"
+      :titleColor="navItem.titleColor"
+    />
   </ul>
 </template>
 
@@ -29,3 +24,15 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss" scoped>
+@import "../scss/_global.scss";
+
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+</style>
