@@ -1,10 +1,12 @@
 <template>
   <ul class="header-item__list">
-      <!-- <li class="list-item"><a href="">Men</a></li>
-      <li class="list-item"><a href="">Women</a></li>
-      <li class="list-item"><a href="">Gift Guide</a></li>
-      <li class="list-item"><a href="">Sale</a></li> -->
-      <NavItem :navItemData=navLevelTwoData />
+       <NavItem 
+        v-for="navItem in navLevelTwoData" 
+        :key="navItem.id" 
+        :title="navItem.title"
+        :titleUrl="navItem.titleUrl"
+        :titleColor="navItem.titleColor"
+        />
   </ul>
 </template>
 

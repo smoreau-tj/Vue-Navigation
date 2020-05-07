@@ -1,5 +1,5 @@
 <template>
-  <li class="list-item"><a href=""></a></li>
+  <li class="list-item"><a href="">{{title}}</a></li>
 </template>
 
 
@@ -7,7 +7,9 @@
 export default {
   name: "navItem",
   props: {
-    navItemData: Array
+    title: String,
+    titleUrl: String,
+    titleColor: String
   }
 };
 </script>
