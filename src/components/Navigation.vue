@@ -1,16 +1,10 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
-      <div class="header-mobile-left"></div>
-      <div class="header-desktop-item left">
-        <ul class="header-desktop__list">
-          <li class="list-item"><a href="">Men</a></li>
-          <li class="list-item"><a href="">Women</a></li>
-          <li class="list-item"><a href="">Gift Guide</a></li>
-          <li class="list-item"><a href="">Sale</a></li>
-        </ul>
+      <div class="header-item left">
+        <NavLevelZero :navLevelZeroData=navLevelZeroData />
       </div>
-      <div class="header-desktop-item center">
+      <div class="header-item center">
         <a
           href="/"
           title="Tommy John Home"
@@ -24,44 +18,50 @@
           />
         </a>
       </div>
-      <div class="header-desktop-item right">
-        <ul class="header-desktop__list">
-          <li class="header-list-item search-item">
+      <div class="header-item right">
+        <ul class="header-item__list">
+          <li class="search-item">
             <img alt="Search Icon" src="../assets/images/svg-search.svg" />
             <input type="text" placeholder="Search" />
           </li>
-          <li class="header-list-item account-item">
+          <li class="account-item">
             Hi, Sign-in<i class="icon-down-open"></i>
           </li>
-          <li class="header-list-item cart-item">
+          <li class="cart-item">
             <i class="icon-shopping-cart"></i> (1)
           </li>
         </ul>
       </div>
-      <div class="header-mobile-right"></div>
+      <NavLevelOne :navLevelOneData=navLevelOneData />
+      <NavLevelTwo :navLevelTwoData=navLevelTwoData />
     </div>
   </header>
 </template>
 
 <script>
+import NavLevelZero from './NavLevelZero.vue'
+import NavLevelOne from './NavLevelOne.vue'
+import NavLevelTwo from './NavLevelTwo.vue'
+
+
 export default {
   name: "Navigation",
+  components: {
+    NavLevelZero,
+    NavLevelOne,
+    NavLevelTwo
+  },
+  props: {
+    navLevelZeroData: Array,
+    navLevelOneData: Array,
+    navLevelTwoData: Array,
+  }
 };
+
 </script>
 
 <style lang="scss" scoped>
 @import "../scss/_global.scss";
-
-.header-main__promo {
-  @media screen and (min-width: 1280px) {
-    height: 50px;
-    line-height: 50px;
-    background-color: $grey-light;
-    font-family: $basetica;
-    color: $grey-dark;
-    font-size: 14px;
-  }
-}
 
 .header-main {
   @media screen and (min-width: 1280px) {
@@ -77,7 +77,7 @@ export default {
       background-color: $white;
     }
 
-    .header-desktop-item {
+    .header-item {
       display: none;
       font-family: $basetica;
       color: $grey-dark;
