@@ -9,3 +9,18 @@ export default {
   name: 'SiteNotice',
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../scss/_global.scss";
+
+.header-main__promo {
+  @media screen and (min-width: 1280px) {
+    height: 50px;
+    line-height: 50px;
+    background-color: $grey-light;
+    font-family: $basetica;
+    color: $grey-dark;
+    font-size: 14px;
+  }
+}
+</style>
