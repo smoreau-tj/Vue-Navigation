@@ -6,6 +6,7 @@
       :title="navItem.title"
       :titleUrl="navItem.titleUrl"
       :titleColor="navItem.titleColor"
+      :parentTitle="navItem.parentTitle"
   />
   </ul>
 </template>

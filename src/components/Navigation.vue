@@ -2,7 +2,14 @@
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
       <div class="nav-item-container left">
-        <NavLevelZero class="level-zero-list" :navLevelZeroData=navLevelZeroData />
+        <NavLevelZero 
+        class="level-zero-list" 
+        :navLevelZeroData=navLevelZeroData
+         />
+      </div>
+      <div class="sub-nav-container">
+        <NavLevelOne class="level-one-list" :navLevelOneData=navLevelOneData />
+        <NavLevelTwo class="level-two-list" :navLevelTwoData=navLevelTwoData />
       </div>
       <div class="header-item center">
         <a
@@ -32,10 +39,7 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="sub-nav-container">
-      <NavLevelOne class="level-one-list" :navLevelOneData=navLevelOneData />
-      <NavLevelTwo class="level-two-list" :navLevelTwoData=navLevelTwoData />
+ 
     </div>
   </header>
 </template>
@@ -210,6 +214,11 @@ export default {
       border-top: solid 1px $grey;
       padding-top: 8px;
       height: 431px;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      background-color: white;
+      top: 66px;
     }
   }
 }

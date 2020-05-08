@@ -1,5 +1,5 @@
 <template>
-  <li class="list-item">
+  <li class="list-item"  @mouseenter="updateHoverState(true)" @mouseleave="updateHoverState(false)">
     <a href="">
       <img class="desktop-single-image" v-if="desktopImage" :src="desktopImage"/>
       <span class="nav-item-title">{{title}}</span>
@@ -10,13 +10,27 @@
 
 
 <script>
+
 export default {
   name: "navItem",
   props: {
     title: String,
     titleUrl: String,
     titleColor: String,
-    desktopImage: String
+    desktopImage: String,
+    parentTitle: String
+  },
+  data() {
+    return {
+      hoverState: false
+
+    }
+  },
+  methods: {
+    updateHoverState(isHover) {
+      console.log('hover state updated', isHover);
+      this.hoverState = isHover;
+    }
   }
 };
 </script>
