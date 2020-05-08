@@ -66,6 +66,8 @@ export default {
 @import "../scss/_global.scss";
 
 .header-main {
+  background-color: $white;
+  
   @media screen and (min-width: 1280px) {
     position: sticky;
     top: 0;
