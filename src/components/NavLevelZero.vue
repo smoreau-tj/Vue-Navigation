@@ -1,6 +1,6 @@
 <template>
-  <ul class="header-item__list">
-    <NavItem class="level-zero"
+  <ul class="nav-item__list">
+    <NavItem class="level-zero-item"
       v-for="navItem in navLevelZeroData"
       :key="navItem.id" 
       :title="navItem.title"
@@ -30,9 +30,11 @@ export default {
 @import "../scss/_global.scss";
 
   ul {
-    margin: 0;
-    padding: 0;
-    text-align: left;
+    @media screen and (min-width: 1280px) {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
   }
 
 </style>

@@ -1,8 +1,8 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
-      <div class="header-item left">
-        <NavLevelZero :navLevelZeroData=navLevelZeroData />
+      <div class="nav-item-container left">
+        <NavLevelZero class="level-zero-list" :navLevelZeroData=navLevelZeroData />
       </div>
       <div class="header-item center">
         <a
@@ -32,8 +32,10 @@
           </li>
         </ul>
       </div>
-      <NavLevelOne :navLevelOneData=navLevelOneData />
-      <NavLevelTwo :navLevelTwoData=navLevelTwoData />
+    </div>
+    <div class="sub-nav-container">
+      <NavLevelOne class="level-one-list" :navLevelOneData=navLevelOneData />
+      <NavLevelTwo class="level-two-list" :navLevelTwoData=navLevelTwoData />
     </div>
   </header>
 </template>
@@ -77,6 +79,19 @@ export default {
       background-color: $white;
     }
 
+    .nav-item-container {
+      display: none;
+      font-family: $basetica;
+      color: $grey-dark;
+
+      @media screen and (min-width: 1280px) {
+        display: inline-block;
+        width: 33.3333%;
+        font-size: 16px;
+        line-height: 66px;
+      }
+    }
+
     .header-item {
       display: none;
       font-family: $basetica;
@@ -104,18 +119,6 @@ export default {
             &:hover {
               color: $blue-light;
             }
-          }
-        }
-      }
-
-      &.left {
-        ul {
-          text-align: left;
-        }
-
-        li {
-          &:not(:last-child) {
-            margin-right: 40px;
           }
         }
       }
@@ -197,6 +200,14 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .sub-nav-container {
+    @media screen and (min-width: 1280px) {
+      border-top: solid 1px $grey;
+      padding-top: 8px;
+      height: 431px;
     }
   }
 }

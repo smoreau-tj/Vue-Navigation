@@ -61,8 +61,8 @@ export default {
           title: "Brief",
           titleUrl: "/mens-underwear-brief",
           mobileImage:"",
-          desktopImage:"",
-          doubleDesktopImage: ""
+          desktopImage: "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130",
+          doubleDesktopImage: "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
         },
         {
           id: 2,
@@ -70,8 +70,8 @@ export default {
           title: "Trunks",
           titleUrl: "/mens-underwear-trunk",
           mobileImage:"",
-          desktopImage:"",
-          doubleDesktopImage: ""
+          desktopImage:"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
+          doubleDesktopImage: "https://tjproduction.imgix.net/products/Pack1.jpg?w=260"
         }
       ]
     }
