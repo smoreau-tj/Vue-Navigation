@@ -1,12 +1,14 @@
 <template>
   <ul class="nav-item__list">
-    <NavItem class="level-one-item"
+    <NavItem class="level-one-item" v-on="$listeners"
       v-for="navItem in navLevelOneData" 
       :key="navItem.id" 
       :title="navItem.title"
       :titleUrl="navItem.titleUrl"
       :titleColor="navItem.titleColor"
-      :parentTitle="navItem.parentTitle"
+      :parentId="navItem.parentId"
+      :level="level"
+      :showLevelOneItems="showLevelOneItems"
   />
   </ul>
 </template>
@@ -22,7 +24,13 @@ export default {
     NavItem,
   },
   props: {
-    navLevelOneData: Array
+    navLevelOneData: Array,
+    showLevelOneItems: Number
+  },
+  data() {
+    return {
+      level: 1
+    }
   }
 };
 </script>

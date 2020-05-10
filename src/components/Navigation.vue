@@ -5,11 +5,21 @@
         <NavLevelZero 
         class="level-zero-list" 
         :navLevelZeroData=navLevelZeroData
+        @level-zero-active="getLevelOneToShow"
          />
       </div>
       <div class="sub-nav-container">
-        <NavLevelOne class="level-one-list" :navLevelOneData=navLevelOneData />
-        <NavLevelTwo class="level-two-list" :navLevelTwoData=navLevelTwoData />
+        <NavLevelOne 
+          class="level-one-list" 
+          :navLevelOneData=navLevelOneData
+          @level-one-active="getLevelTwoToShow"
+          :showLevelOneItems="showLevelOneItems"
+        />
+        <NavLevelTwo 
+          class="level-two-list" 
+          :navLevelTwoData=navLevelTwoData
+          :showLevelTwoItems="showLevelTwoItems"
+        />
       </div>
       <div class="header-item center">
         <a
@@ -61,8 +71,24 @@ export default {
     navLevelZeroData: Array,
     navLevelOneData: Array,
     navLevelTwoData: Array,
+  },
+  data () {
+    return {
+      showLevelOneItems: 1,
+      showLevelTwoItems: 1,
+    }
+  },
+  methods: {
+    getLevelOneToShow(value){
+      console.log('Show Level one elements with this id', value);
+      this.showLevelOneItems = value;
+    },
+    getLevelTwoToShow(value){
+      console.log('show level two elements with this id', value);
+      this.showLevelTwoItems = value;
+    }
   }
-};
+}
 
 </script>
 
@@ -72,14 +98,14 @@ export default {
 .header-main {
   background-color: $white;
   
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1152px) {
     position: sticky;
     top: 0;
     left: 0;
   }
 
   .header-main__inner {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1152px) {
       height: 66px;
       padding: 0 48px;
       background-color: $white;
@@ -90,9 +116,9 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
-        width: 33.3333%;
+        width: 50%;
         font-size: 16px;
         line-height: 66px;
       }
@@ -103,9 +129,8 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
-        width: 33.3333%;
         font-size: 16px;
         line-height: 66px;
       }
@@ -130,6 +155,16 @@ export default {
       }
 
       &.center {
+        @media screen and (min-width: 1152px) {
+          width: 182px;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+
         a {
           display: inline-block;
 
@@ -144,6 +179,7 @@ export default {
       &.right {
         text-align: right;
         font-size: 14px;
+        width: 50%;
 
         li {
           &:not(:last-child) {
@@ -210,7 +246,7 @@ export default {
   }
 
   .sub-nav-container {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1152px) {
       border-top: solid 1px $grey;
       padding-top: 8px;
       height: 431px;

@@ -1,12 +1,15 @@
 <template>
   <ul class="nav-item__list">
-    <NavItem class="level-two-item"
+    <NavItem class="level-two-item" v-on="$listeners"
       v-for="navItem in navLevelTwoData" 
       :key="navItem.id" 
       :title="navItem.title"
       :titleUrl="navItem.titleUrl"
       :titleColor="navItem.titleColor"
       :desktopImage="navItem.desktopImage"
+      :parentId="navItem.parentId"
+      :level="level"
+      :showLevelTwoItems="showLevelTwoItems"
     />
   </ul>
 </template>
@@ -22,8 +25,16 @@ export default {
     NavItem,
   },
   props: {
-    navLevelTwoData: Array
+    navLevelTwoData: Array,
+    showLevelTwoItems: Number
+
+  },
+  data() {
+    return {
+      level: 2
+    }
   }
+
 };
 </script>
 

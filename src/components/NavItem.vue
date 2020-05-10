@@ -1,5 +1,5 @@
 <template>
-  <li class="list-item"  @mouseenter="updateHoverState(true)" @mouseleave="updateHoverState(false)">
+  <li class="list-item" @mouseenter="updateHoverState(true, parentId, level, id)" @mouseleave="updateHoverState(false, parentId, level, id)">
     <a href="">
       <img class="desktop-single-image" v-if="desktopImage" :src="desktopImage"/>
       <span class="nav-item-title">{{title}}</span>
@@ -10,7 +10,6 @@
 
 
 <script>
-
 export default {
   name: "navItem",
   props: {
@@ -18,18 +17,41 @@ export default {
     titleUrl: String,
     titleColor: String,
     desktopImage: String,
-    parentTitle: String
+    parentId: Number,
+    level: Number,
+    id: Number,
+    showLevelOneItems: Number,
+    showLevelTwoItems: Number
   },
   data() {
     return {
-      hoverState: false
-
+      hoverState: false,
+      activeLevelZero: false,
+      activeLevelOne: false,
     }
   },
   methods: {
-    updateHoverState(isHover) {
-      console.log('hover state updated', isHover);
-      this.hoverState = isHover;
+    updateHoverState(isHover, pId, currentLevel, levelZeroId) {
+      if(currentLevel === 0){
+        this.$emit("level-zero-active", levelZeroId);
+        this.$emit("preselect-level-one");
+      }
+      if(currentLevel === 1){
+        this.$emit("level-one-active", pId);
+      }
+      
+
+      console.log('hover state updated', isHover, "parentId is", pId, "current level is", currentLevel, "level zero id is", levelZeroId);
+      //   console.log("On level 0!!!!!");
+      //   this.$emit("levelZeroActive", levelZeroId);
+      // }
+      
+      // if(currentLevel === 1){
+      //   console.log('ON LEVEL 1!!!!!');
+      // }
+      // this.hoverState = isHover;
+      // this.$emit("level-zero-active", levelZeroId);
+
     }
   }
 };
@@ -56,7 +78,7 @@ export default {
     }
 
     &.level-zero-item {
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 1152px) {
         margin-right: 40px;
         display: inline-block;
       }

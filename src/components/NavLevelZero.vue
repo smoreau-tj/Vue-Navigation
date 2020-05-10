@@ -1,11 +1,13 @@
 <template>
   <ul class="nav-item__list">
-    <NavItem class="level-zero-item"
+    <NavItem class="level-zero-item" v-on="$listeners"
       v-for="navItem in navLevelZeroData"
       :key="navItem.id" 
+      :id="navItem.id"
       :title="navItem.title"
       :titleUrl="navItem.titleUrl"
       :titleColor="navItem.titleColor"
+      :level="level"
     />
   </ul>
 </template>
@@ -20,8 +22,14 @@ export default {
     NavItem,
   },
   props: {
-    navLevelZeroData: Array
+    navLevelZeroData: Array,
+  },
+  data () {
+    return {
+      level: 0
+    }
   }
+
 };
 </script>
 
@@ -30,7 +38,7 @@ export default {
 @import "../scss/_global.scss";
 
   ul {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1152px) {
       margin: 0;
       padding: 0;
       text-align: left;
