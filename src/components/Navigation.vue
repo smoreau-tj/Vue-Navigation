@@ -5,6 +5,12 @@
         <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
       </div>
       <div class="nav-item-container left">
+        <div class="mobile-search-close-container">
+          <span class="mobile-search-toggle">
+            <img alt="mobile search icon" src="../assets/images/svg-mobile-search.svg">
+          </span>
+          <span class="mobile-menu-close-btn">&times;</span>
+        </div>
         <NavLevelZero 
         class="level-zero-list" 
         :navLevelZeroData=navLevelZeroData
@@ -126,8 +132,6 @@ export default {
       @media screen and (min-width: 1152px) {
         display: none;
       }
-
-
     }
 
     .nav-item-container {
@@ -142,8 +146,7 @@ export default {
         background-color: white;
         position: absolute;
         top: 0;
-        left: -48px;
-        
+        left: 0px;
       }
 
       @media screen and (min-width: 1152px) {
@@ -155,6 +158,7 @@ export default {
         position: unset;
         left: unset;
         top: unset;
+        background-color: none;
       }
 
       &:hover {
@@ -165,15 +169,44 @@ export default {
         }
       }
 
-      .sub-nav-container {
+      .mobile-search-close-container {
+        display: block;
+        height: 46px;
+        line-height: 46px;
+        padding: 16px 16px 16px;
 
+        @media screen and (min-width: 1152px) {
+          display: none;
+        }
+
+        .mobile-search-toggle {
+          display: inline-block;
+          width: 50%;
+          text-align: left;
+
+          img {
+            width: 16px;
+          }
+        }
+
+        .mobile-menu-close-btn {
+          display: inline-block;
+          width: 50%;
+          font-size: 28px;
+          font-family: $basetica;
+          color: $blue;
+          text-align: right;
+        }
+      }
+
+      .sub-nav-container {
         @media screen and (min-width: 768px) {
           display: block;
           position: relative;
         }
 
         @media screen and (min-width: 1152px) {
-          display: none;
+          // display: none;
           border-top: solid 1px $grey;
           padding-top: 8px;
           height: 431px;

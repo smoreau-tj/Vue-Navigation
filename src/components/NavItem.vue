@@ -78,6 +78,25 @@ export default {
     }
 
     &.level-zero-item {
+      display: none;
+
+      a {
+        font-family: $basetica-bold;
+
+        @media screen and (min-width: 1152px) {
+          font-family: $basetica;
+        }
+      }
+
+      &:nth-child(-n+2){
+        display: inline-block;
+        width: 50%;
+
+        @media screen and (min-width: 1152px) {
+          width: unset;
+        }
+      }
+
       @media screen and (min-width: 1152px) {
         margin-right: 40px;
         display: inline-block;
@@ -85,16 +104,33 @@ export default {
     }
 
     &.level-one-item {
+      height: 50px;
+      line-height: 50px;
+      background-color: $lightest-grey;
+      margin-bottom: 4px;
+      position: relative;
+
       @media screen and (min-width: 1152px) {
         height: 46px;
         line-height: 46px;
-        position: relative;
+        background-color: unset;
+        margin-bottom: unset;
       }
 
       a {
         @media screen and (min-width: 1152px) {
           font-size: 16px;
           margin-left: 48px;
+        }
+
+        .nav-item-title {
+          margin-left: 16px;
+          font-size: 14px;
+
+          @media screen and (min-width: 1152px) {
+            margin-left: unset;
+            font-size: unset;
+          }
         }
       }
 
@@ -114,10 +150,20 @@ export default {
     }
 
     &.level-two-item {
+      height: 50px;
+      line-height: 50px;
+      background-color: $lightest-grey;
+      margin-bottom: 4px;
+      position: relative;
+
       @media screen and (min-width: 1152px) {
         display: inline-block;
         vertical-align: top;
         margin-right: 8px;
+        background-color: unset;
+        margin-bottom: unset;
+        height: unset;
+        line-height: 1;
       }
 
       a {
@@ -126,17 +172,29 @@ export default {
         }
 
         .desktop-single-image {
+          //this styling should be for mobile image, will replace soon.
+          position: absolute;
+          height: 50px;
+          right: 16px;
+
           @media screen and (min-width: 1152px) {
             display: block;
             max-height: 174px;
             padding-bottom: 8px;
+            position: unset;
+            height: unset;
+            right: unset;
           }
         }
 
         .nav-item-title {
+          margin-left: 16px;
+          font-size: 14px;
+
           @media screen and (min-width: 1152px) {
             display: block;
             font-size: 12px;
+            margin-left: unset;
           }
         }
       }

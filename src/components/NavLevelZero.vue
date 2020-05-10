@@ -38,10 +38,19 @@ export default {
 @import "../scss/_global.scss";
 
   ul {
+    margin: 0;
+    border-top: 0.5px solid $grey;
+    border-bottom: 0.5px solid $grey;
+    height: 80px;
+    line-height: 80px;
+    padding: 0;
+
     @media screen and (min-width: 1152px) {
-      margin: 0;
-      padding: 0;
       text-align: left;
+      border-top: unset;
+      border-bottom: unset;
+      height: unset;
+      line-height: unset;
     }
   }
 

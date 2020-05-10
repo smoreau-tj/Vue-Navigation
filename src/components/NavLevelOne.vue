@@ -40,9 +40,12 @@ export default {
 @import "../scss/_global.scss";
 
   ul {
+    margin: 16px 24px 24px 24px;
+    padding: 0;
+    text-align: left;
+
     @media screen and (min-width: 1152px) {
       margin: 0;
-      padding: 0;
       text-align: left;
       width: 230px;
       display: inline-block;
