@@ -42,7 +42,7 @@ export default {
 @import "../scss/_global.scss";
 
   ul {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1152px) {
       margin: 0 auto;
       padding: 24px 42px 0 42px;
       text-align: left;

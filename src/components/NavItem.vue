@@ -85,21 +85,21 @@ export default {
     }
 
     &.level-one-item {
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 1152px) {
         height: 46px;
         line-height: 46px;
         position: relative;
       }
 
       a {
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: 1152px) {
           font-size: 16px;
           margin-left: 48px;
         }
       }
 
       .icon-right-open {
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: 1152px) {
           position: absolute;
           display: inline;
           font-family: $fontello;
@@ -114,19 +114,19 @@ export default {
     }
 
     &.level-two-item {
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
         vertical-align: top;
         margin-right: 8px;
       }
 
       a {
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: 1152px) {
           display: block;
         }
 
         .desktop-single-image {
-          @media screen and (min-width: 1280px) {
+          @media screen and (min-width: 1152px) {
             display: block;
             max-height: 174px;
             padding-bottom: 8px;
@@ -134,7 +134,7 @@ export default {
         }
 
         .nav-item-title {
-          @media screen and (min-width: 1280px) {
+          @media screen and (min-width: 1152px) {
             display: block;
             font-size: 12px;
           }

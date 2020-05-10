@@ -10,19 +10,19 @@
         :navLevelZeroData=navLevelZeroData
         @level-zero-active="getLevelOneToShow"
          />
-      </div>
-      <div class="sub-nav-container">
-        <NavLevelOne 
-          class="level-one-list" 
-          :navLevelOneData=navLevelOneData
-          @level-one-active="getLevelTwoToShow"
-          :showLevelOneItems="showLevelOneItems"
-        />
-        <NavLevelTwo 
-          class="level-two-list" 
-          :navLevelTwoData=navLevelTwoData
-          :showLevelTwoItems="showLevelTwoItems"
-        />
+        <div class="sub-nav-container">
+          <NavLevelOne 
+            class="level-one-list" 
+            :navLevelOneData=navLevelOneData
+            @level-one-active="getLevelTwoToShow"
+            :showLevelOneItems="showLevelOneItems"
+          />
+          <NavLevelTwo 
+            class="level-two-list" 
+            :navLevelTwoData=navLevelTwoData
+            :showLevelTwoItems="showLevelTwoItems"
+          />
+        </div>
       </div>
       <div class="header-item center">
         <a
@@ -121,6 +121,7 @@ export default {
       display: inline-block;
       height: 66px;
       line-height: 66px;
+      text-align: left;
 
       @media screen and (min-width: 1152px) {
         display: none;
