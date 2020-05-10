@@ -1,20 +1,2 @@
 @import "./fonts";
 @import "./variables";
-
-
-//HOVER Styling for destop
-
-
-.sub-nav-container {
-  display: none;
-}
-
-.nav-item-container.left:hover .sub-nav-container{
-  @media screen and (min-width: 1152px) {
-    display: block;
-  }
-}
-
-.sub-nav-container:hover {
-  display: block;
-}

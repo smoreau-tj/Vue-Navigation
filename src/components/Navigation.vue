@@ -134,12 +134,59 @@ export default {
       display: none;
       font-family: $basetica;
       color: $grey-dark;
+      height: 100%;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        width: 264px;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: -48px;
+        
+      }
 
       @media screen and (min-width: 1152px) {
         display: inline-block;
         width: 50%;
         font-size: 16px;
         line-height: 66px;
+        height: unset;
+        position: unset;
+        left: unset;
+        top: unset;
+      }
+
+      &:hover {
+        .sub-nav-container {
+          @media screen and (min-width: 1152px) {
+            display: block;
+          }
+        }
+      }
+
+      .sub-nav-container {
+
+        @media screen and (min-width: 768px) {
+          display: block;
+          position: relative;
+        }
+
+        @media screen and (min-width: 1152px) {
+          display: none;
+          border-top: solid 1px $grey;
+          padding-top: 8px;
+          height: 431px;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          top: 66px;
+        }
+
+        &:hover {
+          display: block;
+        }
       }
     }
 
@@ -282,19 +329,6 @@ export default {
           }
         }
       }
-    }
-  }
-
-  .sub-nav-container {
-    @media screen and (min-width: 1152px) {
-      border-top: solid 1px $grey;
-      padding-top: 8px;
-      height: 431px;
-      position: absolute;
-      width: 100%;
-      left: 0;
-      background-color: white;
-      top: 66px;
     }
   }
 }

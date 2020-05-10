@@ -2,7 +2,7 @@
   <div id="app">
     <SiteNotice/>
     <Navigation :navLevelZeroData=navLevelZeroData :navLevelOneData=navLevelOneData :navLevelTwoData=navLevelTwoData />
-    <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png">
+    <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png" style="width: 100%;">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
