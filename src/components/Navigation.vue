@@ -1,6 +1,9 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
+      <div class="mobile-menu-toggle">
+        <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
+      </div>
       <div class="nav-item-container left">
         <NavLevelZero 
         class="level-zero-list" 
@@ -105,10 +108,25 @@ export default {
   }
 
   .header-main__inner {
-    @media screen and (min-width: 1152px) {
       height: 66px;
-      padding: 0 48px;
+      padding: 0 16px;
       background-color: $white;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 48px;
+    }
+
+    .mobile-menu-toggle {
+      width: 33.3333%;
+      display: inline-block;
+      height: 66px;
+      line-height: 66px;
+
+      @media screen and (min-width: 1152px) {
+        display: none;
+      }
+
+
     }
 
     .nav-item-container {
@@ -125,7 +143,6 @@ export default {
     }
 
     .header-item {
-      display: none;
       font-family: $basetica;
       color: $grey-dark;
 
@@ -155,6 +172,10 @@ export default {
       }
 
       &.center {
+        display: inline-block;
+        min-width: 118px;
+        width: 33.3333%;
+
         @media screen and (min-width: 1152px) {
           width: 182px;
           margin: auto;
@@ -178,15 +199,27 @@ export default {
 
       &.right {
         text-align: right;
-        font-size: 14px;
-        width: 50%;
+        width: 33.3333%;
+        display: inline-block;
+        height: 66px;
+        line-height: 66px;
 
+        @media screen and (min-width: 1152px) {
+          font-size: 14px;
+          width: 50%;
+        }
         li {
           &:not(:last-child) {
             margin-right: 24px;
           }
 
           &.search-item {
+            display: none;
+
+            @media screen and (min-width: 1152px) {
+              display: inline-block;
+            }
+
             img {
               vertical-align: middle;
             }
@@ -211,6 +244,12 @@ export default {
           }
 
           &.account-item {
+            display: none;
+
+            @media screen and (min-width: 1152px) {
+              display: inline-block;
+            }
+
             .icon-down-open {
               font-family: $fontello;
               font-size: 16px;
