@@ -1,16 +1,15 @@
 <template>
-  <ul class="header-item__list">
-      <!-- <li class="list-item"><a href="">Men</a></li>
-      <li class="list-item"><a href="">Women</a></li>
-      <li class="list-item"><a href="">Gift Guide</a></li>
-      <li class="list-item"><a href="">Sale</a></li> -->
-       <NavItem 
-        v-for="navItem in navLevelOneData" 
-        :key="navItem.id" 
-        :title="navItem.title"
-        :titleUrl="navItem.titleUrl"
-        :titleColor="navItem.titleColor"
-        />
+  <ul class="nav-item__list">
+    <NavItem class="level-one-item" v-on="$listeners"
+      v-for="navItem in navLevelOneData" 
+      :key="navItem.id" 
+      :title="navItem.title"
+      :titleUrl="navItem.titleUrl"
+      :titleColor="navItem.titleColor"
+      :parentId="navItem.parentId"
+      :level="level"
+      :showLevelOneItems="showLevelOneItems"
+  />
   </ul>
 </template>
 
@@ -25,7 +24,32 @@ export default {
     NavItem,
   },
   props: {
-    navLevelOneData: Array
+    navLevelOneData: Array,
+    showLevelOneItems: Number
+  },
+  data() {
+    return {
+      level: 1
+    }
   }
 };
 </script>
+
+
+<style lang="scss" scoped>
+@import "../scss/_global.scss";
+
+  ul {
+    margin: 16px 24px 24px 24px;
+    padding: 0;
+    text-align: left;
+
+    @media screen and (min-width: 1152px) {
+      margin: 0;
+      text-align: left;
+      width: 230px;
+      display: inline-block;
+    }
+  }
+
+</style>

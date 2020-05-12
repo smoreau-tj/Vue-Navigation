@@ -14,7 +14,10 @@ export default {
 @import "../scss/_global.scss";
 
 .header-main__promo {
-  @media screen and (min-width: 1280px) {
+  display: none;
+
+  @media screen and (min-width: 1152px) {
+    display: block;
     height: 50px;
     line-height: 50px;
     background-color: $grey-light;

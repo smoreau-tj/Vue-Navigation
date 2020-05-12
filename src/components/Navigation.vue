@@ -1,8 +1,34 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
-      <div class="header-item left">
-        <NavLevelZero :navLevelZeroData=navLevelZeroData />
+      <div class="mobile-menu-toggle">
+        <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
+      </div>
+      <div class="nav-item-container left">
+        <div class="mobile-search-close-container">
+          <span class="mobile-search-toggle">
+            <img alt="mobile search icon" src="../assets/images/svg-mobile-search.svg">
+          </span>
+          <span class="mobile-menu-close-btn">&times;</span>
+        </div>
+        <NavLevelZero 
+        class="level-zero-list" 
+        :navLevelZeroData=navLevelZeroData
+        @level-zero-active="getLevelOneToShow"
+         />
+        <div class="sub-nav-container">
+          <NavLevelOne 
+            class="level-one-list" 
+            :navLevelOneData=navLevelOneData
+            @level-one-active="getLevelTwoToShow"
+            :showLevelOneItems="showLevelOneItems"
+          />
+          <NavLevelTwo 
+            class="level-two-list" 
+            :navLevelTwoData=navLevelTwoData
+            :showLevelTwoItems="showLevelTwoItems"
+          />
+        </div>
       </div>
       <div class="header-item center">
         <a
@@ -32,8 +58,7 @@
           </li>
         </ul>
       </div>
-      <NavLevelOne :navLevelOneData=navLevelOneData />
-      <NavLevelTwo :navLevelTwoData=navLevelTwoData />
+ 
     </div>
   </header>
 </template>
@@ -55,8 +80,24 @@ export default {
     navLevelZeroData: Array,
     navLevelOneData: Array,
     navLevelTwoData: Array,
+  },
+  data () {
+    return {
+      showLevelOneItems: 1,
+      showLevelTwoItems: 1,
+    }
+  },
+  methods: {
+    getLevelOneToShow(value){
+      console.log('Show Level one elements with this id', value);
+      this.showLevelOneItems = value;
+    },
+    getLevelTwoToShow(value){
+      console.log('show level two elements with this id', value);
+      this.showLevelTwoItems = value;
+    }
   }
-};
+}
 
 </script>
 
@@ -64,27 +105,130 @@ export default {
 @import "../scss/_global.scss";
 
 .header-main {
-  @media screen and (min-width: 1280px) {
+  background-color: $white;
+  
+  @media screen and (min-width: 1152px) {
     position: sticky;
     top: 0;
     left: 0;
   }
 
   .header-main__inner {
-    @media screen and (min-width: 1280px) {
       height: 66px;
-      padding: 0 48px;
+      padding: 0 16px;
       background-color: $white;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 48px;
     }
 
-    .header-item {
+    .mobile-menu-toggle {
+      width: 33.3333%;
+      display: inline-block;
+      height: 66px;
+      line-height: 66px;
+      text-align: left;
+
+      @media screen and (min-width: 1152px) {
+        display: none;
+      }
+    }
+
+    .nav-item-container {
       display: none;
       font-family: $basetica;
       color: $grey-dark;
+      height: 100%;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 768px) {
+        display: block;
+        width: 264px;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0px;
+      }
+
+      @media screen and (min-width: 1152px) {
         display: inline-block;
-        width: 33.3333%;
+        width: 50%;
+        font-size: 16px;
+        line-height: 66px;
+        height: unset;
+        position: unset;
+        left: unset;
+        top: unset;
+        background-color: none;
+      }
+
+      &:hover {
+        .sub-nav-container {
+          @media screen and (min-width: 1152px) {
+            display: block;
+          }
+        }
+      }
+
+      .mobile-search-close-container {
+        display: block;
+        height: 46px;
+        line-height: 46px;
+        padding: 16px 16px 16px;
+
+        @media screen and (min-width: 1152px) {
+          display: none;
+        }
+
+        .mobile-search-toggle {
+          display: inline-block;
+          width: 50%;
+          text-align: left;
+
+          img {
+            width: 16px;
+          }
+        }
+
+        .mobile-menu-close-btn {
+          display: inline-block;
+          width: 50%;
+          font-size: 28px;
+          font-family: $basetica;
+          color: $blue;
+          text-align: right;
+        }
+      }
+
+      .sub-nav-container {
+        @media screen and (min-width: 768px) {
+          display: block;
+          position: relative;
+        }
+
+        @media screen and (min-width: 1152px) {
+          // display: none;
+          border-top: solid 1px $grey;
+          padding-top: 8px;
+          height: 431px;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          top: 66px;
+        }
+
+        &:hover {
+          display: block;
+        }
+      }
+    }
+
+    .header-item {
+      font-family: $basetica;
+      color: $grey-dark;
+
+      @media screen and (min-width: 1152px) {
+        display: inline-block;
         font-size: 16px;
         line-height: 66px;
       }
@@ -108,19 +252,21 @@ export default {
         }
       }
 
-      &.left {
-        ul {
-          text-align: left;
-        }
-
-        li {
-          &:not(:last-child) {
-            margin-right: 40px;
-          }
-        }
-      }
-
       &.center {
+        display: inline-block;
+        min-width: 118px;
+        width: 33.3333%;
+
+        @media screen and (min-width: 1152px) {
+          width: 182px;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+
         a {
           display: inline-block;
 
@@ -134,14 +280,27 @@ export default {
 
       &.right {
         text-align: right;
-        font-size: 14px;
+        width: 33.3333%;
+        display: inline-block;
+        height: 66px;
+        line-height: 66px;
 
+        @media screen and (min-width: 1152px) {
+          font-size: 14px;
+          width: 50%;
+        }
         li {
           &:not(:last-child) {
             margin-right: 24px;
           }
 
           &.search-item {
+            display: none;
+
+            @media screen and (min-width: 1152px) {
+              display: inline-block;
+            }
+
             img {
               vertical-align: middle;
             }
@@ -166,6 +325,12 @@ export default {
           }
 
           &.account-item {
+            display: none;
+
+            @media screen and (min-width: 1152px) {
+              display: inline-block;
+            }
+
             .icon-down-open {
               font-family: $fontello;
               font-size: 16px;
