@@ -1,15 +1,21 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
-      <div class="mobile-menu-toggle">
+      <div 
+        class="mobile-menu-toggle" 
+        @click="showMobileMenu = !showMobileMenu"
+      >
         <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
       </div>
-      <div class="nav-item-container left">
+      <div 
+        class="nav-item-container left"
+        :class="toggleMobileMenu"
+      >
         <div class="mobile-search-close-container">
           <span class="mobile-search-toggle">
             <img alt="mobile search icon" src="../assets/images/svg-mobile-search.svg">
           </span>
-          <span class="mobile-menu-close-btn">&times;</span>
+          <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
         <NavLevelZero 
         class="level-zero-list" 
@@ -85,6 +91,7 @@ export default {
     return {
       showLevelOneItems: 1,
       showLevelTwoItems: 1,
+      showMobileMenu: false,
     }
   },
   methods: {
@@ -95,6 +102,11 @@ export default {
     getLevelTwoToShow(value){
       console.log('show level two elements with this id', value);
       this.showLevelTwoItems = value;
+    }
+  },
+  computed : {
+    toggleMobileMenu() {
+      return this.showMobileMenu ? 'active' : '';
     }
   }
 }
@@ -128,6 +140,7 @@ export default {
       height: 66px;
       line-height: 66px;
       text-align: left;
+      cursor: pointer;
 
       @media screen and (min-width: 1152px) {
         display: none;
@@ -135,18 +148,20 @@ export default {
     }
 
     .nav-item-container {
-      display: none;
       font-family: $basetica;
       color: $grey-dark;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
+      background-color: white;
+      transition: transform 0.3s;
+      transform: translateX(-100%);
+
 
       @media screen and (min-width: 768px) {
-        display: block;
         width: 264px;
-        background-color: white;
-        position: absolute;
-        top: 0;
-        left: 0px;
       }
 
       @media screen and (min-width: 1152px) {
@@ -159,6 +174,16 @@ export default {
         left: unset;
         top: unset;
         background-color: none;
+        transition: unset;
+        transform: unset;
+      }
+
+      &.active {
+        transform: translateX(0);
+
+        @media screen and (min-width: 1152px) {
+          transform: unset;
+        }
       }
 
       &:hover {
@@ -183,6 +208,7 @@ export default {
           display: inline-block;
           width: 50%;
           text-align: left;
+          cursor: pointer;
 
           img {
             width: 16px;
@@ -196,6 +222,7 @@ export default {
           font-family: $basetica;
           color: $blue;
           text-align: right;
+          cursor: pointer;
         }
       }
 
@@ -206,7 +233,7 @@ export default {
         }
 
         @media screen and (min-width: 1152px) {
-          // display: none;
+          display: none;
           border-top: solid 1px $grey;
           padding-top: 8px;
           height: 431px;
