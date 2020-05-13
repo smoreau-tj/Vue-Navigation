@@ -37,6 +37,7 @@
         </div>
         <NavMobileFooterLinks />
       </div>
+      <div class="mobile-overlay"></div>
       <div class="header-item center">
         <a
           href="/"
@@ -161,6 +162,8 @@ export default {
       background-color: white;
       transition: transform 0.3s;
       transform: translateX(-100%);
+      box-shadow: 0 10px 80px 0 rgba(0,0,0,0.10);
+
 
 
       @media screen and (min-width: 768px) {
@@ -179,13 +182,16 @@ export default {
         background-color: none;
         transition: unset;
         transform: unset;
+        box-shadow: none;
       }
 
       &.active {
+        z-index: 2;
         transform: translateX(0);
 
         @media screen and (min-width: 1024px) {
           transform: unset;
+          z-index: unset;
         }
       }
 
@@ -251,6 +257,25 @@ export default {
         &:hover {
           display: block;
         }
+      }
+    }
+
+    .mobile-overlay {
+      display: none;
+    }
+
+    .nav-item-container.active + .mobile-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: rgba(245,245,245,0.85);
+
+      @media screen and (min-width: 1024px) {
+        display: none;
       }
     }
 
