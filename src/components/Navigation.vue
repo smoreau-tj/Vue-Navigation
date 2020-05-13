@@ -35,6 +35,7 @@
             :showLevelTwoItems="showLevelTwoItems"
           />
         </div>
+        <NavMobileFooterLinks />
       </div>
       <div class="header-item center">
         <a
@@ -73,6 +74,7 @@
 import NavLevelZero from './NavLevelZero.vue'
 import NavLevelOne from './NavLevelOne.vue'
 import NavLevelTwo from './NavLevelTwo.vue'
+import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
 
 
 export default {
@@ -80,7 +82,8 @@ export default {
   components: {
     NavLevelZero,
     NavLevelOne,
-    NavLevelTwo
+    NavLevelTwo,
+    NavMobileFooterLinks
   },
   props: {
     navLevelZeroData: Array,
