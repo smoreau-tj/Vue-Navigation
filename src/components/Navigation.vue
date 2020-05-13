@@ -122,7 +122,7 @@ export default {
 .header-main {
   background-color: $white;
   
-  @media screen and (min-width: 1152px) {
+  @media screen and (min-width: 1024px) {
     position: sticky;
     top: 0;
     left: 0;
@@ -145,7 +145,7 @@ export default {
       text-align: left;
       cursor: pointer;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: none;
       }
     }
@@ -164,10 +164,10 @@ export default {
 
 
       @media screen and (min-width: 768px) {
-        width: 264px;
+        width: 320px;
       }
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: inline-block;
         width: 50%;
         font-size: 16px;
@@ -184,14 +184,14 @@ export default {
       &.active {
         transform: translateX(0);
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           transform: unset;
         }
       }
 
       &:hover {
         .sub-nav-container {
-          @media screen and (min-width: 1152px) {
+          @media screen and (min-width: 1024px) {
             display: block;
           }
         }
@@ -203,7 +203,7 @@ export default {
         line-height: 46px;
         padding: 16px 16px 16px;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           display: none;
         }
 
@@ -235,7 +235,7 @@ export default {
           position: relative;
         }
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           display: none;
           border-top: solid 1px $grey;
           padding-top: 8px;
@@ -245,6 +245,7 @@ export default {
           left: 0;
           background-color: white;
           top: 66px;
+          z-index: 0;
         }
 
         &:hover {
@@ -257,7 +258,7 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: inline-block;
         font-size: 16px;
         line-height: 66px;
@@ -287,7 +288,7 @@ export default {
         min-width: 118px;
         width: 33.3333%;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           width: 182px;
           margin: auto;
           position: absolute;
@@ -315,7 +316,7 @@ export default {
         height: 66px;
         line-height: 66px;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           font-size: 14px;
           width: 50%;
         }
@@ -327,7 +328,7 @@ export default {
           &.search-item {
             display: none;
 
-            @media screen and (min-width: 1152px) {
+            @media screen and (min-width: 1024px) {
               display: inline-block;
             }
 
@@ -357,7 +358,7 @@ export default {
           &.account-item {
             display: none;
 
-            @media screen and (min-width: 1152px) {
+            @media screen and (min-width: 1024px) {
               display: inline-block;
             }
 

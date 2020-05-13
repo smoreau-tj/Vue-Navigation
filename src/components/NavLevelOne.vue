@@ -44,7 +44,7 @@ export default {
     padding: 0;
     text-align: left;
 
-    @media screen and (min-width: 1152px) {
+    @media screen and (min-width: 1024px) {
       margin: 0;
       text-align: left;
       width: 230px;

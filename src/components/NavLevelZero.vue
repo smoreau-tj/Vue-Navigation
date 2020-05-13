@@ -45,7 +45,7 @@ export default {
     line-height: 80px;
     padding: 0;
 
-    @media screen and (min-width: 1152px) {
+    @media screen and (min-width: 1024px) {
       text-align: left;
       border-top: unset;
       border-bottom: unset;

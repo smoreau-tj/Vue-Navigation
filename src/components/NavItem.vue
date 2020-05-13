@@ -69,7 +69,7 @@ export default {
       font-family: $basetica;
 
       &:hover {
-        color: $blue-light;
+        color: $blue;
       }
     }
     
@@ -83,7 +83,7 @@ export default {
       a {
         font-family: $basetica-bold;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           font-family: $basetica;
         }
       }
@@ -92,14 +92,22 @@ export default {
         display: inline-block;
         width: 50%;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           width: unset;
         }
       }
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         margin-right: 40px;
         display: inline-block;
+        z-index: 2;
+        position: relative;
+      }
+
+      &:hover {
+        @media screen and (min-width: 1024px) {
+          border-bottom: 2px solid $blue;
+        }
       }
     }
 
@@ -110,15 +118,16 @@ export default {
       margin-bottom: 4px;
       position: relative;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         height: 46px;
         line-height: 46px;
         background-color: unset;
         margin-bottom: unset;
+        cursor: pointer;
       }
 
       a {
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           font-size: 16px;
           margin-left: 48px;
         }
@@ -127,7 +136,7 @@ export default {
           margin-left: 16px;
           font-size: 14px;
 
-          @media screen and (min-width: 1152px) {
+          @media screen and (min-width: 1024px) {
             margin-left: unset;
             font-size: unset;
           }
@@ -135,7 +144,7 @@ export default {
       }
 
       .icon-right-open {
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           position: absolute;
           display: inline;
           font-family: $fontello;
@@ -147,6 +156,26 @@ export default {
           font-style: normal;
         }
       }
+
+      &:hover {
+        @media screen and (min-width: 1024px) {
+          background-color: $grey-light;
+        }
+
+        .nav-item-title {
+          @media screen and (min-width: 1024px) {
+            font-family: $basetica-bold;
+            color: $blue;
+          }
+        }
+
+        .icon-right-open {
+            @media screen and (min-width: 1024px) {
+            font-weight: bold;
+            color: $blue;
+          }
+        }
+      }
     }
 
     &.level-two-item {
@@ -156,7 +185,7 @@ export default {
       margin-bottom: 4px;
       position: relative;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: inline-block;
         vertical-align: top;
         margin-right: 8px;
@@ -167,7 +196,7 @@ export default {
       }
 
       a {
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           display: block;
         }
 
@@ -177,7 +206,7 @@ export default {
           height: 50px;
           right: 16px;
 
-          @media screen and (min-width: 1152px) {
+          @media screen and (min-width: 1024px) {
             display: block;
             max-height: 174px;
             padding-bottom: 8px;
@@ -191,10 +220,18 @@ export default {
           margin-left: 16px;
           font-size: 14px;
 
-          @media screen and (min-width: 1152px) {
+          @media screen and (min-width: 1024px) {
             display: block;
             font-size: 12px;
             margin-left: unset;
+          }
+        }
+      }
+
+      &:hover {
+        .nav-item-title {
+          @media screen and (min-width: 1024px) {
+            text-decoration: underline;
           }
         }
       }
