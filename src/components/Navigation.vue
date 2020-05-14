@@ -92,6 +92,11 @@ export default {
   props: {
     navData: Array
   },
+  data () {
+    return {
+      showMobileMenu: false
+    }
+  },
   computed : {
     toggleMobileMenu() {
       return this.showMobileMenu ? 'active' : '';
