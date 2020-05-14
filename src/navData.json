@@ -1,0 +1,67 @@
+{"navData" : [
+  {
+    "title": "Men", 
+    "titleColor": "#4D4D4D", 
+    "titleUrl": "/mens-underwear", 
+    "levelOneCats": [
+      {
+        "title": "Underwear", 
+        "titleHoverColor": "#587679", 
+        "titleUrl": "/underwear", 
+        "mobileImage":"", 
+        "desktopImage":"", 
+        "levelTwoCats": [
+          {
+            "title": "Brief",
+            "titleUrl": "/mens-underwear-brief",
+            "mobileImage":"",
+            "desktopImage": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130",
+            "doubleDesktopImage": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+          },
+          {
+            "title": "Trunks",
+            "titleUrl": "/mens-underwear-trunk",
+            "mobileImage":"",
+            "desktopImage":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
+            "doubleDesktopImage": "https://tjproduction.imgix.net/products/Pack1.jpg?w=260"
+          }
+        ]
+      },
+      {
+        "title": "Undershirts", 
+        "titleHoverColor": "#587679", 
+        "titleUrl": "/Undershirts", 
+        "mobileImage":"", 
+        "desktopImage":"",
+        "levelTwoCats": [
+          {
+            "title": "Loung Shirts",
+            "titleUrl": "/mens-lounge-shirts",
+            "mobileImage":"",
+            "desktopImage":"",
+            "doubleDesktopImage": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Women",
+    "titleUrl": "/womens-all",
+    "levelOneCats": [
+      {
+        "title": "Bras", 
+        "titleHoverColor": "#587679", 
+        "titleUrl": "/Bras", 
+        "mobileImage":"", 
+        "desktopImage":"", 
+      }
+    ]
+  },
+  {
+    "title": "Gift Guide"
+  },
+  {
+    "title": "Underwear"
+  }
+]}
