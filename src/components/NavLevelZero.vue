@@ -1,35 +1,37 @@
 <template>
-  <ul class="nav-item__list">
-    <NavItem class="level-zero-item" v-on="$listeners"
-      v-for="navItem in navLevelZeroData"
-      :key="navItem.id" 
-      :id="navItem.id"
-      :title="navItem.title"
-      :titleUrl="navItem.titleUrl"
-      :titleColor="navItem.titleColor"
-      :level="level"
+<li class="level-zero-container">
+  <NavItem class="level-zero-item"
+    :title="navItemData.title"
+    :titleUrl="navItemData.titleUrl"
+    :titleColor="navItemData.titleColor"
     />
-  </ul>
+    <ul class="nav-item__list"
+      v-if="navItemData.levelOneCats"
+    >
+      <NavLevelOne 
+        v-for="levelOneData in navItemData.levelOneCats"
+        :key="levelOneData.id"
+        :levelOneData="levelOneData"
+      />
+    </ul>
+  </li>
 </template>
 
 
 <script>
 import NavItem from './NavItem.vue'
+import NavLevelOne from './NavLevelOne.vue'
+
 
 export default {
   name: "NavLevelZero",
   components: {
     NavItem,
+    NavLevelOne
   },
   props: {
-    navLevelZeroData: Array,
-  },
-  data () {
-    return {
-      level: 0
-    }
+    navItemData: Object
   }
-
 };
 </script>
 

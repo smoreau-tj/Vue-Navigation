@@ -17,12 +17,19 @@
           </span>
           <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
+        <ul>
         <NavLevelZero 
+          v-for="navItemData in navData"
+          :key="navItemData.id"
+          :navItemData="navItemData"
+          />
+          </ul>
+        <!-- <NavLevelZero 
         class="level-zero-list" 
         :navLevelZeroData=navLevelZeroData
         @level-zero-active="getLevelOneToShow"
-         />
-        <div class="sub-nav-container">
+         /> -->
+        <!-- <div class="sub-nav-container">
           <NavLevelOne 
             class="level-one-list" 
             :navLevelOneData=navLevelOneData
@@ -34,7 +41,7 @@
             :navLevelTwoData=navLevelTwoData
             :showLevelTwoItems="showLevelTwoItems"
           />
-        </div>
+        </div> -->
         <NavMobileFooterLinks />
       </div>
       <div class="mobile-overlay"></div>
@@ -73,8 +80,6 @@
 
 <script>
 import NavLevelZero from './NavLevelZero.vue'
-import NavLevelOne from './NavLevelOne.vue'
-import NavLevelTwo from './NavLevelTwo.vue'
 import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
 
 
@@ -82,31 +87,10 @@ export default {
   name: "Navigation",
   components: {
     NavLevelZero,
-    NavLevelOne,
-    NavLevelTwo,
     NavMobileFooterLinks
   },
   props: {
-    navLevelZeroData: Array,
-    navLevelOneData: Array,
-    navLevelTwoData: Array,
-  },
-  data () {
-    return {
-      showLevelOneItems: 1,
-      showLevelTwoItems: 1,
-      showMobileMenu: false,
-    }
-  },
-  methods: {
-    getLevelOneToShow(value){
-      console.log('Show Level one elements with this id', value);
-      this.showLevelOneItems = value;
-    },
-    getLevelTwoToShow(value){
-      console.log('show level two elements with this id', value);
-      this.showLevelTwoItems = value;
-    }
+    navData: Array
   },
   computed : {
     toggleMobileMenu() {
