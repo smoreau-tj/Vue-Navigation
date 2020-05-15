@@ -6,16 +6,11 @@
   .level-zero-container {
     .level-one-list {
       display: none;
+
       .level-one-container {
         .level-two-list {
           display: none;
         }
-
-        // &:first-child {
-        //   .level-two-list {
-        //     display: none;
-        //   }
-        // }
       }
     }
 
@@ -46,9 +41,6 @@
         }
       }
     }
-
-    
-
   }
 
 

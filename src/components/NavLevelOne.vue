@@ -69,8 +69,6 @@ export default {
         padding-top: 16px;
       }
     }
-
-
   }
 
 </style>

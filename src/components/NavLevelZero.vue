@@ -62,7 +62,6 @@ export default {
     display: none;
 
     @media screen and (min-width: 1024px) {
-      // margin-right: 40px;
       display: inline-block;
       z-index: 2;
     }
@@ -77,7 +76,6 @@ export default {
     }
 
     &:hover {
-
       .level-zero-item {
         @media screen and (min-width: 1024px) {
           position: relative;
@@ -102,7 +100,6 @@ export default {
         top: 66px;
         background-color: $white;
         border-top: solid 1px $grey;
-        // padding-top: 16px;
       }
     }
   }
