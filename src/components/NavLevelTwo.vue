@@ -44,4 +44,8 @@ export default {
     }
   }
 
+  .level-two-container {
+    display: inline-block;
+  }
+
 </style>

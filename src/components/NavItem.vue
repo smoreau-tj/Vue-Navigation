@@ -1,11 +1,11 @@
 <template>
-  <li class="list-item" @mouseenter="updateHoverState(true, parentId, level, id)" @mouseleave="updateHoverState(false, parentId, level, id)">
+  <div class="list-item">
     <a href="">
       <img class="desktop-single-image" v-if="desktopImage" :src="desktopImage"/>
       <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
-  </li>
+  </div>
 </template>
 
 
@@ -17,96 +17,33 @@ export default {
     titleUrl: String,
     titleColor: String,
     desktopImage: String,
-    parentId: Number,
-    level: Number,
-    id: Number,
-    showLevelOneItems: Number,
-    showLevelTwoItems: Number
   },
-  data() {
-    return {
-      hoverState: false,
-      activeLevelZero: false,
-      activeLevelOne: false,
-    }
-  },
-  methods: {
-    updateHoverState(isHover, pId, currentLevel, levelZeroId) {
-      if(currentLevel === 0){
-        this.$emit("level-zero-active", levelZeroId);
-        this.$emit("preselect-level-one");
-      }
-      if(currentLevel === 1){
-        this.$emit("level-one-active", pId);
-      }
-      
-
-      console.log('hover state updated', isHover, "parentId is", pId, "current level is", currentLevel, "level zero id is", levelZeroId);
-      //   console.log("On level 0!!!!!");
-      //   this.$emit("levelZeroActive", levelZeroId);
-      // }
-      
-      // if(currentLevel === 1){
-      //   console.log('ON LEVEL 1!!!!!');
-      // }
-      // this.hoverState = isHover;
-      // this.$emit("level-zero-active", levelZeroId);
-
-    }
-  }
 };
 </script>
 
 
 <style lang="scss" scoped>
 @import "../scss/_global.scss";
-  li {
+
+  .list-item {
     list-style-type: none;
 
     a {
       text-decoration: none;
       color: $grey-dark;
       font-family: $basetica;
-
-      &:hover {
-        color: $blue;
-      }
-    }
-    
-    .icon-right-open {
-      display: none;
     }
 
     &.level-zero-item {
-      display: none;
+      @media screen and (min-width: 1024px) {
+        margin-right: 40px;
+      }
 
       a {
         font-family: $basetica-bold;
 
         @media screen and (min-width: 1024px) {
           font-family: $basetica;
-        }
-      }
-
-      &:nth-child(-n+2){
-        display: inline-block;
-        width: 50%;
-
-        @media screen and (min-width: 1024px) {
-          width: unset;
-        }
-      }
-
-      @media screen and (min-width: 1024px) {
-        margin-right: 40px;
-        display: inline-block;
-        z-index: 2;
-        position: relative;
-      }
-
-      &:hover {
-        @media screen and (min-width: 1024px) {
-          border-bottom: 2px solid $blue;
         }
       }
     }
@@ -124,6 +61,7 @@ export default {
         background-color: unset;
         margin-bottom: unset;
         cursor: pointer;
+        width: 230px;
       }
 
       a {
@@ -179,14 +117,13 @@ export default {
     }
 
     &.level-two-item {
-      height: 50px;
-      line-height: 50px;
-      background-color: $lightest-grey;
-      margin-bottom: 4px;
-      position: relative;
+        height: 50px;
+        line-height: 50px;
+        background-color: $lightest-grey;
+        margin-bottom: 4px;
+        position: relative;
 
       @media screen and (min-width: 1024px) {
-        display: inline-block;
         vertical-align: top;
         margin-right: 8px;
         background-color: unset;
@@ -237,4 +174,6 @@ export default {
       }
     }
   }
+
+
 </style>

@@ -5,7 +5,7 @@
     :titleUrl="navItemData.titleUrl"
     :titleColor="navItemData.titleColor"
     />
-    <ul class="nav-item__list"
+    <ul class="nav-item__list level-one-list"
       v-if="navItemData.levelOneCats"
     >
       <NavLevelOne 
@@ -53,6 +53,70 @@ export default {
       border-bottom: unset;
       height: unset;
       line-height: unset;
+    }
+  }
+
+  // old CSS ^
+
+  .level-zero-container {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      // margin-right: 40px;
+      display: inline-block;
+      z-index: 2;
+    }
+
+    //for testing
+    &:first-child .level-one-list {
+      display: block;
+    }
+
+    &:nth-child(-n+2){
+      display: inline-block;
+      width: 50%;
+
+      @media screen and (min-width: 1024px) {
+        width: unset;
+      }
+    }
+
+    &:hover {
+
+      .level-zero-item {
+        @media screen and (min-width: 1024px) {
+          position: relative;
+          border-bottom: 2px solid $blue;
+          z-index: 2;
+        }
+
+        a {
+          span {
+            color: $blue;
+          }
+        }
+      }
+
+      .level-one-list {
+        @media screen and (min-width: 1024px) {
+          display: block;
+        }
+      }
+    }
+
+    .level-one-list {
+      display: none;
+
+      @media screen and (min-width: 1024px) {
+        position: absolute;
+        left: 0;
+        list-style-type: none;
+        width: 100%;
+        top: 66px;
+        background-color: $white;
+        border-top: solid 1px $grey;
+        padding-top: 16px;
+      }
     }
   }
 

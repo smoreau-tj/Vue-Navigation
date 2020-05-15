@@ -17,31 +17,13 @@
           </span>
           <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
-        <ul>
+        <ul class="nav-item__list level-zero-list">
         <NavLevelZero 
           v-for="navItemData in navData"
           :key="navItemData.id"
           :navItemData="navItemData"
           />
-          </ul>
-        <!-- <NavLevelZero 
-        class="level-zero-list" 
-        :navLevelZeroData=navLevelZeroData
-        @level-zero-active="getLevelOneToShow"
-         /> -->
-        <!-- <div class="sub-nav-container">
-          <NavLevelOne 
-            class="level-one-list" 
-            :navLevelOneData=navLevelOneData
-            @level-one-active="getLevelTwoToShow"
-            :showLevelOneItems="showLevelOneItems"
-          />
-          <NavLevelTwo 
-            class="level-two-list" 
-            :navLevelTwoData=navLevelTwoData
-            :showLevelTwoItems="showLevelTwoItems"
-          />
-        </div> -->
+        </ul>
         <NavMobileFooterLinks />
       </div>
       <div class="mobile-overlay"></div>
@@ -224,27 +206,13 @@ export default {
         }
       }
 
-      .sub-nav-container {
-        @media screen and (min-width: 768px) {
-          display: block;
-          position: relative;
-        }
+      .level-zero-list {
+        margin: 0;
+        padding: 0;
+        text-align: left;
 
         @media screen and (min-width: 1024px) {
-          display: none;
-          border-top: solid 1px $grey;
-          padding-top: 8px;
-          height: 431px;
-          position: absolute;
-          width: 100%;
-          left: 0;
-          background-color: white;
-          top: 66px;
-          z-index: 0;
-        }
-
-        &:hover {
-          display: block;
+          height: 66px;
         }
       }
     }

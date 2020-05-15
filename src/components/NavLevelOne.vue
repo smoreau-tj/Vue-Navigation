@@ -5,7 +5,7 @@
     :titleUrl="levelOneData.titleUrl"
     :titleColor="levelOneData.titleColor"
    />
-   <ul class="nav-item__list"
+   <ul class="nav-item__list level-two-list"
       v-if="levelOneData.levelTwoCats"
     >
       <NavLevelTwo
@@ -50,6 +50,25 @@ export default {
       width: 230px;
       display: inline-block;
     }
+  }
+
+  .level-two-list {
+    display: none;
+    list-style-type: none;
+
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      left: 278px;
+      width: calc(100% - 278px);
+      top: 24px;
+    }
+  }
+
+  .level-one-container{
+    .level-one-item {
+
+    }
+
   }
 
 </style>
