@@ -135,8 +135,6 @@ export default {
       transform: translateX(-100%);
       box-shadow: 0 10px 80px 0 rgba(0,0,0,0.10);
 
-
-
       @media screen and (min-width: 768px) {
         width: 320px;
       }
@@ -163,14 +161,6 @@ export default {
         @media screen and (min-width: 1024px) {
           transform: unset;
           z-index: unset;
-        }
-      }
-
-      &:hover {
-        .sub-nav-container {
-          @media screen and (min-width: 1024px) {
-            display: block;
-          }
         }
       }
 

@@ -1,2 +1,54 @@
 @import "./fonts";
 @import "./variables";
+
+
+//Hover and Active States
+  .level-zero-container {
+    .level-one-list {
+      display: none;
+      .level-one-container {
+        .level-two-list {
+          display: none;
+        }
+
+        // &:first-child {
+        //   .level-two-list {
+        //     display: none;
+        //   }
+        // }
+      }
+    }
+
+    &:hover {
+      .level-one-list {
+        display: block;
+
+        .level-one-container:first-child {
+          .level-two-list {
+            display: block;
+          }
+        }
+
+        &:hover { 
+          .level-one-container {
+            .level-two-list {
+              display: none;
+            }
+          }
+        }
+
+        .level-one-container{
+          &:hover{
+            .level-two-list {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    
+
+  }
+
+

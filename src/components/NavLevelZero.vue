@@ -67,11 +67,6 @@ export default {
       z-index: 2;
     }
 
-    //for testing
-    &:first-child .level-one-list {
-      display: block;
-    }
-
     &:nth-child(-n+2){
       display: inline-block;
       width: 50%;
@@ -96,17 +91,9 @@ export default {
           }
         }
       }
-
-      .level-one-list {
-        @media screen and (min-width: 1024px) {
-          display: block;
-        }
-      }
     }
 
     .level-one-list {
-      display: none;
-
       @media screen and (min-width: 1024px) {
         position: absolute;
         left: 0;
@@ -115,7 +102,7 @@ export default {
         top: 66px;
         background-color: $white;
         border-top: solid 1px $grey;
-        padding-top: 16px;
+        // padding-top: 16px;
       }
     }
   }

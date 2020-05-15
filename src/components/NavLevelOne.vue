@@ -53,7 +53,6 @@ export default {
   }
 
   .level-two-list {
-    display: none;
     list-style-type: none;
 
     @media screen and (min-width: 1024px) {
@@ -65,9 +64,12 @@ export default {
   }
 
   .level-one-container{
-    .level-one-item {
-
+    &:first-child {
+      @media screen and (min-width: 1024px) {
+        padding-top: 16px;
+      }
     }
+
 
   }
 
