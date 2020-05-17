@@ -30,14 +30,18 @@ export default {
   {
     "title": "Men", 
     "titleColor": "#4D4D4D", 
-    "titleUrl": "/mens-underwear", 
+    "titleUrl": "/mens-underwear",
+    "hideCollection": false,
+    "clickableText": true, 
     "levelOneCats": [
       {
         "title": "Underwear", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/underwear", 
-        "mobileImage":"", 
-        "desktopImage":"", 
+        "mobileImage":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130", 
+        "desktopImage":"",
+        "backgroundColor": "#24A3E3",
+        "isFirstDoubleWide": true, 
         "levelTwoCats": [
           {
             "title": "Brief",
@@ -49,7 +53,7 @@ export default {
           {
             "title": "Trunks",
             "titleUrl": "/mens-underwear-trunk",
-            "mobileImage":"",
+            "mobileImage":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
             "desktopImage":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
             "doubleDesktopImage": "https://tjproduction.imgix.net/products/Pack1.jpg?w=260"
           }
@@ -59,14 +63,30 @@ export default {
         "title": "Undershirts", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Undershirts", 
-        "mobileImage":"", 
+        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701", 
         "desktopImage":"",
         "levelTwoCats": [
           {
-            "title": "Loung Shirts",
+            "title": "Tanks",
             "titleUrl": "/mens-lounge-shirts",
             "mobileImage":"",
-            "desktopImage":"",
+            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701",
+            "doubleDesktopImage": ""
+          }
+        ]
+      },
+      {
+        "title": "Loungewear", 
+        "titleHoverColor": "#587679", 
+        "titleUrl": "/loungewear", 
+        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
+        "desktopImage":"",
+        "levelTwoCats": [
+          {
+            "title": "Lounge Pants",
+            "titleUrl": "/mens-lounge-pants",
+            "mobileImage":"",
+            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701",
             "doubleDesktopImage": ""
           }
         ]
@@ -76,13 +96,42 @@ export default {
   {
     "title": "Women",
     "titleUrl": "/womens-all",
+    "hideCollection": false,
+    "clickableText": true,
     "levelOneCats": [
       {
         "title": "Bras", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Bras", 
-        "mobileImage":"", 
-        "desktopImage":"", 
+        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
+        "desktopImage":"",
+        "backgroundColor": "#24A3E3",
+        "isFirstDoubleWide": false, 
+          "levelTwoCats": [
+          {
+            "title": "Bralette",
+            "titleUrl": "/womens-brallete",
+            "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+            "doubleDesktopImage": ""
+          }
+        ] 
+      },
+      {
+        "title": "Underwear", 
+        "titleHoverColor": "#587679", 
+        "titleUrl": "/womens-underwear", 
+        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/w-underwear.jpg?v=1589744069", 
+        "desktopImage":"",
+          "levelTwoCats": [
+          {
+            "title": "Boyshort",
+            "titleUrl": "/womens-brallete",
+            "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+            "doubleDesktopImage": ""
+          }
+        ] 
       }
     ]
   },
