@@ -19,9 +19,11 @@
         </div>
         <ul class="nav-item__list level-zero-list">
         <NavLevelZero 
-          v-for="navItemData in navData"
-          :key="navItemData.id"
+          v-for="(navItemData, index) in navData"
+          :key="index"
           :navItemData="navItemData"
+          :isActive="activeIndex === index"
+          @onActiveItem="onActiveItem(index)"
           />
         </ul>
         <NavMobileFooterLinks />
@@ -76,7 +78,18 @@ export default {
   },
   data () {
     return {
-      showMobileMenu: false
+      showMobileMenu: false,
+      activeIndex: null
+    }
+  },
+  methods : {
+     onActiveItem(index) {
+      if (this.activeIndex === index) {
+        this.activIndex = null;
+      }
+      else {
+        this.activeIndex = index;
+      }
     }
   },
   computed : {
@@ -168,7 +181,7 @@ export default {
         display: block;
         height: 46px;
         line-height: 46px;
-        padding: 16px 16px 16px;
+        padding: 16px 16px 0 16px;
 
         @media screen and (min-width: 1024px) {
           display: none;
@@ -199,10 +212,19 @@ export default {
       .level-zero-list {
         margin: 0;
         padding: 0;
-        text-align: left;
+        text-align: center;
+        height: 76px;
+        line-height: 76px;
+        border-top: .5px solid $grey;
+        border-bottom: .5px solid $grey;
 
         @media screen and (min-width: 1024px) {
           height: 66px;
+          text-align: left;
+          line-height: unset;
+          border-top: unset;
+          border-bottom: unset;
+
         }
       }
     }

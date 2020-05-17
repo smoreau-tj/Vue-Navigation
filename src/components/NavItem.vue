@@ -65,9 +65,16 @@ export default {
       }
 
       a {
+        width: 100%;
+        display: block;
+        text-align: left;
+
         @media screen and (min-width: 1024px) {
           font-size: 16px;
           margin-left: 48px;
+          width: unset;
+          display: unset;
+          text-align: unset;
         }
 
         .nav-item-title {

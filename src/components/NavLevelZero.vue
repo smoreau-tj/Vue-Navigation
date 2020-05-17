@@ -1,5 +1,8 @@
 <template>
-<li class="level-zero-container">
+<li class="level-zero-container"
+  @click="toggleActive"
+  :class="{ active: isActive }"
+>
   <NavItem class="level-zero-item"
     :title="navItemData.title"
     :titleUrl="navItemData.titleUrl"
@@ -30,33 +33,26 @@ export default {
     NavLevelOne
   },
   props: {
-    navItemData: Object
+    navItemData: Object,
+    isActive : Boolean
+    
+  },
+  data () {
+    return {
+    }
+  },
+  methods : {
+    toggleActive() {
+      this.$emit('onActiveItem');
+    }
   }
+
 };
 </script>
 
 
 <style lang="scss" scoped>
 @import "../scss/_global.scss";
-
-  ul {
-    margin: 0;
-    border-top: 0.5px solid $grey;
-    border-bottom: 0.5px solid $grey;
-    height: 80px;
-    line-height: 80px;
-    padding: 0;
-
-    @media screen and (min-width: 1024px) {
-      text-align: left;
-      border-top: unset;
-      border-bottom: unset;
-      height: unset;
-      line-height: unset;
-    }
-  }
-
-  // old CSS ^
 
   .level-zero-container {
     display: none;
@@ -92,14 +88,22 @@ export default {
     }
 
     .level-one-list {
+      position: absolute;
+      padding: 0;
+      list-style-type: none;
+      width: 268px;
+      margin: 16px 24px 24px 24px;
+
       @media screen and (min-width: 1024px) {
         position: absolute;
         left: 0;
-        list-style-type: none;
         width: 100%;
         top: 66px;
         background-color: $white;
         border-top: solid 1px $grey;
+        padding-left: 0;
+        min-height: 440px;
+        margin: 0;
       }
     }
   }

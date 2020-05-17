@@ -54,4 +54,16 @@
     }
   }
 
+  //test styling
+  .level-one-list {
+    display: none;
+  }
+
+  .nav-item__list .level-zero-container:first-child .level-one-list {
+    display: block;
+    .level-two-list {
+      display: none;
+    }
+  }
+
 
