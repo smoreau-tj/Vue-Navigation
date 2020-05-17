@@ -1,5 +1,8 @@
 <template>
-<li class="level-one-container">
+<li class="level-one-container"
+  @click="toggleActiveLevelOne"
+  :class="{ activeLevelOne: isActiveLevelOne }"
+>
   <NavItem class="level-one-item"
     :title="levelOneData.title"
     :titleUrl="levelOneData.titleUrl"
@@ -30,7 +33,13 @@ export default {
     NavLevelTwo
   },
   props: {
-    levelOneData: Object
+    levelOneData: Object,
+    isActiveLevelOne : Boolean
+  },
+  methods : {
+    toggleActiveLevelOne() {
+      this.$emit('onActiveLevelOneItem');
+    }
   }
 };
 </script>

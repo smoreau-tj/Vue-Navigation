@@ -12,9 +12,11 @@
       v-if="navItemData.levelOneCats"
     >
       <NavLevelOne 
-        v-for="levelOneData in navItemData.levelOneCats"
-        :key="levelOneData.id"
+        v-for="(levelOneData,index) in navItemData.levelOneCats"
+        :key="index"
         :levelOneData="levelOneData"
+        :isActiveLevelOne="activeLevelOneIndex === index"
+        @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
       />
     </ul>
   </li>
@@ -34,18 +36,27 @@ export default {
   },
   props: {
     navItemData: Object,
-    isActive : Boolean
-    
+    isActive : Boolean,    
   },
   data () {
     return {
+      activeLevelOneIndex: null
     }
   },
   methods : {
     toggleActive() {
       this.$emit('onActiveItem');
+    },
+    onActiveLevelOneItem(index) {
+      if (this.activeLevelOneIndex === index) {
+        this.activeLevelOneIndex = null;
+      }
+      else {
+        this.activeLevelOneIndex = index;
+      }
     }
   }
+
 
 };
 </script>
