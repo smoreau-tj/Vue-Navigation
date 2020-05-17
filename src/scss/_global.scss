@@ -5,29 +5,38 @@
 //Hover and Active States
   .level-zero-container {
     .level-one-list {
-      display: none;
-
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
       .level-one-container {
         .level-two-list {
-          display: none;
+          @media screen and (min-width: 1024px) {
+            display: none;
+          }
         }
       }
     }
 
     &:hover {
       .level-one-list {
-        display: block;
+        @media screen and (min-width: 1024px) {
+          display: block;
+        }
 
         .level-one-container:first-child {
           .level-two-list {
-            display: block;
+            @media screen and (min-width: 1024px) {
+              display: block;
+            }
           }
         }
 
         &:hover { 
           .level-one-container {
             .level-two-list {
-              display: none;
+              @media screen and (min-width: 1024px) {
+                display: none;
+              }
             }
           }
         }
@@ -35,7 +44,9 @@
         .level-one-container{
           &:hover{
             .level-two-list {
-              display: block;
+              @media screen and (min-width: 1024px) {
+                display: block;
+              }
             }
           }
         }
