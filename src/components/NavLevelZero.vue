@@ -14,8 +14,9 @@
       <NavLevelOne 
         v-for="(levelOneData,index) in navItemData.levelOneCats"
         :key="index"
+        :mobileGenderTitle="navItemData.title"
         :levelOneData="levelOneData"
-        :isActiveLevelOne="activeLevelOneIndex === index"
+        :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
       />
     </ul>
@@ -40,7 +41,7 @@ export default {
   },
   data () {
     return {
-      activeLevelOneIndex: null
+      activeIndex: null
     }
   },
   methods : {
@@ -48,11 +49,11 @@ export default {
       this.$emit('onActiveItem');
     },
     onActiveLevelOneItem(index) {
-      if (this.activeLevelOneIndex === index) {
-        this.activeLevelOneIndex = null;
+      if (this.activeIndex === index) {
+        this.activeIndex = null;
       }
       else {
-        this.activeLevelOneIndex = index;
+        this.activeIndex = index;
       }
     }
   }

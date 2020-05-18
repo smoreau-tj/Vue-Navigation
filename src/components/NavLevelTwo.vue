@@ -4,7 +4,7 @@
     :title="levelTwoData.title"
     :titleUrl="levelTwoData.titleUrl"
     :titleColor="levelTwoData.titleColor"
-    :desktopImage="levelTwoData.desktopImage"
+    :levelTwoImage="levelTwoData.image"
   />
 </li>
 </template>
@@ -45,7 +45,11 @@ export default {
   }
 
   .level-two-container {
-    display: inline-block;
+    display: block;
+
+    @media screen and (min-width: 1024px) {
+      display: inline-block;
+    }
   }
 
 </style>

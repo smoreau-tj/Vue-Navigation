@@ -38,24 +38,19 @@ export default {
         "title": "Underwear", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/underwear", 
-        "mobileImage":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130", 
-        "desktopImage":"",
+        "image":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130", 
         "backgroundColor": "#24A3E3",
         "isFirstDoubleWide": true, 
         "levelTwoCats": [
           {
             "title": "Brief",
             "titleUrl": "/mens-underwear-brief",
-            "mobileImage":"",
-            "desktopImage": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130",
-            "doubleDesktopImage": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+            "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
           },
           {
             "title": "Trunks",
             "titleUrl": "/mens-underwear-trunk",
-            "mobileImage":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
-            "desktopImage":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
-            "doubleDesktopImage": "https://tjproduction.imgix.net/products/Pack1.jpg?w=260"
+            "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           }
         ]
       },
@@ -63,15 +58,13 @@ export default {
         "title": "Undershirts", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Undershirts", 
-        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701", 
-        "desktopImage":"",
+        "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701", 
+        "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {
             "title": "Tanks",
             "titleUrl": "/mens-lounge-shirts",
-            "mobileImage":"",
-            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701",
-            "doubleDesktopImage": ""
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701",
           }
         ]
       },
@@ -79,15 +72,14 @@ export default {
         "title": "Loungewear", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/loungewear", 
-        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
-        "desktopImage":"",
+        "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
+        "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {
             "title": "Lounge Pants",
             "titleUrl": "/mens-lounge-pants",
-            "mobileImage":"",
-            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701",
-            "doubleDesktopImage": ""
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701",
+            
           }
         ]
       }
@@ -103,17 +95,14 @@ export default {
         "title": "Bras", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Bras", 
-        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
-        "desktopImage":"",
+        "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
         "backgroundColor": "#24A3E3",
         "isFirstDoubleWide": false, 
           "levelTwoCats": [
           {
             "title": "Bralette",
             "titleUrl": "/womens-brallete",
-            "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
-            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
-            "doubleDesktopImage": ""
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           }
         ] 
       },
@@ -121,15 +110,13 @@ export default {
         "title": "Underwear", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/womens-underwear", 
-        "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/w-underwear.jpg?v=1589744069", 
-        "desktopImage":"",
-          "levelTwoCats": [
+        "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/w-underwear.jpg?v=1589744069", 
+        "isFirstDoubleWide": false, 
+        "levelTwoCats": [
           {
             "title": "Boyshort",
             "titleUrl": "/womens-brallete",
-            "mobileImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
-            "desktopImage":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
-            "doubleDesktopImage": ""
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           }
         ] 
       }

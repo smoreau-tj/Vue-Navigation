@@ -62,7 +62,27 @@
   .nav-item__list .level-zero-container:first-child .level-one-list {
     display: block;
     .level-two-list {
-      display: none;
+      // display: none;
+    }
+  }
+
+  .nav-item__list {
+    .level-one-container {
+      .level-two-list {
+        position: fixed;
+        top: 63px;
+        left: 0;
+        transition: transform 0.3s;
+        transform: translateX(-200%);
+      }
+
+      &.active {
+        .level-two-list {
+          // display: block;
+          transform: translateX(0);
+        }
+
+      }
     }
   }
 

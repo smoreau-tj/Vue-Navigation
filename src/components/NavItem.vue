@@ -1,7 +1,8 @@
 <template>
   <div class="list-item">
     <a href="">
-      <img class="desktop-single-image" v-if="desktopImage" :src="desktopImage"/>
+      <img class="mobile-image" v-if="mobileImage" :src="mobileImage"/>
+      <img class="level-two-image" v-if="levelTwoImage" :src="levelTwoImage"/>
       <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
@@ -16,7 +17,8 @@ export default {
     title: String,
     titleUrl: String,
     titleColor: String,
-    desktopImage: String,
+    mobileImage: String,
+    levelTwoImage: String,
   },
 };
 </script>
@@ -49,11 +51,12 @@ export default {
     }
 
     &.level-one-item {
-      height: 50px;
-      line-height: 50px;
+      height: 70px;
+      line-height: 70px;
       background-color: $lightest-grey;
       margin-bottom: 4px;
       position: relative;
+      text-align: left;
 
       @media screen and (min-width: 1024px) {
         height: 46px;
@@ -66,7 +69,6 @@ export default {
 
       a {
         width: 100%;
-        display: block;
         text-align: left;
 
         @media screen and (min-width: 1024px) {
@@ -75,6 +77,17 @@ export default {
           width: unset;
           display: unset;
           text-align: unset;
+        }
+
+        .mobile-image {
+          display: inline;
+          height: 70px;
+          position: absolute;
+          right: 16px;
+
+          @media screen and (min-width: 1024px) {
+            display: none;
+          }
         }
 
         .nav-item-title {
@@ -89,6 +102,8 @@ export default {
       }
 
       .icon-right-open {
+        display: none;
+
         @media screen and (min-width: 1024px) {
           position: absolute;
           display: inline;
@@ -124,11 +139,12 @@ export default {
     }
 
     &.level-two-item {
-        height: 50px;
-        line-height: 50px;
-        background-color: $lightest-grey;
-        margin-bottom: 4px;
-        position: relative;
+      height: 70px;
+      line-height: 70px;
+      background-color: $lightest-grey;
+      margin-bottom: 4px;
+      position: relative;
+      text-align: left;
 
       @media screen and (min-width: 1024px) {
         vertical-align: top;
@@ -144,18 +160,15 @@ export default {
           display: block;
         }
 
-        .desktop-single-image {
-          //this styling should be for mobile image, will replace soon.
+        .level-two-image {
+          display: inline;
+          height: 70px;
           position: absolute;
-          height: 50px;
           right: 16px;
-
+          
           @media screen and (min-width: 1024px) {
-            display: block;
-            max-height: 174px;
-            padding-bottom: 8px;
-            position: unset;
-            height: unset;
+            position: relative;
+            height: 174px;
             right: unset;
           }
         }
