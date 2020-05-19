@@ -29,17 +29,10 @@
 
   .level-one-container {
     .level-two-list {
-      position: fixed;
-      top: 63px;
-      left: 0;
       transition: transform 0.3s;
       transform: translateX(-200%);
-      display: block;
 
       @media screen and (min-width: 1024px) {
-        position: unset;
-        top: unset;
-        left: unset;
         transition: unset;
         transform: unset;
       }

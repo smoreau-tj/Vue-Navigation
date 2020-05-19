@@ -88,6 +88,10 @@ export default {
     height: 100%;
     z-index: 3;
     background-color: white;
+    position: fixed;
+    top: 63px;
+    left: 0;
+    display: block;
 
 
     @media screen and (min-width: 1024px) {
@@ -135,6 +139,13 @@ export default {
       margin: 24px 24px 6px 24px;
       line-height: 50px;
 
+      @media screen and (min-width: 1024px) {
+        margin: 16px 0 16px 0;
+        height: unset;
+        line-height: 1;
+        background-color: transparent;
+      }
+
       a {
         text-decoration: none;
 
@@ -144,8 +155,12 @@ export default {
           font-size: 14px;
           color: $grey-dark;
 
+          @media screen and (min-width: 1024px) {
+            margin-left: 0;
+            text-decoration: underline;
+            font-family: $basetica-bold;
+          }
         }
-
       }
     }
   }
