@@ -51,6 +51,36 @@ export default {
             "title": "Trunks",
             "titleUrl": "/mens-underwear-trunk",
             "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
+          },
+          {
+            "title": "Boxer Briefs",
+            "titleUrl": "/mens-underwear-brief",
+            "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+          },
+          {
+            "title": "Number Four",
+            "titleUrl": "/mens-underwear-trunk",
+            "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
+          },
+          {
+            "title": "Number Five",
+            "titleUrl": "/mens-underwear-brief",
+            "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+          },
+          {
+            "title": "Number 6",
+            "titleUrl": "/mens-underwear-trunk",
+            "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
+          },
+          {
+            "title": "Number 7",
+            "titleUrl": "/mens-underwear-brief",
+            "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+          },
+          {
+            "title": "Number 8",
+            "titleUrl": "/mens-underwear-trunk",
+            "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           }
         ]
       },

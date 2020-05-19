@@ -31,10 +31,19 @@
         </a>
       </li>
       <NavLevelTwo
-        v-for="levelTwoData in levelOneData.levelTwoCats"
-        :key="levelTwoData.id"
+        v-for="(levelTwoData, index) in levelOneData.levelTwoCats"
+        :key="index"
+        :index="index"
         :levelTwoData="levelTwoData"
       />
+      <li class="level-two-container links-only" v-if="levelOneData.levelTwoCats.length > 4">
+        <div class="level-two-item links-only"
+          v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(5, levelOneData.levelTwoCats.length )"
+          :key="index"
+          >
+            <a  :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
+        </div>
+      </li>
     </ul>
   </li>
 </template>

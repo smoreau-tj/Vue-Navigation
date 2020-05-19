@@ -20,7 +20,8 @@ export default {
     NavItem,
   },
   props: {
-    levelTwoData: Object
+    levelTwoData: Object,
+    index: Number
 
   }
 };
