@@ -46,9 +46,11 @@ export default {
 
   .level-two-container {
     display: block;
+    margin: 2px 24px 2px 24px;
 
     @media screen and (min-width: 1024px) {
       display: inline-block;
+      margin: unset;
     }
   }
 

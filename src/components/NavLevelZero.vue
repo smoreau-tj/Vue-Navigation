@@ -105,10 +105,10 @@ export default {
       list-style-type: none;
       width: 268px;
       margin: 16px 24px 24px 24px;
+      left: 0;
+
 
       @media screen and (min-width: 1024px) {
-        position: absolute;
-        left: 0;
         width: 100%;
         top: 66px;
         background-color: $white;

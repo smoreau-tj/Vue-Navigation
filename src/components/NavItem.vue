@@ -156,9 +156,7 @@ export default {
       }
 
       a {
-        @media screen and (min-width: 1024px) {
-          display: block;
-        }
+        display: block;
 
         .level-two-image {
           display: inline;

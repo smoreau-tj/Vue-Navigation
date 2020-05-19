@@ -79,7 +79,7 @@ export default {
   data () {
     return {
       showMobileMenu: false,
-      activeIndex: null
+      activeIndex: 0
     }
   },
   methods : {

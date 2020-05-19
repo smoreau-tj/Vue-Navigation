@@ -3,6 +3,8 @@
 
 
 //Hover and Active States
+
+//Hover
   .level-zero-container {
     .level-one-list {
       @media screen and (min-width: 1024px) {
@@ -54,19 +56,34 @@
     }
   }
 
-  //test styling
-  .level-one-list {
-    display: none;
-  }
+  //Active
+  .nav-item__list  {
+    .level-zero-container {
+      .level-one-list {
+        display: none;
 
-  .nav-item__list .level-zero-container:first-child .level-one-list {
-    display: block;
-    .level-two-list {
-      // display: none;
+        @media screen and (min-width: 1024px) {
+          display: unset;
+        }
+      }
+      
+      &.active {
+        border-bottom: 2px solid $grey-dark;
+
+        @media screen and (min-width: 1024px) {
+          border-bottom: unset;
+        }
+
+        .level-one-list {
+          display: block;
+
+          @media screen and (min-width: 1024px) {
+            display: unset;
+          }
+        }
+      }
     }
-  }
 
-  .nav-item__list {
     .level-one-container {
       .level-two-list {
         position: fixed;
@@ -74,16 +91,29 @@
         left: 0;
         transition: transform 0.3s;
         transform: translateX(-200%);
+        display: block;
+
+        @media screen and (min-width: 1024px) {
+          position: unset;
+          top: unset;
+          left: unset;
+          transition: unset;
+          transform: unset;
+        }
       }
 
       &.active {
         .level-two-list {
-          // display: block;
           transform: translateX(0);
+
+          @media screen and (min-width: 1024px) {
+            transform: unset;
+          }
         }
 
       }
     }
   }
+
 
 

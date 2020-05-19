@@ -1,19 +1,21 @@
 <template>
 <li class="level-one-container"
-  @click="toggleActiveLevelOne"
   :class="{ active: isActive }"
 >
-  <NavItem class="level-one-item"
-    :title="levelOneData.title"
-    :titleUrl="levelOneData.titleUrl"
-    :titleColor="levelOneData.titleColor"
-    :mobileImage="levelOneData.image"
-   />
+  <div @click="toggleActiveLevelOne">
+    <NavItem class="level-one-item"
+      :title="levelOneData.title"
+      :titleUrl="levelOneData.titleUrl"
+      :titleColor="levelOneData.titleColor"
+      :mobileImage="levelOneData.image"
+
+    />
+  </div>
    <ul class="nav-item__list level-two-list"
       v-if="levelOneData.levelTwoCats"
     >
       <li class="mobile-title-container">
-        <i class="icon-left-close"> </i>
+        <i class="icon-left-close" @click="toggleActiveLevelOne"> </i>
         <span v-if="mobileGenderTitle === 'Men' || 'Women'" class="level-two-mobile-title">
           {{mobileGenderTitle + "'s " + levelOneData.title}}
         </span>
@@ -124,6 +126,26 @@ export default {
 
       .level-two-mobile-title {
         font-size: 14px;
+      }
+    }
+
+    .shop-all-item {
+      height: 50px;
+      background-color: $lightest-grey;
+      margin: 24px 24px 6px 24px;
+      line-height: 50px;
+
+      a {
+        text-decoration: none;
+
+        .nav-item-title {
+          margin-left: 16px;
+          font-family: $basetica;
+          font-size: 14px;
+          color: $grey-dark;
+
+        }
+
       }
     }
   }
