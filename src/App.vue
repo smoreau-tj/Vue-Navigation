@@ -58,7 +58,7 @@ export default {
         "title": "Undershirts", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Undershirts", 
-        "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701", 
+        "image":"", 
         "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {

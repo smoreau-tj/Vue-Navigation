@@ -84,6 +84,7 @@ export default {
           height: 70px;
           position: absolute;
           right: 16px;
+          z-index: 2;
 
           @media screen and (min-width: 1024px) {
             display: none;
@@ -102,13 +103,17 @@ export default {
       }
 
       .icon-right-open {
-        display: none;
+          font-family: $fontello;
+          position: absolute;
+          right: 32px;
+          font-size: 24px;
+          color: $grey-neutral;
+          z-index: 1;
 
         @media screen and (min-width: 1024px) {
-          position: absolute;
           display: inline;
-          font-family: $fontello;
           right: 16px;
+          font-size: 20px;
         }
 
         &::before {
