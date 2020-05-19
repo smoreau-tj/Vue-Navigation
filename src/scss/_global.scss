@@ -4,116 +4,111 @@
 
 //Hover and Active States
 
-//Hover
-  .level-zero-container {
+
+ //Active
+ .level-zero-container {
+  .level-one-list {
+    display: none;
+  }
+  
+  &.active {
+    border-bottom: 2px solid $grey-dark;
+
+    @media screen and (min-width: 1024px) {
+      border-bottom: unset;
+    }
+
     .level-one-list {
+      display: block;
+
       @media screen and (min-width: 1024px) {
         display: none;
       }
-      .level-one-container {
-        .level-two-list {
-          @media screen and (min-width: 1024px) {
-            display: none;
-          }
-        }
+    }
+  }
+
+  .level-one-container {
+    .level-two-list {
+      position: fixed;
+      top: 63px;
+      left: 0;
+      transition: transform 0.3s;
+      transform: translateX(-200%);
+      display: block;
+
+      @media screen and (min-width: 1024px) {
+        position: unset;
+        top: unset;
+        left: unset;
+        transition: unset;
+        transform: unset;
       }
     }
 
-    &:hover {
-      .level-one-list {
-        @media screen and (min-width: 1024px) {
-          display: block;
-        }
+    &.active {
+      .level-two-list {
+        transform: translateX(0);
 
-        .level-one-container:first-child {
+        @media screen and (min-width: 1024px) {
+          transform: unset;
+        }
+      }
+
+    }
+  }
+}
+
+//Hover
+.level-zero-container {
+  .level-one-list {
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+    .level-one-container {
+      .level-two-list {
+        @media screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .level-one-list {
+      @media screen and (min-width: 1024px) {
+        display: block;
+      }
+
+      .level-one-container:first-child {
+        .level-two-list {
+          @media screen and (min-width: 1024px) {
+            display: block;
+          }
+        }
+      }
+
+      &:hover { 
+        .level-one-container {
+          .level-two-list {
+            @media screen and (min-width: 1024px) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .level-one-container{
+        &:hover{
           .level-two-list {
             @media screen and (min-width: 1024px) {
               display: block;
             }
           }
         }
-
-        &:hover { 
-          .level-one-container {
-            .level-two-list {
-              @media screen and (min-width: 1024px) {
-                display: none;
-              }
-            }
-          }
-        }
-
-        .level-one-container{
-          &:hover{
-            .level-two-list {
-              @media screen and (min-width: 1024px) {
-                display: block;
-              }
-            }
-          }
-        }
       }
     }
   }
-
-  //Active
-  .nav-item__list  {
-    .level-zero-container {
-      .level-one-list {
-        display: none;
-
-        @media screen and (min-width: 1024px) {
-          display: unset;
-        }
-      }
-      
-      &.active {
-        border-bottom: 2px solid $grey-dark;
-
-        @media screen and (min-width: 1024px) {
-          border-bottom: unset;
-        }
-
-        .level-one-list {
-          display: block;
-
-          @media screen and (min-width: 1024px) {
-            display: unset;
-          }
-        }
-      }
-    }
-
-    .level-one-container {
-      .level-two-list {
-        position: fixed;
-        top: 63px;
-        left: 0;
-        transition: transform 0.3s;
-        transform: translateX(-200%);
-        display: block;
-
-        @media screen and (min-width: 1024px) {
-          position: unset;
-          top: unset;
-          left: unset;
-          transition: unset;
-          transform: unset;
-        }
-      }
-
-      &.active {
-        .level-two-list {
-          transform: translateX(0);
-
-          @media screen and (min-width: 1024px) {
-            transform: unset;
-          }
-        }
-
-      }
-    }
-  }
+}
 
 
 
