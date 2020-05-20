@@ -1,35 +1,34 @@
 <template>
   <header class="header-main" data-header-main>
     <div class="header-main__inner container">
-      <div class="mobile-menu-toggle">
+      <div 
+        class="mobile-menu-toggle" 
+        @click="showMobileMenu = !showMobileMenu"
+      >
         <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
       </div>
-      <div class="nav-item-container left">
+      <div 
+        class="nav-item-container left"
+        :class="toggleMobileMenu"
+      >
         <div class="mobile-search-close-container">
           <span class="mobile-search-toggle">
             <img alt="mobile search icon" src="../assets/images/svg-mobile-search.svg">
           </span>
-          <span class="mobile-menu-close-btn">&times;</span>
+          <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
+        <ul class="nav-item__list level-zero-list">
         <NavLevelZero 
-        class="level-zero-list" 
-        :navLevelZeroData=navLevelZeroData
-        @level-zero-active="getLevelOneToShow"
-         />
-        <div class="sub-nav-container">
-          <NavLevelOne 
-            class="level-one-list" 
-            :navLevelOneData=navLevelOneData
-            @level-one-active="getLevelTwoToShow"
-            :showLevelOneItems="showLevelOneItems"
+          v-for="(navItemData, index) in navData"
+          :key="index"
+          :navItemData="navItemData"
+          :isActive="activeIndex === index"
+          @onActiveItem="onActiveItem(index)"
           />
-          <NavLevelTwo 
-            class="level-two-list" 
-            :navLevelTwoData=navLevelTwoData
-            :showLevelTwoItems="showLevelTwoItems"
-          />
-        </div>
+        </ul>
+        <NavMobileFooterLinks />
       </div>
+      <div class="mobile-overlay"></div>
       <div class="header-item center">
         <a
           href="/"
@@ -65,36 +64,37 @@
 
 <script>
 import NavLevelZero from './NavLevelZero.vue'
-import NavLevelOne from './NavLevelOne.vue'
-import NavLevelTwo from './NavLevelTwo.vue'
+import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
 
 
 export default {
   name: "Navigation",
   components: {
     NavLevelZero,
-    NavLevelOne,
-    NavLevelTwo
+    NavMobileFooterLinks
   },
   props: {
-    navLevelZeroData: Array,
-    navLevelOneData: Array,
-    navLevelTwoData: Array,
+    navData: Array
   },
   data () {
     return {
-      showLevelOneItems: 1,
-      showLevelTwoItems: 1,
+      showMobileMenu: false,
+      activeIndex: 0
     }
   },
-  methods: {
-    getLevelOneToShow(value){
-      console.log('Show Level one elements with this id', value);
-      this.showLevelOneItems = value;
-    },
-    getLevelTwoToShow(value){
-      console.log('show level two elements with this id', value);
-      this.showLevelTwoItems = value;
+  methods : {
+     onActiveItem(index) {
+      if (this.activeIndex === index) {
+        this.activIndex = null;
+      }
+      else {
+        this.activeIndex = index;
+      }
+    }
+  },
+  computed : {
+    toggleMobileMenu() {
+      return this.showMobileMenu ? 'active' : '';
     }
   }
 }
@@ -107,7 +107,7 @@ export default {
 .header-main {
   background-color: $white;
   
-  @media screen and (min-width: 1152px) {
+  @media screen and (min-width: 1024px) {
     position: sticky;
     top: 0;
     left: 0;
@@ -128,28 +128,28 @@ export default {
       height: 66px;
       line-height: 66px;
       text-align: left;
+      cursor: pointer;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: none;
       }
     }
 
     .nav-item-container {
-      display: none;
       font-family: $basetica;
       color: $grey-dark;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
+      background-color: white;
+      transition: transform 0.3s;
+      transform: translateX(-100%);
+      box-shadow: 0 10px 80px 0 rgba(0,0,0,0.10);
+      width: 320px;
 
-      @media screen and (min-width: 768px) {
-        display: block;
-        width: 264px;
-        background-color: white;
-        position: absolute;
-        top: 0;
-        left: 0px;
-      }
-
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: inline-block;
         width: 50%;
         font-size: 16px;
@@ -159,13 +159,18 @@ export default {
         left: unset;
         top: unset;
         background-color: none;
+        transition: unset;
+        transform: unset;
+        box-shadow: none;
       }
 
-      &:hover {
-        .sub-nav-container {
-          @media screen and (min-width: 1152px) {
-            display: block;
-          }
+      &.active {
+        z-index: 2;
+        transform: translateX(0);
+
+        @media screen and (min-width: 1024px) {
+          transform: unset;
+          z-index: unset;
         }
       }
 
@@ -173,9 +178,9 @@ export default {
         display: block;
         height: 46px;
         line-height: 46px;
-        padding: 16px 16px 16px;
+        padding: 16px 16px 0 16px;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           display: none;
         }
 
@@ -183,6 +188,7 @@ export default {
           display: inline-block;
           width: 50%;
           text-align: left;
+          cursor: pointer;
 
           img {
             width: 16px;
@@ -196,30 +202,46 @@ export default {
           font-family: $basetica;
           color: $blue;
           text-align: right;
+          cursor: pointer;
         }
       }
 
-      .sub-nav-container {
-        @media screen and (min-width: 768px) {
-          display: block;
-          position: relative;
-        }
+      .level-zero-list {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        height: 76px;
+        line-height: 76px;
+        border-top: .5px solid $grey;
+        border-bottom: .5px solid $grey;
 
-        @media screen and (min-width: 1152px) {
-          // display: none;
-          border-top: solid 1px $grey;
-          padding-top: 8px;
-          height: 431px;
-          position: absolute;
-          width: 100%;
-          left: 0;
-          background-color: white;
-          top: 66px;
-        }
+        @media screen and (min-width: 1024px) {
+          height: 66px;
+          text-align: left;
+          line-height: unset;
+          border-top: unset;
+          border-bottom: unset;
 
-        &:hover {
-          display: block;
         }
+      }
+    }
+
+    .mobile-overlay {
+      display: none;
+    }
+
+    .nav-item-container.active + .mobile-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: rgba(245,245,245,0.85);
+
+      @media screen and (min-width: 1024px) {
+        display: none;
       }
     }
 
@@ -227,7 +249,7 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1152px) {
+      @media screen and (min-width: 1024px) {
         display: inline-block;
         font-size: 16px;
         line-height: 66px;
@@ -257,7 +279,7 @@ export default {
         min-width: 118px;
         width: 33.3333%;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           width: 182px;
           margin: auto;
           position: absolute;
@@ -285,7 +307,7 @@ export default {
         height: 66px;
         line-height: 66px;
 
-        @media screen and (min-width: 1152px) {
+        @media screen and (min-width: 1024px) {
           font-size: 14px;
           width: 50%;
         }
@@ -297,7 +319,7 @@ export default {
           &.search-item {
             display: none;
 
-            @media screen and (min-width: 1152px) {
+            @media screen and (min-width: 1024px) {
               display: inline-block;
             }
 
@@ -327,7 +349,7 @@ export default {
           &.account-item {
             display: none;
 
-            @media screen and (min-width: 1152px) {
+            @media screen and (min-width: 1024px) {
               display: inline-block;
             }
 

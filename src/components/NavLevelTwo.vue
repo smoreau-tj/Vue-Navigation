@@ -1,17 +1,12 @@
 <template>
-  <ul class="nav-item__list">
-    <NavItem class="level-two-item" v-on="$listeners"
-      v-for="navItem in navLevelTwoData" 
-      :key="navItem.id" 
-      :title="navItem.title"
-      :titleUrl="navItem.titleUrl"
-      :titleColor="navItem.titleColor"
-      :desktopImage="navItem.desktopImage"
-      :parentId="navItem.parentId"
-      :level="level"
-      :showLevelTwoItems="showLevelTwoItems"
-    />
-  </ul>
+<li class="level-two-container">
+  <NavItem class="level-two-item"
+    :title="levelTwoData.title"
+    :titleUrl="levelTwoData.titleUrl"
+    :titleColor="levelTwoData.titleColor"
+    :levelTwoImage="levelTwoData.image"
+  />
+</li>
 </template>
 
 
@@ -25,16 +20,10 @@ export default {
     NavItem,
   },
   props: {
-    navLevelTwoData: Array,
-    showLevelTwoItems: Number
+    levelTwoData: Object,
+    index: Number
 
-  },
-  data() {
-    return {
-      level: 2
-    }
   }
-
 };
 </script>
 
@@ -46,13 +35,23 @@ export default {
     padding: 0;
     text-align: left;
 
-    @media screen and (min-width: 1152px) {
+    @media screen and (min-width: 1024px) {
       margin: 0 auto;
       padding: 24px 42px 0 42px;
       text-align: left;
       width: calc(100% - 314px);
       display: inline-block;
       vertical-align: top;
+    }
+  }
+
+  .level-two-container {
+    display: block;
+    margin: 2px 24px 2px 24px;
+
+    @media screen and (min-width: 1024px) {
+      display: inline-block;
+      margin: unset;
     }
   }
 
