@@ -12,6 +12,7 @@
     />
   </div>
    <ul class="nav-item__list level-two-list"
+      :class="{'greater-than-7-items' : levelOneData.levelTwoCats.length > 6}"
       v-if="levelOneData.levelTwoCats"
     >
       <li class="mobile-title-container">
@@ -36,8 +37,8 @@
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li class="level-two-container links-only" v-if="levelOneData.levelTwoCats.length > 4">
-        <div class="level-two-item links-only"
+      <li class="links-only" v-if="levelOneData.levelTwoCats.length > 6">
+        <div class="level-two-item"
           v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(5, levelOneData.levelTwoCats.length )"
           :key="index"
           >
@@ -168,6 +169,45 @@ export default {
             margin-left: 0;
             text-decoration: underline;
             font-family: $basetica-bold;
+          }
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+     &.greater-than-7-items {
+      .level-two-container:nth-child(n+8){
+        @media screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .links-only{
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+          display: inline-block;
+          vertical-align: top;
+          margin-left: 16px;
+        }
+
+        .level-two-item {
+          font-size: 14px;
+          margin-bottom: 8px;
+          display: block;
+          line-height: 1;
+
+          a {
+            margin-left: 0;
+            text-decoration: none;
+            color: $grey-dark;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }

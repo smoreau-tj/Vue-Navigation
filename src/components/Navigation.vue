@@ -147,10 +147,7 @@ export default {
       transition: transform 0.3s;
       transform: translateX(-100%);
       box-shadow: 0 10px 80px 0 rgba(0,0,0,0.10);
-
-      @media screen and (min-width: 768px) {
-        width: 320px;
-      }
+      width: 320px;
 
       @media screen and (min-width: 1024px) {
         display: inline-block;

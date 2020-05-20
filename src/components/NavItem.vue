@@ -171,7 +171,8 @@ export default {
           
           @media screen and (min-width: 1024px) {
             position: relative;
-            height: 174px;
+            height: unset;
+            width: 130px;
             right: unset;
           }
         }
