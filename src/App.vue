@@ -31,7 +31,7 @@ export default {
     "title": "Men", 
     "titleColor": "#4D4D4D", 
     "titleUrl": "/mens-underwear",
-    "hideCollection": false,
+    "hideCollection": true,
     "clickableText": true, 
     "levelOneCats": [
       {

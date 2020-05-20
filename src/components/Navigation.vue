@@ -19,7 +19,7 @@
         </div>
         <ul class="nav-item__list level-zero-list">
         <NavLevelZero 
-          v-for="(navItemData, index) in navData"
+          v-for="(navItemData, index) in visibleNavData"
           :key="index"
           :navItemData="navItemData"
           :isActive="activeIndex === index"
@@ -96,6 +96,11 @@ export default {
   computed : {
     toggleMobileMenu() {
       return this.showMobileMenu ? 'active' : '';
+    },
+    visibleNavData() {
+      return this.navData.filter(function(n){
+        return !n.hideCollection
+      });
     }
   }
 }
