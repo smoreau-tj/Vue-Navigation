@@ -73,6 +73,25 @@
       }
 
       .level-one-container:first-child {
+        .level-one-item {
+          @media screen and (min-width: 1024px) {
+            background-color: $grey-light;
+          }
+
+          .nav-item-title {
+            @media screen and (min-width: 1024px) {
+              font-family: $basetica-bold;
+              color: $blue;
+            }
+          }
+  
+          .icon-right-open {
+              @media screen and (min-width: 1024px) {
+              font-weight: bold;
+              color: $blue;
+            }
+          }
+        }
         .level-two-list {
           @media screen and (min-width: 1024px) {
             display: block;
@@ -82,6 +101,26 @@
 
       &:hover { 
         .level-one-container {
+          .level-one-item {
+            @media screen and (min-width: 1024px) {
+              background-color: unset;
+            }
+
+            .nav-item-title {
+              @media screen and (min-width: 1024px) {
+                font-family: unset;
+                color: unset;
+              }
+            }
+    
+            .icon-right-open {
+                @media screen and (min-width: 1024px) {
+                font-weight: unset;
+                color: unset;
+              }
+            }
+          }
+
           .level-two-list {
             @media screen and (min-width: 1024px) {
               display: none;
@@ -92,6 +131,26 @@
 
       .level-one-container{
         &:hover{
+          .level-one-item {
+            @media screen and (min-width: 1024px) {
+              background-color: $grey-light;
+            }
+
+            .nav-item-title {
+              @media screen and (min-width: 1024px) {
+                font-family: $basetica-bold;
+                color: $blue;
+              }
+            }
+    
+            .icon-right-open {
+                @media screen and (min-width: 1024px) {
+                font-weight: bold;
+                color: $blue;
+              }
+            }
+          }
+
           .level-two-list {
             @media screen and (min-width: 1024px) {
               display: block;
