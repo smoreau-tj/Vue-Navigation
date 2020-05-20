@@ -124,15 +124,28 @@ export default {
     }
 
     .mobile-menu-toggle {
-      width: 33.3333%;
+      width: 50%;
       display: inline-block;
       height: 66px;
       line-height: 66px;
       text-align: left;
       cursor: pointer;
 
+      @media screen and (min-width: 480px) {
+        width: 33.3333%;
+      }
+
+
       @media screen and (min-width: 1024px) {
         display: none;
+      }
+
+      img {
+        width: 16px;
+
+        @media screen and (min-width: 480px) {
+          width: unset;
+        }
       }
     }
 
@@ -212,7 +225,7 @@ export default {
         padding: 0;
         text-align: center;
         height: 76px;
-        line-height: 76px;
+        line-height: 75px;
         border-top: .5px solid $grey;
         border-bottom: .5px solid $grey;
 
@@ -276,9 +289,24 @@ export default {
       }
 
       &.center {
-        display: inline-block;
-        min-width: 118px;
-        width: 33.3333%;
+        width: 118px;
+        margin: auto;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        @media screen and (min-width: 480px) {
+          width: 33.3333%;
+          margin: 0 auto;
+          display: inline-block;
+          position: relative;
+          left: unset;
+          bottom: unset;
+          right: unset;
+          top: unset;
+        }
 
         @media screen and (min-width: 1024px) {
           width: 182px;
@@ -294,24 +322,32 @@ export default {
           display: inline-block;
 
           img {
-            // height: 36px;
-            width: 182px;
-            vertical-align: middle;
+            width: 118px;
+
+            @media screen and (min-width: 480px) {
+              width: 182px;
+              vertical-align: middle;
+            }
           }
         }
       }
 
       &.right {
         text-align: right;
-        width: 33.3333%;
+        width: 50%;
         display: inline-block;
         height: 66px;
         line-height: 66px;
+
+        @media screen and (min-width: 480px) {
+          width: 33.3333%;
+        }
 
         @media screen and (min-width: 1024px) {
           font-size: 14px;
           width: 50%;
         }
+
         li {
           &:not(:last-child) {
             margin-right: 24px;

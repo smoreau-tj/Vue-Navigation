@@ -12,7 +12,10 @@
     />
   </div>
    <ul class="nav-item__list level-two-list"
-      :class="{'greater-than-7-items' : levelOneData.levelTwoCats.length > 6}"
+      :class="[
+        {'max-nav-items' : levelOneData.levelTwoCats.length > 7 && !levelOneData.isFirstDoubleWide }, 
+        {'max-nav-items-doublewide' : levelOneData.levelTwoCats.length > 5 && levelOneData.isFirstDoubleWide }
+      ]"
       v-if="levelOneData.levelTwoCats"
     >
       <li class="mobile-title-container">
@@ -37,12 +40,20 @@
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li class="links-only" v-if="levelOneData.levelTwoCats.length > 6">
+      <li v-if="levelOneData.levelTwoCats.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
+        <div class="level-two-item"
+          v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(4, levelOneData.levelTwoCats.length )"
+          :key="index"
+          >
+            <a :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
+        </div>
+      </li>
+      <li v-else-if="levelOneData.levelTwoCats.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
         <div class="level-two-item"
           v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(5, levelOneData.levelTwoCats.length )"
           :key="index"
           >
-            <a  :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
+            <a :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
         </div>
       </li>
     </ul>
@@ -178,7 +189,8 @@ export default {
       }
     }
 
-     &.greater-than-7-items {
+    &.max-nav-items,
+    &.max-nav-items-doublewide {
       .level-two-container:nth-child(n+8){
         @media screen and (min-width: 1024px) {
           display: none;
@@ -209,6 +221,14 @@ export default {
               text-decoration: underline;
             }
           }
+        }
+      }
+    }
+
+    &.max-nav-items-doublewide {
+      .level-two-container:nth-child(n+7){
+        @media screen and (min-width: 1024px) {
+          display: none;
         }
       }
     }

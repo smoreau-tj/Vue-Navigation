@@ -45,7 +45,7 @@ export default {
           {
             "title": "Brief",
             "titleUrl": "/mens-underwear-brief",
-            "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
+            "image": "https://cdn.shopify.com/s/files/1/0019/1466/7055/files/doublewide_jpg.png?v=1590009580"
           },
           {
             "title": "Trunks",
@@ -133,6 +133,36 @@ export default {
             "title": "Bralette",
             "titleUrl": "/womens-brallete",
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 2",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 3",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 4",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 5",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 6",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
+          },
+          {
+            "title": "Bras 7",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           }
         ] 
       },
@@ -147,7 +177,42 @@ export default {
             "title": "Boyshort",
             "titleUrl": "/womens-brallete",
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
-          }
+          },
+          {
+            "title": "Underwear 2",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 3",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 4",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 5",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 6",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 7",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
+          {
+            "title": "Underwear 8",
+            "titleUrl": "/womens-brallete",
+            "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
+          },
         ] 
       }
     ]
