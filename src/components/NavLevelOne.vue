@@ -8,6 +8,7 @@
       :titleUrl="levelOneData.titleUrl"
       :titleColor="levelOneData.titleColor"
       :mobileImage="levelOneData.image"
+      :backgroundColor="levelOneData.backgroundColor"
 
     />
   </div>

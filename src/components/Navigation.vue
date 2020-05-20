@@ -101,7 +101,7 @@ export default {
       return this.navData.filter(function(n){
         return !n.hideCollection
       });
-    }
+    },
   }
 }
 

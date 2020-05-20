@@ -1,9 +1,9 @@
 <template>
-  <div class="list-item">
+  <div class="list-item" :style="{backgroundColor : backgroundColor}">
     <a href="" :class="{'disable-link' : !clickableText }">
       <img class="mobile-image" alt="" v-if="mobileImage" :src="mobileImage"/>
       <img class="level-two-image" alt="" v-if="levelTwoImage" :src="levelTwoImage"/>
-      <span class="nav-item-title">{{title}}</span>
+      <span class="nav-item-title" :style="{color: titleColor}">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
   </div>
@@ -17,10 +17,11 @@ export default {
     title: String,
     titleUrl: String,
     titleColor: String,
+    backgroundColor: String,
     mobileImage: String,
     levelTwoImage: String,
     clickableText: Boolean
-  },
+  }
 };
 </script>
 
