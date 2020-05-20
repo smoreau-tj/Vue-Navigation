@@ -47,7 +47,8 @@
         <ul class="header-item__list">
           <li class="search-item">
             <img alt="Search Icon" src="../assets/images/svg-search.svg" />
-            <input type="text" placeholder="Search" />
+            <!-- <label for="search" title="search field"></label> -->
+            <input type="text" title="search" name="search" id="search" aria-label="search" placeholder="Search" />
           </li>
           <li class="account-item">
             Hi, Sign-in<i class="icon-down-open"></i>

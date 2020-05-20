@@ -1,8 +1,8 @@
 <template>
   <div class="list-item">
     <a href="">
-      <img class="mobile-image" v-if="mobileImage" :src="mobileImage"/>
-      <img class="level-two-image" v-if="levelTwoImage" :src="levelTwoImage"/>
+      <img class="mobile-image" alt="" v-if="mobileImage" :src="mobileImage"/>
+      <img class="level-two-image" alt="" v-if="levelTwoImage" :src="levelTwoImage"/>
       <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
