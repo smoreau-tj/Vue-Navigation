@@ -7,6 +7,7 @@
     :title="navItemData.title"
     :titleUrl="navItemData.titleUrl"
     :titleColor="navItemData.titleColor"
+    :clickableText="navItemData.clickableText"
     />
     <ul class="nav-item__list level-one-list"
       v-if="navItemData.levelOneCats"
@@ -68,6 +69,7 @@ export default {
 
   .level-zero-container {
     display: none;
+    cursor: pointer;
 
     @media screen and (min-width: 1024px) {
       display: inline-block;

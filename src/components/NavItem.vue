@@ -1,6 +1,6 @@
 <template>
   <div class="list-item">
-    <a href="">
+    <a href="" :class="{'disable-link' : !clickableText }">
       <img class="mobile-image" alt="" v-if="mobileImage" :src="mobileImage"/>
       <img class="level-two-image" alt="" v-if="levelTwoImage" :src="levelTwoImage"/>
       <span class="nav-item-title">{{title}}</span>
@@ -19,6 +19,7 @@ export default {
     titleColor: String,
     mobileImage: String,
     levelTwoImage: String,
+    clickableText: Boolean
   },
 };
 </script>
@@ -46,6 +47,10 @@ export default {
 
         @media screen and (min-width: 1024px) {
           font-family: $basetica;
+        }
+
+        &.disable-link {
+          pointer-events: none;
         }
       }
     }
