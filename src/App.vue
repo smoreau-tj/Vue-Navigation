@@ -32,53 +32,62 @@ export default {
     "titleColor": "#4D4D4D", 
     "titleUrl": "/mens-underwear",
     "hideCollection": false,
-    "clickableText": true, 
+    "clickableText": false, 
     "levelOneCats": [
       {
         "title": "Underwear", 
         "titleHoverColor": "#587679", 
-        "titleUrl": "/underwear", 
-        "image":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130", 
+        "titleUrl": "/underwear",
+        "hideNavItem": false,
+        "image":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130",
         "backgroundColor": "#24A3E3",
         "isFirstDoubleWide": true, 
         "levelTwoCats": [
           {
             "title": "Brief",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-brief",
             "image": "https://cdn.shopify.com/s/files/1/0019/1466/7055/files/doublewide_jpg.png?v=1590009580"
           },
           {
             "title": "Trunks",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-trunk",
             "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           },
           {
             "title": "Boxer Briefs",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-brief",
             "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
           },
           {
             "title": "Number Four",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-trunk",
             "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           },
           {
             "title": "Number Five",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-brief",
             "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
           },
           {
             "title": "Number 6",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-trunk",
             "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           },
           {
             "title": "Number 7",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-brief",
             "image": "https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=260"
           },
           {
             "title": "Number 8",
+            "hideNavItem": false,
             "titleUrl": "/mens-underwear-trunk",
             "image":"https://tjproduction.imgix.net/products/Pack1.jpg?w=130",
           }
@@ -88,11 +97,13 @@ export default {
         "title": "Undershirts", 
         "titleHoverColor": "#587679", 
         "titleUrl": "/Undershirts", 
-        "image":"", 
+        "image":"",
+        "hideNavItem": false, 
         "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {
             "title": "Tanks",
+            "hideNavItem": false,
             "titleUrl": "/mens-lounge-shirts",
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/tanks.jpg?v=1589743701",
           }
@@ -103,10 +114,12 @@ export default {
         "titleHoverColor": "#587679", 
         "titleUrl": "/loungewear", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
+        "hideNavItem": false,
         "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {
             "title": "Lounge Pants",
+            "hideNavItem": false,
             "titleUrl": "/mens-lounge-pants",
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701",
             
@@ -127,41 +140,49 @@ export default {
         "titleUrl": "/Bras", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
         "backgroundColor": "#24A3E3",
+        "hideNavItem": false,
         "isFirstDoubleWide": false, 
           "levelTwoCats": [
           {
             "title": "Bralette",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 2",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 3",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 4",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 5",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 6",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           },
           {
             "title": "Bras 7",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701",
           }
         ] 
@@ -171,46 +192,55 @@ export default {
         "titleHoverColor": "#587679", 
         "titleUrl": "/womens-underwear", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/w-underwear.jpg?v=1589744069", 
+        "hideNavItem": false,
         "isFirstDoubleWide": false, 
         "levelTwoCats": [
           {
             "title": "Boyshort",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 2",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 3",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 4",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 5",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 6",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 7",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
           {
             "title": "Underwear 8",
             "titleUrl": "/womens-brallete",
+            "hideNavItem": false,
             "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/boyshort.jpg?v=1589744069",
           },
         ] 
@@ -218,10 +248,21 @@ export default {
     ]
   },
   {
-    "title": "Gift Guide"
+    "title": "Gift Guide",
+    "titleColor": "#4D4D4D", 
+    "titleUrl": "/mens-underwear",
+    "hideCollection": false,
+    "clickableText": false,
+    "levelOneCats": []
+
   },
   {
-    "title": "Underwear"
+    "title": "Underwear",
+    "titleColor": "#4D4D4D", 
+    "titleUrl": "/mens-underwear",
+    "hideCollection": false,
+    "clickableText": false,
+    "levelOneCats": [] 
   }
 ]
     }

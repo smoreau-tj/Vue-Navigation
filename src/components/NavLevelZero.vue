@@ -10,10 +10,10 @@
     :clickableText="navItemData.clickableText"
     />
     <ul class="nav-item__list level-one-list"
-      v-if="navItemData.levelOneCats"
+      v-if="visibleLevelOneData"
     >
       <NavLevelOne 
-        v-for="(levelOneData,index) in navItemData.levelOneCats"
+        v-for="(levelOneData,index) in visibleLevelOneData"
         :key="index"
         :mobileGenderTitle="navItemData.title"
         :levelOneData="levelOneData"
@@ -56,6 +56,13 @@ export default {
       else {
         this.activeIndex = index;
       }
+    }
+  },
+  computed : {
+    visibleLevelOneData() {
+      return this.navItemData.levelOneCats.filter(function(d){
+        return !d.hideNavItem
+      });
     }
   }
 

@@ -13,10 +13,10 @@
   </div>
    <ul class="nav-item__list level-two-list"
       :class="[
-        {'max-nav-items' : levelOneData.levelTwoCats.length > 7 && !levelOneData.isFirstDoubleWide }, 
-        {'max-nav-items-doublewide' : levelOneData.levelTwoCats.length > 5 && levelOneData.isFirstDoubleWide }
+        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }, 
+        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 5 && levelOneData.isFirstDoubleWide }
       ]"
-      v-if="levelOneData.levelTwoCats"
+      v-if="visibleLevelTwoData"
     >
       <li class="mobile-title-container">
         <i class="icon-left-close" @click="toggleActiveLevelOne"> </i>
@@ -35,22 +35,22 @@
         </a>
       </li>
       <NavLevelTwo
-        v-for="(levelTwoData, index) in levelOneData.levelTwoCats"
+        v-for="(levelTwoData, index) in visibleLevelTwoData"
         :key="index"
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li v-if="levelOneData.levelTwoCats.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
+      <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(4, levelOneData.levelTwoCats.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(4, visibleLevelTwoData.length )"
           :key="index"
           >
             <a :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
         </div>
       </li>
-      <li v-else-if="levelOneData.levelTwoCats.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
+      <li v-else-if="visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(5, levelOneData.levelTwoCats.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(5, visibleLevelTwoData.length )"
           :key="index"
           >
             <a :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
@@ -80,6 +80,13 @@ export default {
   methods : {
     toggleActiveLevelOne() {
       this.$emit('onActiveLevelOneItem');
+    }
+  },
+  computed : {
+    visibleLevelTwoData() {
+      return this.levelOneData.levelTwoCats.filter(function(d){
+        return !d.hideNavItem
+      });
     }
   }
 };
