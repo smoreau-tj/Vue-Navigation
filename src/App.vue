@@ -40,7 +40,7 @@ export default {
         "titleUrl": "/underwear",
         "hideNavItem": false,
         "image":"https://tjproduction.imgix.net/products/M_10000131000_400007P_S_grande_b753719b-4d9b-4ef7-a698-269cdddb25e2.jpg?w=130",
-        "backgroundColor": "pink",
+        "backgroundColor": "#f5f5f5",
         "isFirstDoubleWide": true, 
         "levelTwoCats": [
           {
@@ -95,7 +95,8 @@ export default {
       },
       {
         "title": "Undershirts", 
-        "titleColor": "pink", 
+        "titleColor": "#4D4D4D",
+        "backgroundColor": "#f5f5f5", 
         "titleUrl": "/Undershirts", 
         "image":"",
         "hideNavItem": false, 
@@ -111,7 +112,8 @@ export default {
       },
       {
         "title": "Loungewear", 
-        "titleColor": "#4D4D4D", 
+        "titleColor": "#4D4D4D",
+        "backgroundColor": "#f5f5f5", 
         "titleUrl": "/loungewear", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
         "hideNavItem": false,
@@ -140,7 +142,7 @@ export default {
         "titleColor": "#4D4D4D", 
         "titleUrl": "/Bras", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
-        "backgroundColor": "#24A3E3",
+        "backgroundColor": "#f5f5f5",
         "hideNavItem": false,
         "isFirstDoubleWide": false, 
           "levelTwoCats": [
@@ -190,7 +192,8 @@ export default {
       },
       {
         "title": "Underwear", 
-        "titleColor": "#587679", 
+        "titleColor": "#4D4D4D",
+        "backgroundColor": "#f5f5f5", 
         "titleUrl": "/womens-underwear", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/w-underwear.jpg?v=1589744069", 
         "hideNavItem": false,

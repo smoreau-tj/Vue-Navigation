@@ -172,7 +172,7 @@ export default {
     &.level-two-item {
       height: 70px;
       line-height: 70px;
-      background-color: var(--background-color);
+      background-color: $grey-light;
       margin-bottom: 4px;
       position: relative;
       text-align: left;
