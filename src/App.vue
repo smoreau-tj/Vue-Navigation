@@ -29,7 +29,7 @@ export default {
       "navData" : [
   {
     "title": "Men", 
-    "titleColor": "#4D4D4D", 
+    "titleColor": "#4d4d4d", 
     "titleUrl": "/mens-underwear",
     "hideCollection": false,
     "clickableText": false, 
@@ -95,7 +95,7 @@ export default {
       },
       {
         "title": "Undershirts", 
-        "titleColor": "#587679", 
+        "titleColor": "pink", 
         "titleUrl": "/Undershirts", 
         "image":"",
         "hideNavItem": false, 
@@ -111,7 +111,7 @@ export default {
       },
       {
         "title": "Loungewear", 
-        "titleColor": "#587679", 
+        "titleColor": "#4D4D4D", 
         "titleUrl": "/loungewear", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/lounge.jpg?v=1589743701", 
         "hideNavItem": false,
@@ -131,12 +131,13 @@ export default {
   {
     "title": "Women",
     "titleUrl": "/womens-all",
+    "titleColor": "#4D4D4D", 
     "hideCollection": false,
     "clickableText": true,
     "levelOneCats": [
       {
         "title": "Bras", 
-        "titleColor": "#587679", 
+        "titleColor": "#4D4D4D", 
         "titleUrl": "/Bras", 
         "image":"https://cdn.shopify.com/s/files/1/0019/1466/7055/files/bra.jpg?v=1589743701", 
         "backgroundColor": "#24A3E3",

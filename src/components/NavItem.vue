@@ -1,9 +1,9 @@
 <template>
-  <div class="list-item" :style="{backgroundColor : backgroundColor}">
+  <div class="list-item" :style="cssVars">
     <a href="" :class="{'disable-link' : !clickableText }">
       <img class="mobile-image" alt="" v-if="mobileImage" :src="mobileImage"/>
       <img class="level-two-image" alt="" v-if="levelTwoImage" :src="levelTwoImage"/>
-      <span class="nav-item-title" :style="{color: titleColor}">{{title}}</span>
+      <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
   </div>
@@ -21,6 +21,14 @@ export default {
     mobileImage: String,
     levelTwoImage: String,
     clickableText: Boolean
+  },
+  computed: {
+    cssVars () {
+      return {
+        '--background-color': this.backgroundColor,
+        '--title-color': this.titleColor
+      }
+    }
   }
 };
 </script>
@@ -29,13 +37,22 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/_global.scss";
 
-  .list-item {
+  div.list-item {
     list-style-type: none;
 
     a {
       text-decoration: none;
-      color: $grey-dark;
+      color: var(--title-color);
       font-family: $basetica;
+
+      .nav-item-title {
+        color: var(--title-color);
+      }
+
+      .icon-right-open {
+        color: var(--title-color);
+      }
+
     }
 
     &.level-zero-item {
@@ -59,7 +76,7 @@ export default {
     &.level-one-item {
       height: 70px;
       line-height: 70px;
-      background-color: $lightest-grey;
+      background-color: var(--background-color);
       margin-bottom: 4px;
       position: relative;
       text-align: left;
@@ -100,33 +117,36 @@ export default {
         .nav-item-title {
           margin-left: 16px;
           font-size: 14px;
+          color: var(--title-color);
+
 
           @media screen and (min-width: 1024px) {
             margin-left: unset;
             font-size: unset;
           }
         }
-      }
 
-      .icon-right-open {
+        .icon-right-open {
           font-family: $fontello;
           position: absolute;
           right: 32px;
           font-size: 24px;
-          color: $grey-neutral;
+          color: var(--title-color);
           z-index: 1;
 
-        @media screen and (min-width: 1024px) {
-          display: inline;
-          right: 16px;
-          font-size: 20px;
-        }
+          @media screen and (min-width: 1024px) {
+            display: inline;
+            right: 16px;
+            font-size: 20px;
+          }
 
-        &::before {
-          content: '\e818';
-          font-style: normal;
+          &::before {
+            content: '\e818';
+            font-style: normal;
+          }
         }
       }
+
 
       &:hover {
         @media screen and (min-width: 1024px) {
@@ -152,7 +172,7 @@ export default {
     &.level-two-item {
       height: 70px;
       line-height: 70px;
-      background-color: $lightest-grey;
+      background-color: var(--background-color);
       margin-bottom: 4px;
       position: relative;
       text-align: left;
