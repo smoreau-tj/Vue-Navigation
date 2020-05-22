@@ -14,8 +14,8 @@
   </div>
    <ul class="nav-item__list level-two-list"
       :class="[
-        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }, 
-        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 5 && levelOneData.isFirstDoubleWide }
+        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 5 && levelOneData.isFirstDoubleWide },
+        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }
       ]"
       v-if="visibleLevelTwoData"
     >

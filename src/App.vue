@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <SiteNotice/>
-    <!-- <Navigation :navLevelZeroData=navLevelZeroData :navLevelOneData=navLevelOneData :navLevelTwoData=navLevelTwoData /> -->
     <Navigation :navData=navData />
-
     <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png" style="width: 100%;">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -11,10 +9,28 @@
 
 
 <script>
-import SiteNotice from './components/SiteNotice.vue'
-import Navigation from './components/Navigation.vue'
-import HelloWorld from './components/HelloWorld.vue'
+// import client from './lib/sanity.js';
+import SiteNotice from './components/SiteNotice.vue';
+import Navigation from './components/Navigation.vue';
+import HelloWorld from './components/HelloWorld.vue';
 
+require ('dotenv').config();
+
+const sanityClient = require('@sanity/client')
+const client = sanityClient({
+  projectId: "",
+  dataset: 'poc',
+  token: "", 
+  useCdn: true 
+})
+
+console.log('process.env', process.env.ACCESS_TOKEN);
+
+const queryString = "*[_type=='navigation']";
+
+client.fetch(queryString).then(data => {
+  console.log('sanity data', data);
+});
 
 
 export default {

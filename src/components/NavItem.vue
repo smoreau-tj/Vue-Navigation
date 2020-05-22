@@ -52,7 +52,6 @@ export default {
       .icon-right-open {
         color: var(--title-color);
       }
-
     }
 
     &.level-zero-item {
