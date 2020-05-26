@@ -1,8 +1,8 @@
 <template>
 <li class="level-two-container">
   <NavItem class="level-two-item"
-    :title="levelTwoData.title"
-    :titleUrl="levelTwoData.titleUrl"
+    :title="levelTwoData.text"
+    :titleUrl="levelTwoData.navUrl"
     :titleColor="levelTwoData.titleColor"
     :levelTwoImage="levelTwoData.image"
   />

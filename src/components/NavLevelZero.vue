@@ -4,10 +4,10 @@
   :class="{ active: isActive }"
 >
   <NavItem class="level-zero-item"
-    :title="navItemData.title"
-    :titleUrl="navItemData.titleUrl"
-    :titleColor="navItemData.titleColor"
-    :clickableText="navItemData.clickableText"
+    :title="navItemData.collectionTitle"
+    :titleUrl="navItemData.collectionUrl"
+    :titleColor="navItemData.TitleColor.hex"
+    :clickableText="navItemData.clickableTitle"
     />
     <ul class="nav-item__list level-one-list"
       v-if="visibleLevelOneData"
@@ -15,7 +15,7 @@
       <NavLevelOne 
         v-for="(levelOneData,index) in visibleLevelOneData"
         :key="index"
-        :mobileGenderTitle="navItemData.title"
+        :mobileGenderTitle="navItemData.collectionTitle"
         :levelOneData="levelOneData"
         :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
@@ -60,8 +60,8 @@ export default {
   },
   computed : {
     visibleLevelOneData() {
-      return this.navItemData.levelOneCats.filter(function(d){
-        return !d.hideNavItem
+      return this.navItemData.subnavigation.filter(function(d){
+        return !d.hideNav
       });
     }
   }
