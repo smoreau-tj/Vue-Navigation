@@ -72,7 +72,7 @@
         display: block;
       }
 
-      .level-one-container:first-child {
+      .level-one-container:nth-child(2) {
         .level-one-item {
           @media screen and (min-width: 1024px) {
             background-color: $grey-light;

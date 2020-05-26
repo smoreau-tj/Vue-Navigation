@@ -92,6 +92,7 @@ export default {
       a {
         width: 100%;
         text-align: left;
+        pointer-events: none;
 
         @media screen and (min-width: 1024px) {
           font-size: 16px;
@@ -99,6 +100,7 @@ export default {
           width: unset;
           display: unset;
           text-align: unset;
+          pointer-events: all;
         }
 
         .mobile-image {
