@@ -4,45 +4,57 @@
 >
   <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"
-      :title="levelOneData.title"
-      :titleUrl="levelOneData.titleUrl"
-      :titleColor="levelOneData.titleColor"
+      :title="levelOneData.styleName"
+      :titleUrl="levelOneData.stylesUrl.current"
+      :titleColor="levelOneData.styleColor.hex"
       :mobileImage="levelOneData.image"
+      :backgroundColor="levelOneData.BackgroundColor.hex"
 
     />
   </div>
    <ul class="nav-item__list level-two-list"
-      :class="{'greater-than-7-items' : levelOneData.levelTwoCats.length > 6}"
-      v-if="levelOneData.levelTwoCats"
+      :class="[
+        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 5 && levelOneData.isFirstDoubleWide },
+        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }
+      ]"
+      v-if="visibleLevelTwoData.length"
     >
       <li class="mobile-title-container">
         <i class="icon-left-close" @click="toggleActiveLevelOne"> </i>
         <span v-if="mobileGenderTitle === 'Men' || 'Women'" class="level-two-mobile-title">
-          {{mobileGenderTitle + "'s " + levelOneData.title}}
+          {{mobileGenderTitle + "'s " + levelOneData.styleName}}
         </span>
         <span v-else class="level-two-mobile-title">
           {{levelOneData.title}}
         </span>
       </li>
       <li class="shop-all-item">
-        <a :href="levelOneData.titleUrl">
+        <a :href="levelOneData.stylesUrl">
           <span class="nav-item-title">
-            All {{levelOneData.title}}
+            All {{levelOneData.styleName}}
           </span>
         </a>
       </li>
       <NavLevelTwo
-        v-for="(levelTwoData, index) in levelOneData.levelTwoCats"
+        v-for="(levelTwoData, index) in visibleLevelTwoData"
         :key="index"
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li class="links-only" v-if="levelOneData.levelTwoCats.length > 6">
+      <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in levelOneData.levelTwoCats.slice(5, levelOneData.levelTwoCats.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(4, visibleLevelTwoData.length )"
           :key="index"
           >
-            <a  :href="levelTwoData.titleUrl">{{levelTwoData.title}}</a>
+            <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
+        </div>
+      </li>
+      <li v-else-if="visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
+        <div class="level-two-item"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(5, visibleLevelTwoData.length )"
+          :key="index"
+          >
+            <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
         </div>
       </li>
     </ul>
@@ -69,6 +81,18 @@ export default {
   methods : {
     toggleActiveLevelOne() {
       this.$emit('onActiveLevelOneItem');
+    }
+  },
+  computed : {
+    visibleLevelTwoData() {
+      let visibleData = [];
+      if(this.levelOneData.style) {
+        visibleData = this.levelOneData.style.filter(function(d){
+        return !d.hideNav
+      });
+    }
+    console.log('visible data length', visibleData.length);
+      return visibleData
     }
   }
 };
@@ -178,7 +202,8 @@ export default {
       }
     }
 
-     &.greater-than-7-items {
+    &.max-nav-items,
+    &.max-nav-items-doublewide {
       .level-two-container:nth-child(n+8){
         @media screen and (min-width: 1024px) {
           display: none;
@@ -209,6 +234,14 @@ export default {
               text-decoration: underline;
             }
           }
+        }
+      }
+    }
+
+    &.max-nav-items-doublewide {
+      .level-two-container:nth-child(n+7){
+        @media screen and (min-width: 1024px) {
+          display: none;
         }
       }
     }
