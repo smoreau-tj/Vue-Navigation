@@ -99,7 +99,7 @@ export default {
     },
     visibleNavData() {
       return this.navData.filter(function(n){
-        return !n.hideCollection
+        return n.displayCollection != "none"
       });
     },
   }

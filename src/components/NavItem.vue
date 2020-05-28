@@ -1,8 +1,8 @@
 <template>
   <div class="list-item" :style="cssVars">
     <a href="" :class="{'disable-link' : !clickableText }">
-      <img class="mobile-image" alt="" v-if="mobileImage" :src="mobileImage"/>
-      <img class="level-two-image" alt="" v-if="levelTwoImage" :src="levelTwoImage"/>
+      <img class="mobile-image" alt="" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
+      <img class="level-two-image" alt="" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
       <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
@@ -11,6 +11,9 @@
 
 
 <script>
+import {client} from '../lib/sanity.js';
+import imageUrlBuilder from '@sanity/image-url'
+
 export default {
   name: "navItem",
   props: {
@@ -18,9 +21,18 @@ export default {
     titleUrl: String,
     titleColor: String,
     backgroundColor: String,
-    mobileImage: String,
-    levelTwoImage: String,
+    mobileImage: Object,
+    levelTwoImage: Object,
     clickableText: Boolean
+  },
+  methods: {
+    convertImageRef: function(imageRef){
+      const builder = imageUrlBuilder(client);
+        function urlFor(source) {
+          return builder.image(source)
+        }
+      return urlFor(imageRef).url()
+    }
   },
   computed: {
     cssVars () {
@@ -28,7 +40,14 @@ export default {
         '--background-color': this.backgroundColor,
         '--title-color': this.titleColor
       }
-    }
+    },
+    // convertImageRef(imageRef){
+    //   const builder = imageUrlBuilder(client);
+    //     function urlFor(source) {
+    //       return builder.image(source)
+    //     }
+    //   return urlFor(imageRef).url()
+    // }
   }
 };
 </script>

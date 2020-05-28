@@ -1,11 +1,12 @@
 require('dotenv').config();
-
 const sanityClient = require('@sanity/client');
-const client = sanityClient({
+
+export const client = sanityClient({
   projectId: '',
   dataset: 'poc',
   token: process.env.ACCESS_TOKEN, 
-  useCdn: true 
+  useCdn: false 
 });
 
-export default client;
+console.log('client', client, 'token', process.env.ACCESS_TOKEN, 'project id', process.env.PROJECT_ID );
+

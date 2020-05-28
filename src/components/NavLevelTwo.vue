@@ -4,7 +4,7 @@
     :title="levelTwoData.text"
     :titleUrl="levelTwoData.navUrl"
     :titleColor="levelTwoData.titleColor"
-    :levelTwoImage="levelTwoData.image"
+    :levelTwoImage="levelTwoData.navImage ? levelTwoData.navImage.mobileNavImage : null"
   />
 </li>
 </template>
