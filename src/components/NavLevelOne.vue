@@ -5,16 +5,16 @@
   <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"
       :title="levelOneData.styleName"
-      :titleUrl="levelOneData.stylesUrl.current"
-      :titleColor="levelOneData.styleColor.hex"
-      :mobileImage="levelOneData.navItemImage ? levelOneData.navItemImage.mobileNavImage : null "
-      :backgroundColor="levelOneData.BackgroundColor.hex"
+      :titleUrl="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null"
+      :titleColor="levelOneData.styleColor ? levelOneData.styleColor.hex : '#4d4d4d'"
+      :mobileImage="levelOneData.navItemImage ? levelOneData.navItemImage.navImage : null "
+      :backgroundColor="levelOneData.BackgroundColor ? levelOneData.BackgroundColor.hex : '#f5f5f5'"
 
     />
   </div>
    <ul class="nav-item__list level-two-list"
       :class="[
-        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 5 && levelOneData.isFirstDoubleWide },
+        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide },
         {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }
       ]"
       v-if="visibleLevelTwoData.length"
@@ -28,7 +28,7 @@
           {{levelOneData.title}}
         </span>
       </li>
-      <li class="shop-all-item">
+      <li class="shop-all-item mobile">
         <a :href="levelOneData.stylesUrl">
           <span class="nav-item-title">
             All {{levelOneData.styleName}}
@@ -248,7 +248,7 @@ export default {
   }
 
   .level-one-container{
-    &:first-child {
+    &:nth-child(2) {
       @media screen and (min-width: 1024px) {
         padding-top: 16px;
       }

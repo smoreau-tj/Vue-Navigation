@@ -6,19 +6,18 @@
   <NavItem class="level-zero-item"
     :title="navItemData.collectionTitle"
     :titleUrl="navItemData.collectionUrl"
-    :titleColor="navItemData.TitleColor.hex"
+    :titleColor="navItemData.TitleColor ? navItemData.TitleColor.hex : '#4d4d4d'"
     :clickableText="navItemData.clickableTitle"
     />
     <ul class="nav-item__list level-one-list"
       v-if="visibleLevelOneData"
     >
-      <li class="mobile-all level-one-container">
+      <li class="mobile-all">
         <div class="list-item level-one-item">
           <a :href="navItemData.collectionUrl">
             <span class="nav-item-title">
               {{'All ' + navItemData.collectionTitle}}
             </span>
-            <i class="icon-right-open"></i>
           </a>
         </div>
       </li>
@@ -137,7 +136,6 @@ export default {
         background-color: $white;
         border-top: solid 1px $grey;
         padding-left: 0;
-        padding-top: 8px;
         min-height: 440px;
         margin: 0;
       }
@@ -160,21 +158,6 @@ export default {
           a {
             text-decoration: none;
             color: $grey-dark;
-
-            .icon-right-open {
-              font-family: $fontello;
-              position: absolute;
-              right: 32px;
-              font-size: 24px;
-              color: var(--title-color);
-              z-index: 1;
-
-
-              &::before {
-                content: '\e818';
-                font-style: normal;
-              }
-            }
           }
         }
       }

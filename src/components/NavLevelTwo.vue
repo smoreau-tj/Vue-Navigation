@@ -3,8 +3,9 @@
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
     :titleUrl="levelTwoData.navUrl"
-    :titleColor="levelTwoData.titleColor"
-    :levelTwoImage="levelTwoData.navImage ? levelTwoData.navImage.mobileNavImage : null"
+    :titleColor="levelTwoData.styleColor ? levelTwoData.styleColor.hex : '#4d4d4d'"
+    :backgroundColor="levelTwoData.BackgroundColor ? levelTwoData.BackgroundColor.hex : '#f5f5f5'"
+    :levelTwoImage="levelTwoData.navImage ? levelTwoData.navImage.navImage : null"
   />
 </li>
 </template>
