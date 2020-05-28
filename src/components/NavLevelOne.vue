@@ -7,7 +7,7 @@
       :title="levelOneData.styleName"
       :titleUrl="levelOneData.stylesUrl.current"
       :titleColor="levelOneData.styleColor.hex"
-      :mobileImage="levelOneData.image"
+      :mobileImage="levelOneData.navItemImage ? levelOneData.navItemImage.mobileNavImage : null "
       :backgroundColor="levelOneData.BackgroundColor.hex"
 
     />
@@ -88,7 +88,7 @@ export default {
       let visibleData = [];
       if(this.levelOneData.style) {
         visibleData = this.levelOneData.style.filter(function(d){
-        return !d.hideNav
+        return d.displayCollection != "none"
       });
     }
     console.log('visible data length', visibleData.length);

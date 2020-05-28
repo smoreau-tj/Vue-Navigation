@@ -9,10 +9,12 @@
 
 
 <script>
-import client from './lib/sanity.js';
+
+import {client} from './lib/sanity.js';
 import SiteNotice from './components/SiteNotice.vue';
 import Navigation from './components/Navigation.vue';
 import HelloWorld from './components/HelloWorld.vue';
+
 
 export default {
   name: 'App',
@@ -28,6 +30,7 @@ export default {
     mounted() {
       const queryString = "*[_type=='navigation']";
       client.fetch(queryString).then(data => {
+        console.log('data', data);
         this.navData = data[0].navigationType;
       }).catch( error => {console.log(error)});
     }

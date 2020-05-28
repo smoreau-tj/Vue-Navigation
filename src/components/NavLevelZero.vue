@@ -72,7 +72,7 @@ export default {
   computed : {
     visibleLevelOneData() {
       return this.navItemData.subnavigation.filter(function(d){
-        return !d.hideNav
+        return d.displayCollection != "none"
       });
     }
   }
@@ -137,6 +137,7 @@ export default {
         background-color: $white;
         border-top: solid 1px $grey;
         padding-left: 0;
+        padding-top: 8px;
         min-height: 440px;
         margin: 0;
       }
