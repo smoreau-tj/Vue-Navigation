@@ -1,6 +1,10 @@
 <template>
 <li class="level-one-container"
-  :class="{ active: isActive }"
+  :class="[
+    {'desktop-only': levelOneData.displayCollection === 'desktop' },
+    {'mobile-only': levelOneData.displayCollection === 'mobile' },
+    { active: isActive }
+  ]"
 >
   <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"

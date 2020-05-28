@@ -26,7 +26,6 @@
           @onActiveItem="onActiveItem(index)"
           />
         </ul>
-        <NavMobileFooterLinks />
       </div>
       <div class="mobile-overlay"></div>
       <div class="header-item center">
@@ -47,7 +46,6 @@
         <ul class="header-item__list">
           <li class="search-item">
             <img alt="Search Icon" src="../assets/images/svg-search.svg" />
-            <!-- <label for="search" title="search field"></label> -->
             <input type="text" title="search" name="search" id="search" aria-label="search" placeholder="Search" />
           </li>
           <li class="account-item">
@@ -65,14 +63,11 @@
 
 <script>
 import NavLevelZero from './NavLevelZero.vue'
-import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
-
 
 export default {
   name: "Navigation",
   components: {
     NavLevelZero,
-    NavMobileFooterLinks
   },
   props: {
     navData: Array

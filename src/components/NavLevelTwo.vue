@@ -1,5 +1,9 @@
 <template>
-<li class="level-two-container">
+<li class="level-two-container"
+  :class="[
+  {'desktop-only': levelTwoData.displayCollection === 'desktop' },
+  {'mobile-only': levelTwoData.displayCollection === 'mobile' }
+]">
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
     :titleUrl="levelTwoData.navUrl"

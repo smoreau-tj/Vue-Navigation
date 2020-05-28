@@ -1,7 +1,11 @@
 <template>
 <li class="level-zero-container"
+  :class="[
+    {'desktop-only': navItemData.displayCollection === 'desktop' },
+    {'mobile-only': navItemData.displayCollection === 'mobile' },
+    { active: isActive }
+  ]"
   @click="toggleActive"
-  :class="{ active: isActive }"
 >
   <NavItem class="level-zero-item"
     :title="navItemData.collectionTitle"
@@ -30,6 +34,9 @@
         :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
       />
+      <li class="nav-mobile-footer-container">
+        <NavMobileFooterLinks />
+      </li>
     </ul>
   </li>
 </template>
@@ -38,13 +45,16 @@
 <script>
 import NavItem from './NavItem.vue'
 import NavLevelOne from './NavLevelOne.vue'
+import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
+
 
 
 export default {
   name: "NavLevelZero",
   components: {
     NavItem,
-    NavLevelOne
+    NavLevelOne,
+    NavMobileFooterLinks
   },
   props: {
     navItemData: Object,
@@ -120,11 +130,14 @@ export default {
 
     .level-one-list {
       position: absolute;
-      padding: 0;
+      padding: 0 24px 0 24px;
       list-style-type: none;
       width: calc(100% - 48px);
-      margin: 16px 24px 24px 24px;
+      margin: 16px 0 0 0;
       left: 0;
+      top: 138px;
+      overflow: auto;
+      bottom: 0;
 
       @media screen and (min-width: 480px) {
         width: 268px;
@@ -135,9 +148,11 @@ export default {
         top: 66px;
         background-color: $white;
         border-top: solid 1px $grey;
-        padding-left: 0;
+        padding: 0;
         min-height: 440px;
         margin: 0;
+        overflow: unset;
+        bottom: unset;
       }
 
       .mobile-all {
@@ -159,6 +174,15 @@ export default {
             text-decoration: none;
             color: $grey-dark;
           }
+        }
+      }
+
+      .nav-mobile-footer-container {
+        position: relative;
+        bottom: 0;
+
+        @media screen and (min-width: 1024px) {
+          display: none;
         }
       }
     }
