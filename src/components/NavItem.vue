@@ -40,14 +40,7 @@ export default {
         '--background-color': this.backgroundColor,
         '--title-color': this.titleColor
       }
-    },
-    // convertImageRef(imageRef){
-    //   const builder = imageUrlBuilder(client);
-    //     function urlFor(source) {
-    //       return builder.image(source)
-    //     }
-    //   return urlFor(imageRef).url()
-    // }
+    }
   }
 };
 </script>
@@ -64,12 +57,16 @@ export default {
       color: var(--title-color);
       font-family: $basetica;
 
-      .nav-item-title {
-        color: var(--title-color);
+      @media screen and (min-width: 1024px) {
+        color: #4d4d4d;
       }
 
       .icon-right-open {
         color: var(--title-color);
+
+         @media screen and (min-width: 1024px) {
+          color: #4d4d4d;
+        }
       }
     }
 
@@ -80,9 +77,11 @@ export default {
 
       a {
         font-family: $basetica-bold;
+        color: $grey-dark;
 
         @media screen and (min-width: 1024px) {
           font-family: $basetica;
+          color: var(--title-color);
         }
 
         &.disable-link {
@@ -143,6 +142,7 @@ export default {
           @media screen and (min-width: 1024px) {
             margin-left: unset;
             font-size: unset;
+            color: unset;
           }
         }
 
@@ -158,6 +158,7 @@ export default {
             display: inline;
             right: 16px;
             font-size: 20px;
+            color: unset;
           }
 
           &::before {
@@ -192,7 +193,7 @@ export default {
     &.level-two-item {
       height: 70px;
       line-height: 70px;
-      background-color: $grey-light;
+      background-color: var(--background-color);
       margin-bottom: 4px;
       position: relative;
       text-align: left;
@@ -225,6 +226,7 @@ export default {
         .nav-item-title {
           margin-left: 16px;
           font-size: 14px;
+          color: var(--title-color);
 
           @media screen and (min-width: 1024px) {
             display: block;
@@ -238,6 +240,12 @@ export default {
         .nav-item-title {
           @media screen and (min-width: 1024px) {
             text-decoration: underline;
+          }
+        }
+
+        img {
+          @media screen and (min-width: 1024px) {
+            opacity: .85;
           }
         }
       }
