@@ -12,7 +12,9 @@
       :title="levelOneData.styleName"
       :titleUrl="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null"
       :titleColor="levelOneData.styleColor ? levelOneData.styleColor.hex : '#4d4d4d'"
-      :mobileImage="levelOneData.navItemImage ? levelOneData.navItemImage.navImage : null "
+      :mobileImage="levelOneData.navItemImage ? levelOneData.navItemImage.navImage : null"
+      :altText="levelOneData.navItemImage ? levelOneData.navItemImage.imageAltText : null"
+
       :backgroundColor="levelOneData.BackgroundColor ? levelOneData.BackgroundColor.hex : '#f5f5f5'"
 
     />

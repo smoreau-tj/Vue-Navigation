@@ -22,7 +22,10 @@
             <span class="nav-item-title">
               {{'All ' + navItemData.collectionTitle}}
             </span>
-            <img class="mobile-image" v-if="navItemData.mobileImage.navImage" :src="convertImageRef(navItemData.mobileImage.navImage)">
+            <img class="mobile-image" 
+              v-if="navItemData.mobileImage.navImage" 
+              :src="convertImageRef(navItemData.mobileImage.navImage)"
+              :alt="navItemData.mobileImage.imageAltText ? navItemData.mobileImage.imageAltText : null" >
           </a>
         </div>
       </li>

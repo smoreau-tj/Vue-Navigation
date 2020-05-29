@@ -1,8 +1,8 @@
 <template>
   <div class="list-item" :style="cssVars">
     <a :href="titleUrl" :class="{'disable-link' : !clickableText }">
-      <img class="mobile-image" alt="" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
-      <img class="level-two-image" alt="" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
+      <img class="mobile-image" :alt="altText" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
+      <img class="level-two-image" :alt="altText" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
       <span class="nav-item-title">{{title}}</span>
       <i class="icon-right-open"></i>
     </a>
@@ -23,7 +23,8 @@ export default {
     backgroundColor: String,
     mobileImage: Object,
     levelTwoImage: Object,
-    clickableText: Boolean
+    clickableText: Boolean,
+    altText: String
   },
   methods: {
     convertImageRef: function(imageRef){

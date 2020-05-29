@@ -11,6 +11,7 @@
     :titleColor="levelTwoData.styleColor ? levelTwoData.styleColor.hex : '#4d4d4d'"
     :backgroundColor="levelTwoData.BackgroundColor ? levelTwoData.BackgroundColor.hex : '#f5f5f5'"
     :levelTwoImage="levelTwoData.navImage ? levelTwoData.navImage.navImage : null"
+    :altText="levelTwoData.navImage ? levelTwoData.navImage.imageAltText : null"
   />
 </li>
 </template>
@@ -61,7 +62,7 @@ export default {
       padding-top: 0;
     }
 
-    :last-of-type {
+    &:last-of-type {
       margin-bottom: 72px;
 
       @media screen and (min-width: 1024px) {
