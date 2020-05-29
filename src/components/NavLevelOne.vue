@@ -225,17 +225,15 @@ export default {
 
     &.max-nav-items,
     &.max-nav-items-doublewide {
+      height: calc(100% - 72px);
+
+      @media screen and (min-width: 1024px) {
+        height: unset;
+      }
+
       .level-two-container:nth-child(n+8){
         @media screen and (min-width: 1024px) {
           display: none;
-        }
-      }
-
-      .level-two-container:last-child {
-        margin-bottom: 72px;
-
-        @media screen and (min-width: 1024px) {
-          margin-bottom: unset;
         }
       }
 
