@@ -1,11 +1,17 @@
 <template>
-<li class="level-two-container">
+<li class="level-two-container"
+  :class="[
+  {'desktop-hover': levelTwoData.displayCollection === 'desktop' || levelTwoData.displayCollection === 'all'  },
+  {'desktop-only': levelTwoData.displayCollection === 'desktop' },
+  {'mobile-only': levelTwoData.displayCollection === 'mobile' }
+]">
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
     :titleUrl="levelTwoData.navUrl"
     :titleColor="levelTwoData.styleColor ? levelTwoData.styleColor.hex : '#4d4d4d'"
     :backgroundColor="levelTwoData.BackgroundColor ? levelTwoData.BackgroundColor.hex : '#f5f5f5'"
     :levelTwoImage="levelTwoData.navImage ? levelTwoData.navImage.navImage : null"
+    :altText="levelTwoData.navImage ? levelTwoData.navImage.imageAltText : null"
   />
 </li>
 </template>
@@ -53,6 +59,31 @@ export default {
     @media screen and (min-width: 1024px) {
       display: inline-block;
       margin: unset;
+      padding-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 72px;
+
+      @media screen and (min-width: 1024px) {
+        margin-bottom: unset;
+      }
+    }
+
+    &.desktop-only {
+      display: none;
+
+      @media screen and (min-width: 1024px) {
+        display: inline-block;
+      }
+    }
+
+    &.mobile-only {
+      display: block;
+
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
     }
   }
 

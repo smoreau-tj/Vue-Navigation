@@ -28,8 +28,6 @@ export default {
 
 .nav-footer-container {
   display: block;
-  position: absolute;
-  bottom: 0;
   width: 100%;
 
   @media screen and (min-width: 1024px) {
@@ -41,11 +39,12 @@ export default {
     text-align: left;
     font-size: 12px;
     font-family: $basetica;
-    margin-left: 24px;
-    padding: 0;
+    margin-left: 0;
+    padding: 20px 0 50px 0;
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 24px;
+      line-height: 1;
 
       a {
         text-decoration: none;
@@ -55,10 +54,16 @@ export default {
   }
 
   .mobile-account-item {
+    position: absolute;
+    width: 100%;
     height: 50px;
     background-color: $grey-light;
     line-height: 50px;
     text-align: left;
+    bottom: 0;
+    left: -24px;
+    padding-right: 48px;
+    box-shadow: 0 -5px 50px 0 rgba(0,0,0,0.10);
 
     a {
       text-decoration: none;

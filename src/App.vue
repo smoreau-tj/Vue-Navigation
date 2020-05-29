@@ -28,7 +28,7 @@ export default {
       navData: []
     }},
     mounted() {
-      const queryString = "*[_type=='navigation']";
+      const queryString = "*[_type=='navigation' && isNavLive == true]";
       client.fetch(queryString).then(data => {
         console.log('data', data);
         this.navData = data[0].navigationType;
