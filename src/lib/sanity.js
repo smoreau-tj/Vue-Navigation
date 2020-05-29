@@ -2,7 +2,7 @@
 const sanityClient = require('@sanity/client');
 
 export const client = sanityClient({
-  projectId: process.env.PROJECT_ID,
+  projectId: process.env.PROJECT_ID || 'tw5gcwis',
   dataset: 'poc',
   token: process.env.ACCESS_TOKEN, 
   useCdn: false 
