@@ -180,6 +180,7 @@ export default {
         transition: unset;
         transform: unset;
         box-shadow: none;
+        vertical-align: bottom;
       }
 
       &.active {
@@ -236,7 +237,7 @@ export default {
         @media screen and (min-width: 1024px) {
           height: 66px;
           text-align: left;
-          line-height: unset;
+          line-height: inherit;
           border-top: unset;
           border-bottom: unset;
 

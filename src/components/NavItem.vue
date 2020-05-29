@@ -1,6 +1,6 @@
 <template>
   <div class="list-item" :style="cssVars">
-    <a href="" :class="{'disable-link' : !clickableText }">
+    <a :href="titleUrl" :class="{'disable-link' : !clickableText }">
       <img class="mobile-image" alt="" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
       <img class="level-two-image" alt="" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
       <span class="nav-item-title">{{title}}</span>
@@ -78,10 +78,12 @@ export default {
       a {
         font-family: $basetica-bold;
         color: $grey-dark;
+        pointer-events: none;
 
         @media screen and (min-width: 1024px) {
           font-family: $basetica;
           color: var(--title-color);
+          pointer-events: unset;
         }
 
         &.disable-link {
@@ -218,8 +220,12 @@ export default {
           
           @media screen and (min-width: 1024px) {
             position: relative;
-            height: 174px;
+            height: 12vw;
             right: unset;
+          }
+
+          @media screen and (min-width: 1280px) {
+            height: 174px;
           }
         }
 

@@ -22,6 +22,7 @@
             <span class="nav-item-title">
               {{'All ' + navItemData.collectionTitle}}
             </span>
+            <img class="mobile-image" v-if="navItemData.mobileImage.navImage" :src="convertImageRef(navItemData.mobileImage.navImage)">
           </a>
         </div>
       </li>
@@ -43,9 +44,12 @@
 
 
 <script>
+import {client} from '../lib/sanity.js';
 import NavItem from './NavItem.vue'
 import NavLevelOne from './NavLevelOne.vue'
 import NavMobileFooterLinks from './NavMobileFooterLinks.vue'
+import imageUrlBuilder from '@sanity/image-url'
+
 
 
 
@@ -76,6 +80,13 @@ export default {
       else {
         this.activeIndex = index;
       }
+    },
+    convertImageRef(imageRef){
+      const builder = imageUrlBuilder(client);
+        function urlFor(source) {
+          return builder.image(source)
+        }
+      return urlFor(imageRef).url()
     }
   },
   computed : {
@@ -95,20 +106,36 @@ export default {
 @import "../scss/_global.scss";
 
   .level-zero-container {
-    display: none;
+    display: inline-block;
     cursor: pointer;
+    width: 50%;
 
     @media screen and (min-width: 1024px) {
-      display: inline-block;
+      width: unset;
       z-index: 2;
     }
 
-    &:nth-child(-n+2){
-      display: inline-block;
-      width: 50%;
+    &.desktop-only {
+      display: none;
 
       @media screen and (min-width: 1024px) {
-        width: unset;
+        display: inline-block;
+      }
+    }
+
+    &.mobile-only {
+      display: inline-block;
+
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    &:nth-child(n+3){
+      display: none;
+
+      @media screen and (min-width: 1024px) {
+        display: inline-block;
       }
     }
 
@@ -169,10 +196,19 @@ export default {
 
         .level-one-item{
           margin-left: 16px;
+          position: relative;
 
           a {
             text-decoration: none;
             color: $grey-dark;
+
+            img {
+              display: inline;
+              height: 50px;
+              position: absolute;
+              right: 16px;
+              z-index: 2;
+            }
           }
         }
       }

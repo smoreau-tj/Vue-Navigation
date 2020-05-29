@@ -1,7 +1,8 @@
 <template>
 <li class="level-one-container"
   :class="[
-    {'desktop-only': levelOneData.displayCollection === 'desktop' },
+    {'desktop-hover': levelOneData.displayCollection === 'desktop' || levelOneData.displayCollection === 'all'  },
+    {'desktop-only': levelOneData.displayCollection === 'desktop'},
     {'mobile-only': levelOneData.displayCollection === 'mobile' },
     { active: isActive }
   ]"
@@ -18,8 +19,8 @@
   </div>
    <ul class="nav-item__list level-two-list"
       :class="[
-        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide },
-        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }
+        {'max-nav-items-doublewide' : visibleLevelTwoDataDesktop.length > 6 && levelOneData.isFirstDoubleWide },
+        {'max-nav-items' : visibleLevelTwoDataDesktop.length > 7 && !levelOneData.isFirstDoubleWide }
       ]"
       v-if="visibleLevelTwoData.length"
     >
@@ -33,7 +34,7 @@
         </span>
       </li>
       <li class="shop-all-item mobile">
-        <a :href="levelOneData.stylesUrl">
+        <a :href="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null">
           <span class="nav-item-title">
             All {{levelOneData.styleName}}
           </span>
@@ -45,17 +46,17 @@
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
+      <li v-if="visibleLevelTwoDataDesktop.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(4, visibleLevelTwoData.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoDataDesktop.slice(4, visibleLevelTwoDataDesktop.length )"
           :key="index"
           >
             <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
         </div>
       </li>
-      <li v-else-if="visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
+      <li v-else-if="visibleLevelTwoDataDesktop.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(5, visibleLevelTwoData.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoDataDesktop.slice(5, visibleLevelTwoDataDesktop.length )"
           :key="index"
           >
             <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
@@ -95,7 +96,15 @@ export default {
         return d.displayCollection != "none"
       });
     }
-    console.log('visible data length', visibleData.length);
+      return visibleData
+    },
+    visibleLevelTwoDataDesktop() {
+      let visibleData = [];
+      if(this.levelOneData.style) {
+        visibleData = this.levelOneData.style.filter(function(d){
+        return d.displayCollection != "mobile" && d.displayCollection != "none"
+      });
+    }
       return visibleData
     }
   }
@@ -130,6 +139,7 @@ export default {
     top: 63px;
     left: 0;
     display: block;
+    overflow: auto;
 
 
     @media screen and (min-width: 1024px) {
@@ -141,6 +151,7 @@ export default {
       margin: unset;
       z-index: unset;
       background-color: unset;
+      overflow: unset;
     }
 
     .mobile-title-container {
@@ -148,6 +159,10 @@ export default {
       height: 56px;
       line-height: 56px;
       border-bottom: .5px solid $grey;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: white;
 
       @media screen and (min-width: 1024px) {
         display: none;
@@ -174,7 +189,7 @@ export default {
     .shop-all-item {
       height: 50px;
       background-color: $lightest-grey;
-      margin: 24px 24px 6px 24px;
+      margin: 8px 24px 6px 24px;
       line-height: 50px;
 
       @media screen and (min-width: 1024px) {
@@ -211,6 +226,14 @@ export default {
       .level-two-container:nth-child(n+8){
         @media screen and (min-width: 1024px) {
           display: none;
+        }
+      }
+
+      .level-two-container:last-child {
+        margin-bottom: 72px;
+
+        @media screen and (min-width: 1024px) {
+          margin-bottom: unset;
         }
       }
 
@@ -252,11 +275,31 @@ export default {
   }
 
   .level-one-container{
-    &:nth-child(2) {
+    &.desktop-only {
+      display: none;
+
       @media screen and (min-width: 1024px) {
-        padding-top: 16px;
+        display: block;
       }
     }
+
+    &.mobile-only {
+      display: block;
+
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  .desktop-hover:first-child, :not(.desktop-hover) + .desktop-hover {
+    @media screen and (min-width: 1024px) {
+      padding-top: 16px;
+    }
+  }
+
+  .level-two-container.desktop-hover {
+    padding-top: 0;
   }
 
 </style>
