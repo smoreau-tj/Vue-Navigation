@@ -90,13 +90,11 @@ export default {
       }
     },
     onMobileMenuClick (){
-      console.log('mobile menu click');
       this.device = 'mobile';
     },
     onDesktopMenuHover(){
-    if(window.innerWidth > 1023) {
-      console.log('desktop mouse over');
-      this.device = 'desktop';
+      if(window.innerWidth > 1023) {
+        this.device = 'desktop';
       }
     }
   },
@@ -251,7 +249,6 @@ export default {
           line-height: inherit;
           border-top: unset;
           border-bottom: unset;
-
         }
       }
     }

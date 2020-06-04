@@ -38,6 +38,7 @@
         :levelOneData="levelOneData"
         :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
+        :device="device"
       />
       <li class="nav-mobile-footer-container">
         <NavMobileFooterLinks />
@@ -97,7 +98,6 @@ export default {
   computed : {
     visibleLevelOneData() {
       let device = this.device;
-      console.log('visible level one data triggered', 'current device is', device);
       return this.navItemData.subnavigation.filter(function(d){
         return (d.displayCollection === "all" || d.displayCollection === device);
       });

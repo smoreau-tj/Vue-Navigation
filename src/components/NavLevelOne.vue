@@ -1,7 +1,6 @@
 <template>
 <li class="level-one-container"
   :class="[
-    {'desktop-hover': levelOneData.displayCollection === 'desktop' || levelOneData.displayCollection === 'all'  },
     {'desktop-only': levelOneData.displayCollection === 'desktop'},
     {'mobile-only': levelOneData.displayCollection === 'mobile' },
     { active: isActive }
@@ -21,8 +20,8 @@
   </div>
    <ul class="nav-item__list level-two-list"
       :class="[
-        {'max-nav-items-doublewide' : visibleLevelTwoDataDesktop.length > 6 && levelOneData.isFirstDoubleWide },
-        {'max-nav-items' : visibleLevelTwoDataDesktop.length > 7 && !levelOneData.isFirstDoubleWide }
+        {'max-nav-items-doublewide' : visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide },
+        {'max-nav-items' : visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide }
       ]"
       v-if="visibleLevelTwoData.length"
     >
@@ -48,17 +47,17 @@
         :index="index"
         :levelTwoData="levelTwoData"
       />
-      <li v-if="visibleLevelTwoDataDesktop.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
+      <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in visibleLevelTwoDataDesktop.slice(4, visibleLevelTwoDataDesktop.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(4, visibleLevelTwoData.length )"
           :key="index"
           >
             <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
         </div>
       </li>
-      <li v-else-if="visibleLevelTwoDataDesktop.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
+      <li v-else-if="visibleLevelTwoData.length > 7 && !levelOneData.isFirstDoubleWide" class="links-only doublewide-false">
         <div class="level-two-item"
-          v-for="(levelTwoData, index) in visibleLevelTwoDataDesktop.slice(5, visibleLevelTwoDataDesktop.length )"
+          v-for="(levelTwoData, index) in visibleLevelTwoData.slice(5, visibleLevelTwoData.length )"
           :key="index"
           >
             <a :href="levelTwoData.navUrl">{{levelTwoData.text}}</a>
@@ -84,6 +83,7 @@ export default {
     levelOneData: Object,
     isActive : Boolean,
     mobileGenderTitle: String,
+    device: String
   },
   methods : {
     toggleActiveLevelOne() {
@@ -93,18 +93,10 @@ export default {
   computed : {
     visibleLevelTwoData() {
       let visibleData = [];
+      let device = this.device;
       if(this.levelOneData.style) {
         visibleData = this.levelOneData.style.filter(function(d){
-        return d.displayCollection != "none"
-      });
-    }
-      return visibleData
-    },
-    visibleLevelTwoDataDesktop() {
-      let visibleData = [];
-      if(this.levelOneData.style) {
-        visibleData = this.levelOneData.style.filter(function(d){
-        return d.displayCollection != "mobile" && d.displayCollection != "none"
+        return (d.displayCollection === "all" || d.displayCollection === device);
       });
     }
       return visibleData
@@ -225,7 +217,7 @@ export default {
 
     &.max-nav-items,
     &.max-nav-items-doublewide {
-      height: calc(100% - 72px);
+      height: 100%;
 
       @media screen and (min-width: 1024px) {
         height: unset;
@@ -238,9 +230,10 @@ export default {
       }
 
       .links-only{
-        display: none;
+        visibility: hidden;
 
         @media screen and (min-width: 1024px) {
+          visibility: visible;
           display: inline-block;
           vertical-align: top;
           margin-left: 16px;
@@ -275,31 +268,11 @@ export default {
   }
 
   .level-one-container{
-    &.desktop-only {
-      display: none;
-
+    &:nth-child(2){
       @media screen and (min-width: 1024px) {
-        display: block;
+        padding-top: 16px;
       }
     }
-
-    &.mobile-only {
-      display: block;
-
-      @media screen and (min-width: 1024px) {
-        display: none;
-      }
-    }
-  }
-
-  .desktop-hover:first-child, :not(.desktop-hover) + .desktop-hover {
-    @media screen and (min-width: 1024px) {
-      padding-top: 16px;
-    }
-  }
-
-  .level-two-container.desktop-hover {
-    padding-top: 0;
   }
 
 </style>

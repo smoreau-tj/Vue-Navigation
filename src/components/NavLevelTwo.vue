@@ -1,7 +1,6 @@
 <template>
 <li class="level-two-container"
   :class="[
-  {'desktop-hover': levelTwoData.displayCollection === 'desktop' || levelTwoData.displayCollection === 'all'  },
   {'desktop-only': levelTwoData.displayCollection === 'desktop' },
   {'mobile-only': levelTwoData.displayCollection === 'mobile' }
 ]">
@@ -67,22 +66,6 @@ export default {
 
       @media screen and (min-width: 1024px) {
         margin-bottom: unset;
-      }
-    }
-
-    &.desktop-only {
-      display: none;
-
-      @media screen and (min-width: 1024px) {
-        display: inline-block;
-      }
-    }
-
-    &.mobile-only {
-      display: block;
-
-      @media screen and (min-width: 1024px) {
-        display: none;
       }
     }
   }
