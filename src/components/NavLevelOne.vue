@@ -35,7 +35,9 @@
           {{levelOneData.title}}
         </span>
       </li>
-      <li class="shop-all-item mobile">
+      <li class="shop-all-item"
+          :class="{'hide': !levelOneData.stylesUrl}"
+      >
         <a :href="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null">
           <span class="nav-item-title">
             All {{levelOneData.styleName}}
@@ -159,6 +161,7 @@ export default {
       top: 0;
       z-index: 1;
       background-color: white;
+      margin-bottom: 8px;
 
       @media screen and (min-width: 1024px) {
         display: none;
@@ -185,7 +188,7 @@ export default {
     .shop-all-item {
       height: 50px;
       background-color: $lightest-grey;
-      margin: 8px 24px 6px 24px;
+      margin: 0 24px 6px 24px;
       line-height: 50px;
 
       @media screen and (min-width: 1024px) {
@@ -193,6 +196,10 @@ export default {
         height: unset;
         line-height: 1;
         background-color: transparent;
+      }
+
+      &.hide {
+        display: none;
       }
 
       a {
