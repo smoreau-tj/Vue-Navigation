@@ -6,7 +6,8 @@
     { active: isActive }
   ]"
   @click="toggleActive"
->
+  >
+ 
   <NavItem class="level-zero-item"
     :title="navItemData.collectionTitle"
     :titleUrl="navItemData.collectionUrl"
@@ -65,11 +66,12 @@ export default {
   },
   props: {
     navItemData: Object,
-    isActive : Boolean,    
+    isActive : Boolean,
+    device: String
   },
   data () {
     return {
-      activeIndex: null
+      activeIndex: null,
     }
   },
   methods : {
@@ -94,13 +96,13 @@ export default {
   },
   computed : {
     visibleLevelOneData() {
+      let device = this.device;
+      console.log('visible level one data triggered', 'current device is', device);
       return this.navItemData.subnavigation.filter(function(d){
-        return d.displayCollection != "none"
+        return (d.displayCollection === "all" || d.displayCollection === device);
       });
     }
   }
-
-
 };
 </script>
 

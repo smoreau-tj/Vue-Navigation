@@ -72,7 +72,7 @@
         display: block;
       }
 
-      .deskto-hover:first-child, :not(.desktop-hover) + .desktop-hover {
+      .destop-hover:first-child, :not(.desktop-hover) + .desktop-hover {
         .level-one-item {
           @media screen and (min-width: 1024px) {
             background-color: $grey-light;
@@ -92,6 +92,7 @@
             }
           }
         }
+
         .level-two-list {
           @media screen and (min-width: 1024px) {
             display: block;

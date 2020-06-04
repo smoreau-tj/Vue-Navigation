@@ -3,7 +3,7 @@
     <div class="header-main__inner container">
       <div 
         class="mobile-menu-toggle" 
-        @click="showMobileMenu = !showMobileMenu"
+        @click="showMobileMenu = !showMobileMenu; onMobileMenuClick();"
       >
         <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
       </div>
@@ -17,13 +17,14 @@
           </span>
           <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
-        <ul class="nav-item__list level-zero-list">
+        <ul class="nav-item__list level-zero-list" @mouseenter="onDesktopMenuHover()">
         <NavLevelZero 
           v-for="(navItemData, index) in visibleNavData"
           :key="index"
           :navItemData="navItemData"
           :isActive="activeIndex === index"
           @onActiveItem="onActiveItem(index)"
+          :device="device"
           />
         </ul>
       </div>
@@ -70,12 +71,13 @@ export default {
     NavLevelZero,
   },
   props: {
-    navData: Array
+    navData: Array,
   },
   data () {
     return {
       showMobileMenu: false,
-      activeIndex: 0
+      activeIndex: 0,
+      device: window.innerWidth > 1023 ? 'desktop' : 'mobile'
     }
   },
   methods : {
@@ -86,20 +88,29 @@ export default {
       else {
         this.activeIndex = index;
       }
+    },
+    onMobileMenuClick (){
+      console.log('mobile menu click');
+      this.device = 'mobile';
+    },
+    onDesktopMenuHover(){
+    if(window.innerWidth > 1023) {
+      console.log('desktop mouse over');
+      this.device = 'desktop';
+      }
     }
   },
   computed : {
     toggleMobileMenu() {
-      return this.showMobileMenu ? 'active' : '';
+      return this.showMobileMenu ? 'active' : ''
     },
     visibleNavData() {
       return this.navData.filter(function(n){
-        return n.displayCollection != "none"
+        return n.displayCollection != 'none'
       });
-    },
+    }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
