@@ -3,7 +3,8 @@
   :class="[
     {'desktop-only': levelOneData.displayCollection === 'desktop'},
     {'mobile-only': levelOneData.displayCollection === 'mobile' },
-    { active: isActive }
+    { active: isActive },
+    `index-${index}`
   ]"
 >
   <div @click="toggleActiveLevelOne">
@@ -80,6 +81,7 @@ export default {
     NavLevelTwo
   },
   props: {
+    index: Number,
     levelOneData: Object,
     isActive : Boolean,
     mobileGenderTitle: String,
@@ -268,7 +270,7 @@ export default {
   }
 
   .level-one-container{
-    &:nth-child(2){
+    &.index-0{
       @media screen and (min-width: 1024px) {
         padding-top: 16px;
       }

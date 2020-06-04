@@ -1,6 +1,6 @@
 <template>
   <div class="list-item" :style="cssVars">
-    <a :href="titleUrl" :class="{'disable-link' : !clickableText }">
+    <a :href="titleUrl">
       <img class="mobile-image" :alt="altText" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
       <img class="level-two-image" :alt="altText" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
       <span class="nav-item-title">{{title}}</span>

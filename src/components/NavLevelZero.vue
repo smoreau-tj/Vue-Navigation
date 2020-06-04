@@ -10,16 +10,16 @@
  
   <NavItem class="level-zero-item"
     :title="navItemData.collectionTitle"
-    :titleUrl="navItemData.collectionUrl"
+    :titleUrl="navItemData.collectionUrl ? navItemData.collectionUrl : null"
     :titleColor="navItemData.TitleColor ? navItemData.TitleColor.hex : '#4d4d4d'"
     :clickableText="navItemData.clickableTitle"
     />
     <ul class="nav-item__list level-one-list"
       v-if="visibleLevelOneData"
     >
-      <li class="mobile-all">
+      <li class="mobile-all" v-if="navItemData.collectionUrl">
         <div class="list-item level-one-item">
-          <a :href="navItemData.collectionUrl">
+          <a :href="navItemData.collectionUrl ? navItemData.collectionUrl : null ">
             <span class="nav-item-title">
               {{'All ' + navItemData.collectionTitle}}
             </span>
@@ -34,6 +34,7 @@
       <NavLevelOne 
         v-for="(levelOneData,index) in visibleLevelOneData"
         :key="index"
+        :index="index"
         :mobileGenderTitle="navItemData.collectionTitle"
         :levelOneData="levelOneData"
         :isActive="activeIndex === index"
