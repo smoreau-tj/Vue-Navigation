@@ -6,19 +6,20 @@
     { active: isActive }
   ]"
   @click="toggleActive"
->
+  >
+ 
   <NavItem class="level-zero-item"
     :title="navItemData.collectionTitle"
-    :titleUrl="navItemData.collectionUrl"
+    :titleUrl="navItemData.collectionUrl ? navItemData.collectionUrl : null"
     :titleColor="navItemData.TitleColor ? navItemData.TitleColor.hex : '#4d4d4d'"
     :clickableText="navItemData.clickableTitle"
     />
     <ul class="nav-item__list level-one-list"
       v-if="visibleLevelOneData"
     >
-      <li class="mobile-all">
+      <li class="mobile-all" v-if="navItemData.collectionUrl">
         <div class="list-item level-one-item">
-          <a :href="navItemData.collectionUrl">
+          <a :href="navItemData.collectionUrl ? navItemData.collectionUrl : null ">
             <span class="nav-item-title">
               {{'All ' + navItemData.collectionTitle}}
             </span>
@@ -29,18 +30,17 @@
           </a>
         </div>
       </li>
-
       <NavLevelOne 
         v-for="(levelOneData,index) in visibleLevelOneData"
         :key="index"
+        :index="index"
         :mobileGenderTitle="navItemData.collectionTitle"
         :levelOneData="levelOneData"
         :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
+        :device="device"
       />
-      <li class="nav-mobile-footer-container">
-        <NavMobileFooterLinks />
-      </li>
+      <NavMobileFooterLinks />
     </ul>
   </li>
 </template>
@@ -65,11 +65,12 @@ export default {
   },
   props: {
     navItemData: Object,
-    isActive : Boolean,    
+    isActive : Boolean,
+    device: String
   },
   data () {
     return {
-      activeIndex: null
+      activeIndex: null,
     }
   },
   methods : {
@@ -94,13 +95,12 @@ export default {
   },
   computed : {
     visibleLevelOneData() {
+      let device = this.device;
       return this.navItemData.subnavigation.filter(function(d){
-        return d.displayCollection != "none"
+        return (d.displayCollection === "all" || d.displayCollection === device);
       });
     }
   }
-
-
 };
 </script>
 
@@ -113,7 +113,7 @@ export default {
     cursor: pointer;
     width: 50%;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       width: unset;
       z-index: 2;
     }
@@ -121,7 +121,7 @@ export default {
     &.desktop-only {
       display: none;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
       }
     }
@@ -129,7 +129,7 @@ export default {
     &.mobile-only {
       display: inline-block;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
     }
@@ -137,14 +137,14 @@ export default {
     &:nth-child(n+3){
       display: none;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
       }
     }
 
     &:hover {
       .level-zero-item {
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           position: relative;
           border-bottom: 2px solid $blue;
           z-index: 2;
@@ -170,10 +170,10 @@ export default {
       bottom: 0;
 
       @media screen and (min-width: 480px) {
-        width: 268px;
+        width: 272px;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         width: 100%;
         top: 66px;
         background-color: $white;
@@ -193,7 +193,7 @@ export default {
         font-size: 14px;
         text-align: left;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
 
@@ -204,6 +204,7 @@ export default {
           a {
             text-decoration: none;
             color: $grey-dark;
+            display: block;
 
             img {
               display: inline;
@@ -213,15 +214,6 @@ export default {
               z-index: 2;
             }
           }
-        }
-      }
-
-      .nav-mobile-footer-container {
-        position: relative;
-        bottom: 0;
-
-        @media screen and (min-width: 1024px) {
-          display: none;
         }
       }
     }
