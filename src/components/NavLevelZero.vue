@@ -116,7 +116,7 @@ export default {
     cursor: pointer;
     width: 50%;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       width: unset;
       z-index: 2;
     }
@@ -124,7 +124,7 @@ export default {
     &.desktop-only {
       display: none;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
       }
     }
@@ -132,7 +132,7 @@ export default {
     &.mobile-only {
       display: inline-block;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
     }
@@ -140,14 +140,14 @@ export default {
     &:nth-child(n+3){
       display: none;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
       }
     }
 
     &:hover {
       .level-zero-item {
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           position: relative;
           border-bottom: 2px solid $blue;
           z-index: 2;
@@ -173,10 +173,10 @@ export default {
       bottom: 0;
 
       @media screen and (min-width: 480px) {
-        width: 268px;
+        width: 272px;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         width: 100%;
         top: 66px;
         background-color: $white;
@@ -196,7 +196,7 @@ export default {
         font-size: 14px;
         text-align: left;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
 
@@ -224,7 +224,7 @@ export default {
         position: relative;
         bottom: 0;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
       }

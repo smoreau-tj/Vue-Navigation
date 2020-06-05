@@ -14,14 +14,14 @@
   &.active {
     border-bottom: 2px solid $grey-dark;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       border-bottom: unset;
     }
 
     .level-one-list {
       display: block;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
     }
@@ -32,7 +32,7 @@
       transition: transform 0.3s;
       transform: translateX(-200%);
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         transition: unset;
         transform: unset;
       }
@@ -42,7 +42,7 @@
       .level-two-list {
         transform: translateX(0);
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           transform: unset;
         }
       }
@@ -54,12 +54,12 @@
 //Hover
 .level-zero-container {
   .level-one-list {
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       display: none;
     }
     .level-one-container {
       .level-two-list {
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
       }
@@ -68,25 +68,25 @@
 
   &:hover {
     .level-one-list {
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: block;
       }
 
       .level-one-container.index-0 {
         .level-one-item {
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             background-color: $grey-light;
           }
 
           .nav-item-title {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               font-family: $basetica-bold;
               color: $blue;
             }
           }
   
           .icon-right-open {
-              @media screen and (min-width: 1024px) {
+              @media screen and (min-width: 1152px) {
               font-weight: bold;
               color: $blue;
             }
@@ -94,7 +94,7 @@
         }
 
         .level-two-list {
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             display: block;
           }
         }
@@ -103,19 +103,19 @@
       &:hover { 
         .level-one-container {
           .level-one-item {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               background-color: unset;
             }
 
             .nav-item-title {
-              @media screen and (min-width: 1024px) {
+              @media screen and (min-width: 1152px) {
                 font-family: unset;
                 color: unset;
               }
             }
     
             .icon-right-open {
-                @media screen and (min-width: 1024px) {
+                @media screen and (min-width: 1152px) {
                 font-weight: unset;
                 color: unset;
               }
@@ -123,7 +123,7 @@
           }
 
           .level-two-list {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: none;
             }
           }
@@ -133,19 +133,19 @@
       .level-one-container{
         &:hover{
           .level-one-item {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               background-color: $grey-light;
             }
 
             .nav-item-title {
-              @media screen and (min-width: 1024px) {
+              @media screen and (min-width: 1152px) {
                 font-family: $basetica-bold;
                 color: $blue;
               }
             }
     
             .icon-right-open {
-                @media screen and (min-width: 1024px) {
+                @media screen and (min-width: 1152px) {
                 font-weight: bold;
                 color: $blue;
               }
@@ -153,7 +153,7 @@
           }
 
           .level-two-list {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: block;
             }
           }

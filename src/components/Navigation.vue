@@ -77,7 +77,7 @@ export default {
     return {
       showMobileMenu: false,
       activeIndex: 0,
-      device: window.innerWidth > 1023 ? 'desktop' : 'mobile'
+      device: window.innerWidth > 1151 ? 'desktop' : 'mobile'
     }
   },
   methods : {
@@ -93,7 +93,7 @@ export default {
       this.device = 'mobile';
     },
     onDesktopMenuHover(){
-      if(window.innerWidth > 1023) {
+      if(window.innerWidth > 1151) {
         this.device = 'desktop';
       }
     }
@@ -117,7 +117,7 @@ export default {
 .header-main {
   background-color: $white;
   
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1152px) {
     position: sticky;
     top: 0;
     left: 0;
@@ -145,7 +145,7 @@ export default {
       }
 
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
 
@@ -176,7 +176,7 @@ export default {
         width: 320px;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
         width: 50%;
         font-size: 16px;
@@ -196,7 +196,7 @@ export default {
         z-index: 2;
         transform: translateX(0);
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           transform: unset;
           z-index: unset;
         }
@@ -208,7 +208,7 @@ export default {
         line-height: 46px;
         padding: 16px 16px 0 16px;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
 
@@ -243,7 +243,7 @@ export default {
         border-top: .5px solid $grey;
         border-bottom: .5px solid $grey;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           height: 66px;
           text-align: left;
           line-height: inherit;
@@ -267,7 +267,7 @@ export default {
       z-index: 1;
       background: rgba(245,245,245,0.85);
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
     }
@@ -276,7 +276,7 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
         font-size: 16px;
         line-height: 66px;
@@ -321,7 +321,7 @@ export default {
           top: unset;
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           width: 182px;
           margin: auto;
           position: absolute;
@@ -356,7 +356,7 @@ export default {
           width: 33.3333%;
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           font-size: 14px;
           width: 50%;
         }
@@ -369,7 +369,7 @@ export default {
           &.search-item {
             display: none;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: inline-block;
             }
 
@@ -399,7 +399,7 @@ export default {
           &.account-item {
             display: none;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: inline-block;
             }
 

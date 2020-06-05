@@ -16,7 +16,7 @@ export default {
 .header-main__promo {
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1152px) {
     display: block;
     height: 50px;
     line-height: 50px;

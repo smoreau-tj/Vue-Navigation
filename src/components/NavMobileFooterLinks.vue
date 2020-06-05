@@ -30,7 +30,7 @@ export default {
   display: block;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1152px) {
     display: none;
   }
 

@@ -118,7 +118,7 @@ export default {
     padding: 0;
     text-align: left;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       margin: 0;
       text-align: left;
       width: 230px;
@@ -140,7 +140,7 @@ export default {
     overflow: auto;
 
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       position: absolute;
       left: 278px;
       width: calc(100% - 278px);
@@ -163,7 +163,7 @@ export default {
       background-color: white;
       margin-bottom: 8px;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
 
@@ -191,7 +191,7 @@ export default {
       margin: 0 24px 6px 24px;
       line-height: 50px;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         margin: 16px 0 16px 0;
         height: unset;
         line-height: 1;
@@ -212,7 +212,7 @@ export default {
           font-size: 14px;
           color: $grey-dark;
 
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             margin-left: 0;
             text-decoration: underline;
             font-family: $basetica-bold;
@@ -229,12 +229,12 @@ export default {
     &.max-nav-items-doublewide {
       height: 100%;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         height: unset;
       }
 
       .level-two-container:nth-child(n+8){
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
       }
@@ -242,7 +242,7 @@ export default {
       .links-only{
         visibility: hidden;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           visibility: visible;
           display: inline-block;
           vertical-align: top;
@@ -270,7 +270,7 @@ export default {
 
     &.max-nav-items-doublewide {
       .level-two-container:nth-child(n+7){
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
       }
@@ -279,7 +279,7 @@ export default {
 
   .level-one-container{
     &.index-0{
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         padding-top: 16px;
       }
     }

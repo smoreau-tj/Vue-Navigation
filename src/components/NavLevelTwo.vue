@@ -41,7 +41,7 @@ export default {
     padding: 0;
     text-align: left;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       margin: 0 auto;
       padding: 24px 42px 0 42px;
       text-align: left;
@@ -55,7 +55,7 @@ export default {
     display: block;
     margin: 2px 24px 2px 24px;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1152px) {
       display: inline-block;
       margin: unset;
       padding-top: 0;
@@ -64,7 +64,7 @@ export default {
     &:last-of-type {
       margin-bottom: 72px;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         margin-bottom: unset;
       }
     }
