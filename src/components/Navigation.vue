@@ -28,7 +28,7 @@
           />
         </ul>
       </div>
-      <div class="mobile-overlay"></div>
+      <div class="mobile-overlay"  @click="showMobileMenu = !showMobileMenu"></div>
       <div class="header-item center">
         <a
           href="/"
@@ -130,6 +130,11 @@ export default {
 
     @media screen and (min-width: 768px) {
       padding: 0 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 1280px;
+      margin: 0 auto;
     }
 
     .mobile-menu-toggle {

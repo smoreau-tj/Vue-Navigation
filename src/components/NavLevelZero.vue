@@ -30,7 +30,6 @@
           </a>
         </div>
       </li>
-
       <NavLevelOne 
         v-for="(levelOneData,index) in visibleLevelOneData"
         :key="index"
@@ -41,9 +40,7 @@
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
         :device="device"
       />
-      <li class="nav-mobile-footer-container">
-        <NavMobileFooterLinks />
-      </li>
+      <NavMobileFooterLinks />
     </ul>
   </li>
 </template>
@@ -217,15 +214,6 @@ export default {
               z-index: 2;
             }
           }
-        }
-      }
-
-      .nav-mobile-footer-container {
-        position: relative;
-        bottom: 0;
-
-        @media screen and (min-width: 1152px) {
-          display: none;
         }
       }
     }
