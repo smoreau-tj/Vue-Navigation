@@ -204,6 +204,7 @@ export default {
 
       a {
         text-decoration: none;
+        display: block;
 
         .nav-item-title {
           margin-left: 16px;

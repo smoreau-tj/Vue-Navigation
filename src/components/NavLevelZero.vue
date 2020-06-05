@@ -207,6 +207,7 @@ export default {
           a {
             text-decoration: none;
             color: $grey-dark;
+            display: block;
 
             img {
               display: inline;
