@@ -1,6 +1,6 @@
 <template>
   <div class="list-item" :style="cssVars">
-    <a :href="titleUrl" :class="{'disable-link' : !clickableText }">
+    <a :href="titleUrl">
       <img class="mobile-image" :alt="altText" v-if="mobileImage" :src="convertImageRef(mobileImage)"/>
       <img class="level-two-image" :alt="altText" v-if="levelTwoImage" :src="convertImageRef(levelTwoImage)"/>
       <span class="nav-item-title">{{title}}</span>
@@ -58,21 +58,21 @@ export default {
       color: var(--title-color);
       font-family: $basetica;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         color: #4d4d4d;
       }
 
       .icon-right-open {
         color: var(--title-color);
 
-         @media screen and (min-width: 1024px) {
+         @media screen and (min-width: 1152px) {
           color: #4d4d4d;
         }
       }
     }
 
     &.level-zero-item {
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         margin-right: 40px;
       }
 
@@ -81,7 +81,7 @@ export default {
         color: $grey-dark;
         pointer-events: none;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           font-family: $basetica;
           color: var(--title-color);
           pointer-events: unset;
@@ -101,7 +101,7 @@ export default {
       position: relative;
       text-align: left;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         height: 46px;
         line-height: 46px;
         background-color: unset;
@@ -115,7 +115,7 @@ export default {
         text-align: left;
         pointer-events: none;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           font-size: 16px;
           margin-left: 48px;
           width: unset;
@@ -131,7 +131,7 @@ export default {
           right: 16px;
           z-index: 2;
 
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             display: none;
           }
         }
@@ -142,7 +142,7 @@ export default {
           color: var(--title-color);
 
 
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             margin-left: unset;
             font-size: unset;
             color: unset;
@@ -157,7 +157,7 @@ export default {
           color: var(--title-color);
           z-index: 1;
 
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             display: inline;
             right: 16px;
             font-size: 20px;
@@ -173,19 +173,19 @@ export default {
 
 
       &:hover {
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           background-color: $grey-light;
         }
 
         .nav-item-title {
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             font-family: $basetica-bold;
             color: $blue;
           }
         }
 
         .icon-right-open {
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
             font-weight: bold;
             color: $blue;
           }
@@ -201,7 +201,7 @@ export default {
       position: relative;
       text-align: left;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         vertical-align: top;
         margin-right: 8px;
         background-color: unset;
@@ -219,7 +219,7 @@ export default {
           position: absolute;
           right: 16px;
           
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             position: relative;
             height: 12vw;
             right: unset;
@@ -235,7 +235,7 @@ export default {
           font-size: 14px;
           color: var(--title-color);
 
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             display: block;
             font-size: 12px;
             margin-left: unset;
@@ -245,13 +245,13 @@ export default {
 
       &:hover {
         .nav-item-title {
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             text-decoration: underline;
           }
         }
 
         img {
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1152px) {
             opacity: .85;
           }
         }

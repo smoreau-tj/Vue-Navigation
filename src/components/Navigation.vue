@@ -3,7 +3,7 @@
     <div class="header-main__inner container">
       <div 
         class="mobile-menu-toggle" 
-        @click="showMobileMenu = !showMobileMenu"
+        @click="showMobileMenu = !showMobileMenu; onMobileMenuClick();"
       >
         <img alt="Tommy John Menu" src="../assets/images/svg-hamburger.svg"/>
       </div>
@@ -17,17 +17,18 @@
           </span>
           <span class="mobile-menu-close-btn" @click="showMobileMenu = !showMobileMenu">&times;</span>
         </div>
-        <ul class="nav-item__list level-zero-list">
+        <ul class="nav-item__list level-zero-list" @mouseenter="onDesktopMenuHover()">
         <NavLevelZero 
           v-for="(navItemData, index) in visibleNavData"
           :key="index"
           :navItemData="navItemData"
           :isActive="activeIndex === index"
           @onActiveItem="onActiveItem(index)"
+          :device="device"
           />
         </ul>
       </div>
-      <div class="mobile-overlay"></div>
+      <div class="mobile-overlay"  @click="showMobileMenu = !showMobileMenu"></div>
       <div class="header-item center">
         <a
           href="/"
@@ -70,12 +71,13 @@ export default {
     NavLevelZero,
   },
   props: {
-    navData: Array
+    navData: Array,
   },
   data () {
     return {
       showMobileMenu: false,
-      activeIndex: 0
+      activeIndex: 0,
+      device: window.innerWidth > 1151 ? 'desktop' : 'mobile'
     }
   },
   methods : {
@@ -86,20 +88,27 @@ export default {
       else {
         this.activeIndex = index;
       }
+    },
+    onMobileMenuClick (){
+      this.device = 'mobile';
+    },
+    onDesktopMenuHover(){
+      if(window.innerWidth > 1151) {
+        this.device = 'desktop';
+      }
     }
   },
   computed : {
     toggleMobileMenu() {
-      return this.showMobileMenu ? 'active' : '';
+      return this.showMobileMenu ? 'active' : ''
     },
     visibleNavData() {
       return this.navData.filter(function(n){
-        return n.displayCollection != "none"
+        return n.displayCollection != 'none'
       });
-    },
+    }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -108,7 +117,7 @@ export default {
 .header-main {
   background-color: $white;
   
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1152px) {
     position: sticky;
     top: 0;
     left: 0;
@@ -121,6 +130,11 @@ export default {
 
     @media screen and (min-width: 768px) {
       padding: 0 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 1280px;
+      margin: 0 auto;
     }
 
     .mobile-menu-toggle {
@@ -136,7 +150,7 @@ export default {
       }
 
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
 
@@ -167,7 +181,7 @@ export default {
         width: 320px;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
         width: 50%;
         font-size: 16px;
@@ -187,7 +201,7 @@ export default {
         z-index: 2;
         transform: translateX(0);
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           transform: unset;
           z-index: unset;
         }
@@ -199,7 +213,7 @@ export default {
         line-height: 46px;
         padding: 16px 16px 0 16px;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           display: none;
         }
 
@@ -234,13 +248,12 @@ export default {
         border-top: .5px solid $grey;
         border-bottom: .5px solid $grey;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           height: 66px;
           text-align: left;
           line-height: inherit;
           border-top: unset;
           border-bottom: unset;
-
         }
       }
     }
@@ -259,7 +272,7 @@ export default {
       z-index: 1;
       background: rgba(245,245,245,0.85);
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: none;
       }
     }
@@ -268,7 +281,7 @@ export default {
       font-family: $basetica;
       color: $grey-dark;
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1152px) {
         display: inline-block;
         font-size: 16px;
         line-height: 66px;
@@ -313,7 +326,7 @@ export default {
           top: unset;
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           width: 182px;
           margin: auto;
           position: absolute;
@@ -348,7 +361,7 @@ export default {
           width: 33.3333%;
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1152px) {
           font-size: 14px;
           width: 50%;
         }
@@ -361,7 +374,7 @@ export default {
           &.search-item {
             display: none;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: inline-block;
             }
 
@@ -391,7 +404,7 @@ export default {
           &.account-item {
             display: none;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1152px) {
               display: inline-block;
             }
 
