@@ -25,6 +25,9 @@
           :isActive="activeIndex === index"
           @onActiveItem="onActiveItem(index)"
           :device="device"
+          @getHeapDataLevel0="updateHeapDataLevel0"
+          @getHeapDataLevel1="updateHeapDataLevel1"
+
           />
         </ul>
       </div>
@@ -77,7 +80,15 @@ export default {
     return {
       showMobileMenu: false,
       activeIndex: 0,
-      device: window.innerWidth > 1151 ? 'desktop' : 'mobile'
+      device: window.innerWidth > 1151 ? 'desktop' : 'mobile',
+       heapData: {
+        defaultTab: null,
+        firstLevel: null,
+        secondLevel: null,
+        thirdLevel: null,
+        thirdLevelType: null,
+        position: null,
+      }
     }
   },
   methods : {
@@ -88,14 +99,26 @@ export default {
       else {
         this.activeIndex = index;
       }
+      this.heapData.defaultTab = this.visibleNavData[this.activeIndex].collectionTitle
     },
     onMobileMenuClick (){
       this.device = 'mobile';
+      this.heapData.defaultTab = this.visibleNavData[this.activeIndex].collectionTitle
     },
     onDesktopMenuHover(){
       if(window.innerWidth > 1151) {
         this.device = 'desktop';
       }
+    },
+    updateHeapDataLevel0(data) {
+      console.log('heap nav data level0', data);
+      this.heapData.firstLevel = data.collectionTitle;
+      this.heapData.position = 1;
+    },
+    updateHeapDataLevel1(data) {
+      console.log('heap nav data level1', data);
+       this.heapData.secondLevel = data.styleName;
+       this.heapData.position = 2;
     }
   },
   computed : {

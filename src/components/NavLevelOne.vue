@@ -6,6 +6,7 @@
     { active: isActive },
     `index-${index}`
   ]"
+  @click="heapDataLevel1"
 >
   <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"
@@ -92,6 +93,9 @@ export default {
   methods : {
     toggleActiveLevelOne() {
       this.$emit('onActiveLevelOneItem');
+    },
+    heapDataLevel1(){
+      this.$emit('getHeapDataLevel1', this.levelOneData);
     }
   },
   computed : {

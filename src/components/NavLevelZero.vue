@@ -5,7 +5,7 @@
     {'mobile-only': navItemData.displayCollection === 'mobile' },
     { active: isActive }
   ]"
-  @click="toggleActive"
+  @click="toggleActive(); heapDataLevel0();"
   >
  
   <NavItem class="level-zero-item"
@@ -39,6 +39,7 @@
         :isActive="activeIndex === index"
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
         :device="device"
+        @getHeapDataLevel1="sendHeapDataLevel1"
       />
       <NavMobileFooterLinks />
     </ul>
@@ -66,7 +67,8 @@ export default {
   props: {
     navItemData: Object,
     isActive : Boolean,
-    device: String
+    device: String,
+    // heapData: Object
   },
   data () {
     return {
@@ -91,6 +93,14 @@ export default {
           return builder.image(source)
         }
       return urlFor(imageRef).url()
+    },
+    heapDataLevel0() {
+      console.log('sending level 0 data', this.navItemData)
+      this.$emit('getHeapDataLevel0', this.navItemData);
+    },
+    sendHeapDataLevel1(data) {
+      console.log('sending level 1 data', data)
+      this.$emit('getHeapDataLevel1', data);
     }
   },
   computed : {

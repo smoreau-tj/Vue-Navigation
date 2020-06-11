@@ -26,6 +26,18 @@ export default {
     clickableText: Boolean,
     altText: String
   },
+  data (){
+    return {
+    // heapData: {
+    //     defaultTab: null,
+    //     firstLevel: null,
+    //     secondLevel: null,
+    //     thirdLevel: null,
+    //     thirdLevelType: null,
+    //     position: null,
+    //   }
+    }
+  },
   methods: {
     convertImageRef: function(imageRef){
       const builder = imageUrlBuilder(client);
@@ -33,7 +45,10 @@ export default {
           return builder.image(source)
         }
       return urlFor(imageRef).url()
-    }
+    },
+    // heapData (){
+    //   console.log('heap data event', 'title', this.test);
+    // }
   },
   computed: {
     cssVars () {
