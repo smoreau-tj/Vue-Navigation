@@ -6,9 +6,8 @@
     { active: isActive },
     `index-${index}`
   ]"
-  @click="heapDataLevel1"
 >
-  <div @click="toggleActiveLevelOne">
+  <div @click="toggleActiveLevelOne(); heapDataLevel1();">
     <NavItem class="level-one-item"
       :title="levelOneData.styleName"
       :titleUrl="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null"

@@ -32,62 +32,48 @@
         </ul>
       </div>
       <div class="mobile-overlay"  @click="showMobileMenu = !showMobileMenu"></div>
-      <div class="header-item center">
-        <a
-          href="/"
-          title="Tommy John Home"
-          class="header-logo"
-          aria-label="Tommy John Logo"
-          tabindex="0"
-        >
-          <img
-            alt="Tommy John Logo"
-            src="../assets/images/tj-logo_horizontal.svg"
-          />
-        </a>
-      </div>
-      <div class="header-item right">
-        <ul class="header-item__list">
-          <li class="search-item">
-            <img alt="Search Icon" src="../assets/images/svg-search.svg" />
-            <input type="text" title="search" name="search" id="search" aria-label="search" placeholder="Search" />
-          </li>
-          <li class="account-item">
-            Hi, Sign-in<i class="icon-down-open"></i>
-          </li>
-          <li class="cart-item">
-            <i class="icon-shopping-cart"></i> (1)
-          </li>
-        </ul>
-      </div>
- 
+      <NavHeaderCenter>
+      </NavHeaderCenter>
+      <NavHeaderRight>
+      </NavHeaderRight>
     </div>
   </header>
 </template>
 
 <script>
+import {client} from '../lib/sanity.js';
 import NavLevelZero from './NavLevelZero.vue'
+import NavHeaderCenter from './NavHeaderCenter.vue'
+import NavHeaderRight from './NavHeaderRight.vue'
+
 
 export default {
   name: "Navigation",
   components: {
     NavLevelZero,
+    NavHeaderCenter,
+    NavHeaderRight
   },
-  props: {
-    navData: Array,
+  mounted() {
+    const queryString = "*[_type=='navigation' && isNavLive == true]";
+    client.fetch(queryString).then(data => {
+      console.log('data', data);
+      this.navData = data[0].navigationType;
+    }).catch( error => {console.log(error)});
   },
   data () {
     return {
+      navData: [],
       showMobileMenu: false,
       activeIndex: 0,
       device: window.innerWidth > 1151 ? 'desktop' : 'mobile',
-       heapData: {
+      heapData: {
         defaultTab: null,
         firstLevel: null,
         secondLevel: null,
         thirdLevel: null,
         thirdLevelType: null,
-        position: null,
+        position: 1,
       }
     }
   },
@@ -113,6 +99,7 @@ export default {
     updateHeapDataLevel0(data) {
       console.log('heap nav data level0', data);
       this.heapData.firstLevel = data.collectionTitle;
+      this.heapData.secondLevel = null;
       this.heapData.position = 1;
     },
     updateHeapDataLevel1(data) {
@@ -297,170 +284,6 @@ export default {
 
       @media screen and (min-width: 1152px) {
         display: none;
-      }
-    }
-
-    .header-item {
-      font-family: $basetica;
-      color: $grey-dark;
-
-      @media screen and (min-width: 1152px) {
-        display: inline-block;
-        font-size: 16px;
-        line-height: 66px;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-
-        li {
-          list-style-type: none;
-          display: inline-block;
-
-          a {
-            text-decoration: none;
-            color: $grey-dark;
-
-            &:hover {
-              color: $blue-light;
-            }
-          }
-        }
-      }
-
-      &.center {
-        width: 118px;
-        margin: auto;
-        position: absolute;
-        top: 20px;
-        left: 0;
-        bottom: 0;
-        right: 0;
-
-        @media screen and (min-width: 480px) {
-          width: 33.3333%;
-          margin: 0 auto;
-          display: inline-block;
-          position: relative;
-          left: unset;
-          bottom: unset;
-          right: unset;
-          top: unset;
-        }
-
-        @media screen and (min-width: 1152px) {
-          width: 182px;
-          margin: auto;
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-        }
-
-        a {
-          display: inline-block;
-
-          img {
-            width: 118px;
-
-            @media screen and (min-width: 480px) {
-              width: 182px;
-              vertical-align: middle;
-            }
-          }
-        }
-      }
-
-      &.right {
-        text-align: right;
-        width: 50%;
-        display: inline-block;
-        height: 66px;
-        line-height: 66px;
-
-        @media screen and (min-width: 480px) {
-          width: 33.3333%;
-        }
-
-        @media screen and (min-width: 1152px) {
-          font-size: 14px;
-          width: 50%;
-        }
-
-        li {
-          &:not(:last-child) {
-            margin-right: 24px;
-          }
-
-          &.search-item {
-            display: none;
-
-            @media screen and (min-width: 1152px) {
-              display: inline-block;
-            }
-
-            img {
-              vertical-align: middle;
-            }
-
-            input {
-              width: 134px;
-              border: none;
-              border-bottom: 1px solid $grey-neutral;
-              font-size: 14px;
-              font-family: "Basetica";
-              color: $grey-dark;
-              margin-left: 8px;
-
-              &::placeholder {
-                color: $grey-neutral;
-              }
-
-              &::-ms-input-placeholder {
-                color: $grey-neutral;
-              }
-            }
-          }
-
-          &.account-item {
-            display: none;
-
-            @media screen and (min-width: 1152px) {
-              display: inline-block;
-            }
-
-            .icon-down-open {
-              font-family: $fontello;
-              font-size: 16px;
-              margin-left: 8px;
-              cursor: pointer;
-
-              &::before {
-                content: "\e812";
-                font-style: normal;
-                position: relative;
-                top: 4px;
-                font-weight: bold;
-              }
-            }
-          }
-
-          &.cart-item {
-            color: $red;
-
-            .icon-shopping-cart {
-              font-family: $fontello;
-              cursor: pointer;
-
-              &::before {
-                content: "\e822";
-                font-style: normal;
-              }
-            }
-          }
-        }
       }
     }
   }

@@ -68,7 +68,6 @@ export default {
     navItemData: Object,
     isActive : Boolean,
     device: String,
-    // heapData: Object
   },
   data () {
     return {

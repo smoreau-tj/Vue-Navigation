@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SiteNotice/>
-    <Navigation :navData="navData" />
+    <Navigation />
     <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png" style="width: 100%;">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 
-import {client} from './lib/sanity.js';
+// import {client} from './lib/sanity.js';
 import SiteNotice from './components/SiteNotice.vue';
 import Navigation from './components/Navigation.vue';
 import HelloWorld from './components/HelloWorld.vue';
@@ -22,17 +22,6 @@ export default {
     SiteNotice,
     Navigation,
     HelloWorld,
-  },
-  data () {
-    return {
-      navData: [],
-    }},
-  mounted() {
-    const queryString = "*[_type=='navigation' && isNavLive == true]";
-    client.fetch(queryString).then(data => {
-      console.log('data', data);
-      this.navData = data[0].navigationType;
-    }).catch( error => {console.log(error)});
   }
 }
 

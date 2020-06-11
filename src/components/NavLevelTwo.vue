@@ -1,9 +1,11 @@
 <template>
 <li class="level-two-container"
   :class="[
-  {'desktop-only': levelTwoData.displayCollection === 'desktop' },
-  {'mobile-only': levelTwoData.displayCollection === 'mobile' }
-]">
+    {'desktop-only': levelTwoData.displayCollection === 'desktop' },
+    {'mobile-only': levelTwoData.displayCollection === 'mobile' }
+  ]"
+  @click="heapDataLevel2"
+>
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
     :titleUrl="levelTwoData.navUrl"
@@ -29,6 +31,11 @@ export default {
     levelTwoData: Object,
     index: Number
 
+  },
+  methods : {
+    heapDataLevel2(){
+      this.$emit('getHeapDataLevel2', this.levelTwoData);
+    }
   }
 };
 </script>
