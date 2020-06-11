@@ -74,7 +74,7 @@ export default {
   data () {
     return {
       activeIndex: null,
-      heapPosition: 0,
+      heapPosition: 1,
     }
   },
   methods : {

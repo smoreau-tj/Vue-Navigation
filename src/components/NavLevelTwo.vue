@@ -4,6 +4,8 @@
     {'desktop-only': levelTwoData.displayCollection === 'desktop' },
     {'mobile-only': levelTwoData.displayCollection === 'mobile' }
   ]"
+  :data-heap-position="heapPosition"
+
 >
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
@@ -29,6 +31,11 @@ export default {
   props: {
     levelTwoData: Object,
     index: Number
+  },
+  data () {
+    return {
+      heapPosition: 3
+    }
   }
 };
 </script>

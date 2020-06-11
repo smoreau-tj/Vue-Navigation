@@ -6,8 +6,9 @@
     { active: isActive },
     `index-${index}`
   ]"
+  :data-heap-position="heapPosition"
 >
-  <div @click="toggleActiveLevelOne(); heapDataLevel1();">
+  <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"
       :title="levelOneData.styleName"
       :titleUrl="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null"
@@ -49,7 +50,6 @@
         :key="index"
         :index="index"
         :levelTwoData="levelTwoData"
-        @getHeapDataLevel2child="sendHeapDataLevel2child(levelTwoData)"
       />
       <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
@@ -90,17 +90,15 @@ export default {
     mobileGenderTitle: String,
     device: String
   },
+  data (){
+    return {
+      heapPosition: 2
+    }
+  },
   methods : {
     toggleActiveLevelOne() {
       this.$emit('onActiveLevelOneItem');
-    },
-    heapDataLevel1(){
-      this.$emit('getHeapDataLevel1', this.levelOneData);
-    },
-    sendHeapDataLevel2child(data) {
-      this.$emit('getHeapDataLevel2parent', data);
     }
-
   },
   computed : {
     visibleLevelTwoData() {
