@@ -49,6 +49,7 @@
         :key="index"
         :index="index"
         :levelTwoData="levelTwoData"
+        @getHeapDataLevel2child="sendHeapDataLevel2child(levelTwoData)"
       />
       <li v-if="visibleLevelTwoData.length > 6 && levelOneData.isFirstDoubleWide" class="links-only doublewide-true">
         <div class="level-two-item"
@@ -95,7 +96,11 @@ export default {
     },
     heapDataLevel1(){
       this.$emit('getHeapDataLevel1', this.levelOneData);
+    },
+    sendHeapDataLevel2child(data) {
+      this.$emit('getHeapDataLevel2parent', data);
     }
+
   },
   computed : {
     visibleLevelTwoData() {

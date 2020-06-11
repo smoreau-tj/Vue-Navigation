@@ -27,7 +27,7 @@
           :device="device"
           @getHeapDataLevel0="updateHeapDataLevel0"
           @getHeapDataLevel1="updateHeapDataLevel1"
-
+          @getHeapDataLevel2="updateHeapDataLevel2"
           />
         </ul>
       </div>
@@ -106,6 +106,11 @@ export default {
       console.log('heap nav data level1', data);
        this.heapData.secondLevel = data.styleName;
        this.heapData.position = 2;
+    },
+    updateHeapDataLevel2(data) {
+      console.log('heap nav data level2', data);
+       this.heapData.thirdLevel = data.text;
+       this.heapData.position = 3;
     }
   },
   computed : {

@@ -34,7 +34,7 @@ export default {
   },
   methods : {
     heapDataLevel2(){
-      this.$emit('getHeapDataLevel2', this.levelTwoData);
+      this.$emit('getHeapDataLevel2child');
     }
   }
 };

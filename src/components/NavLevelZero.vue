@@ -40,6 +40,7 @@
         @onActiveLevelOneItem ="onActiveLevelOneItem(index)"
         :device="device"
         @getHeapDataLevel1="sendHeapDataLevel1"
+        @getHeapDataLevel2parent="sendHeapDataLevel2parent"
       />
       <NavMobileFooterLinks />
     </ul>
@@ -100,6 +101,10 @@ export default {
     sendHeapDataLevel1(data) {
       console.log('sending level 1 data', data)
       this.$emit('getHeapDataLevel1', data);
+    },
+    sendHeapDataLevel2parent(data) {
+      console.log('sending level 2 data', data)
+      this.$emit('getHeapDataLevel2', data)
     }
   },
   computed : {
