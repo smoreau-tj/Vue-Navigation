@@ -4,7 +4,6 @@
     {'desktop-only': levelTwoData.displayCollection === 'desktop' },
     {'mobile-only': levelTwoData.displayCollection === 'mobile' }
   ]"
-  @click="heapDataLevel2"
 >
   <NavItem class="level-two-item"
     :title="levelTwoData.text"
@@ -30,12 +29,6 @@ export default {
   props: {
     levelTwoData: Object,
     index: Number
-
-  },
-  methods : {
-    heapDataLevel2(){
-      this.$emit('getHeapDataLevel2child');
-    }
   }
 };
 </script>
