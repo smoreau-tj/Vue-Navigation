@@ -6,8 +6,9 @@
     { active: isActive },
     `index-${index}`
   ]"
+  :data-heap-position="heapPosition"
 >
-  <div @click="toggleActiveLevelOne(); heapDataLevel1();">
+  <div @click="toggleActiveLevelOne">
     <NavItem class="level-one-item"
       :title="levelOneData.styleName"
       :titleUrl="levelOneData.stylesUrl ? levelOneData.stylesUrl.current : null"
@@ -89,12 +90,14 @@ export default {
     mobileGenderTitle: String,
     device: String
   },
+  data (){
+    return {
+      heapPosition: 2
+    }
+  },
   methods : {
     toggleActiveLevelOne() {
       this.$emit('onActiveLevelOneItem');
-    },
-    heapDataLevel1(){
-      this.$emit('getHeapDataLevel1', this.levelOneData);
     }
   },
   computed : {
