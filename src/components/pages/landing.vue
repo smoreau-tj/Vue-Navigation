@@ -1,6 +1,8 @@
 <template>
   <div><h1><strong>Landing Page</strong></h1>
-    <HeroModule />
+    <HeroModule
+      :moduleData="modulesData.hero"
+     />
     <FixedBannerModule />
     <SideBySideModule />
     <ThreePanelModule />
@@ -31,8 +33,7 @@ export default {
   data () {
     return {
       modulesData: {
-        moduleName: "Hero",
-        moduleData: {
+        hero: {
           contentAlignment: "left",
           imageData: {
             href: "/image-link",
@@ -48,7 +49,7 @@ export default {
             desktopColor: "#4D4D4D",
             desktopFont: "Basetica",
           },
-          subTitleData:{
+          subtitleData:{
             text:"Lorem ipsum dolor sit amet, consectetur ipiscing elit.",
             mobileColor: "#00424a",
             mobileFont: "Basetica",
@@ -56,11 +57,11 @@ export default {
             desktopFont: "Basetica-Bold",
           },
           ctaData: {
-            stackCtas: false,
             cta1: {
               type: "skeleton",
               text:"CTA 1",
               href:"/cta-1",
+              stackCtas: false,
               mobileBackgroundColor:"#FFFFFF",
               mobileColor: "#4D4D4D",
               mobileBorderColor: "#4D4D4D",
@@ -72,6 +73,7 @@ export default {
               type: "skeleton",
               text:"CTA 2",
               href:"/cta-2",
+              stackCtas: false,
               mobileBackgroundColor:"#4D4D4D",
               mobileColor: "#FFFFFF",
               mobileBorderColor: "#4D4D4D",

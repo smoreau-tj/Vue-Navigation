@@ -1,9 +1,25 @@
 <template>
-  <div><h2><strong>Hero Module</strong></h2>
-    <ImageElement />
-    <TitleElement />
-    <SubtitleElement />
-    <CtaElement />
+  <div 
+    class="module-container"
+    :class="contentAlignment"
+  >
+    <h2>
+      <strong>Hero Module</strong>
+    </h2>
+    <ImageElement 
+      :elementData="imageData"
+    />
+    <TitleElement
+      :elementData="titleData"
+    />
+    <SubtitleElement
+      :elementData="subtitleData"
+    />
+    <CtaElement
+      v-for="(cta, index) in ctaData"
+      :key="index"
+      :elementData="cta"
+     />
   </div>
 </template>
 
@@ -20,6 +36,18 @@ export default {
     TitleElement,
     SubtitleElement,
     CtaElement
+  },
+  props : {
+    moduleData: Object
+  },
+  data (){
+    return {
+      contentAlignment: this.moduleData.contentAlignment,
+      imageData: this.moduleData.imageData,
+      titleData: this.moduleData.titleData,
+      subtitleData: this.moduleData.subtitleData,
+      ctaData: this.moduleData.ctaData
+    }
   }
 }
 </script>
