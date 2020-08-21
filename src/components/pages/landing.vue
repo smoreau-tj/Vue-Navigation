@@ -38,7 +38,7 @@ export default {
           imageData: {
             href: "/image-link",
             mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/6Bs7Vjnxr3xMBa8oVe8XDq/aebdcb3f414721b55af06eaa75a5e4a3/Hero_3_4.jpg",
-            desktopUrl:"./assets/images/home-hero-sample.png",
+            desktopUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/2jFgcklsE9PTFo1ifaogE2/4c96c6aa36462d01a647aea129a1e134/Hero_16_7.jpg",
             altText:"Tommy John Underwear"
           },
           titleData:{
