@@ -1,10 +1,26 @@
 <template>
-<div>Hero Module</div>
+  <div><h2><strong>Hero Module</strong></h2>
+    <ImageElement />
+    <TitleElement />
+    <SubtitleElement />
+    <CtaElement />
+  </div>
 </template>
 
 <script>
+import ImageElement from '../elements/image.vue'
+import TitleElement from '../elements/title.vue'
+import SubtitleElement from '../elements/subtitle.vue'
+import CtaElement from '../elements/cta.vue'
+
 export default {
-  name:"Hero",
+  name:"HeroModule",
+  components: {
+    ImageElement,
+    TitleElement,
+    SubtitleElement,
+    CtaElement
+  }
 }
 </script>
 

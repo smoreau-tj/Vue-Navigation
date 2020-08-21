@@ -2,8 +2,10 @@
   <div id="app">
     <SiteNotice/>
     <Navigation />
-    <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png" style="width: 100%;">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LandingPage />
+    
+    <!-- <img alt="Tommy John Hero" src="./assets/images/home-hero-sample.png" style="width: 100%;"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
@@ -13,7 +15,9 @@
 // import {client} from './lib/sanity.js';
 import SiteNotice from './components/SiteNotice.vue';
 import Navigation from './components/Navigation.vue';
-import HelloWorld from './components/HelloWorld.vue';
+import LandingPage    from './components/pages/landing.vue'
+// import HelloWorld from './components/HelloWorld.vue';
+
 
 
 export default {
@@ -21,7 +25,8 @@ export default {
   components: {
     SiteNotice,
     Navigation,
-    HelloWorld,
+    LandingPage,
+    // HelloWorld,
   }
 }
 
