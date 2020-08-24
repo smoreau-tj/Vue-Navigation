@@ -1,11 +1,11 @@
 <template>
 <a 
   :href="elementData.href" 
-  class="vue-cta-link"
->
-  <button class="vue-cta_button">
-    {{elementData.text}}
-  </button>
+  class="vue-cta"
+  :style="cssVars"
+  type="button"
+>  
+  {{elementData.text}}
 </a>
 </template>
 
@@ -33,20 +33,37 @@ export default {
 
 <style lang="scss" scoped>
 
-.vue-cta-link {
+.vue-cta {
   color: var(--mobile-color);
   background-color: var(--mobile-background-color);
   border: 1px solid var(--mobile-border-color);
   border-radius: 2px;
   font-size: 14px;
-  font-family: 'basetica-bold';
+  font-family: 'Basetica Bold';
+  display: block;
+  width: calc(100% - 48px);
+  margin-left: 24px;
+  height: 45px;
+  line-height: 45px;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 16px;
 
-  @media screen and (min-width: 1152px) {
+  @media screen and (min-width: 512px) {
     color: var(--desktop-color);
     background-color: var(--desktop-background-color);
     border: 2px solid var(--desktop-border-color);
     border-radius: 2px;
     font-size: 16px;
+    width: 250px;
+    height: 45px;
+    line-height: 45px;
+    display: var(--desktop-stack-ctas);
+    margin-left: 0;
+  }
+
+  &:nth-child(2){
+    margin-left: 8px;
   }
 }
 

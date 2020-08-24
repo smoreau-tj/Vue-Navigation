@@ -32,13 +32,18 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.vue-subtitle-container {
+  margin-bottom: 24px;
+}
+
 .vue-subtitle_text {
   color: var(--mobile-color);
   font-family: var(--mobile-font);
   display: var(--hide-mobile);
   font-size: 16px;
-
-  @media screen and (min-width: 568px) {
+  
+  @media screen and (min-width: 512px) {
     color: var(--desktop-color);
     font-family: var(--desktop-font);
     display: var(--hide-desktop);

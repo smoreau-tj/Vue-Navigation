@@ -1,25 +1,26 @@
 <template>
   <div 
-    class="vue-module-container hero-module"
+    class="vue-module-container hero-module-container"
     :class="moduleData.contentAlignment"
   >
-    <h2>
-      <strong>Hero Module</strong>
-    </h2>
-    <ImageElement 
-      :elementData="moduleData.imageData"
-    />
-    <TitleElement
-      :elementData="moduleData.titleData"
-    />
-    <SubtitleElement
-      :elementData="moduleData.subtitleData"
-    />
-    <CtaElement
-      v-for="(cta, index) in moduleData.ctaData"
-      :key="index"
-      :elementData="cta"
-     />
+    <div class="hero-module_image-container">
+      <ImageElement 
+        :elementData="moduleData.imageData"
+      />
+    </div>
+    <div class="hero-module_text-container">
+      <TitleElement
+        :elementData="moduleData.titleData"
+      />
+      <SubtitleElement
+        :elementData="moduleData.subtitleData"
+      />
+      <CtaElement
+        v-for="(cta, index) in moduleData.ctaData"
+        :key="index"
+        :elementData="cta"
+      />
+    </div>
   </div>
 </template>
 
@@ -44,5 +45,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.hero-module-container {
+  position: relative;
+
+  .hero-module_text-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 32px;
+
+    @media screen and (min-width: 512px) {
+      margin: 0;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding-bottom: unset;
+      bottom: unset;
+
+    }
+  }
+}
 
 </style>

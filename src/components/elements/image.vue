@@ -11,7 +11,7 @@
     >
     <img
       :src="imageData.mobileUrl ? imageData.mobileUrl : 'https://placehold.it/800x700'"
-      class="home-hero__image"
+      class="vue-image"
       :alt="imageData.altText ? imageData.altText : 'Tommy John Image'"
     />
     </picture>
@@ -33,5 +33,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.vue-image {
+  position: relative;
+  display: block;
+  width: 100%;
+}
 
 </style>

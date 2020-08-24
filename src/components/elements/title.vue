@@ -37,11 +37,13 @@ export default {
   font-size: 28px;
   display: block;
 
-  @media screen and (min-width: 568px) {
+  @media screen and (min-width: 512px) {
     color: var(--desktop-color);
     font-family: var(--desktop-font);
     text-shadow: var(--desktop-drop-shadow);
     font-size: 40px;
+    line-height: 46px;
+    margin-bottom: 8px;
   }
 }
 

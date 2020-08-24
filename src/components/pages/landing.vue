@@ -1,5 +1,5 @@
 <template>
-  <div><h1><strong>Landing Page</strong></h1>
+  <div>
     <HeroModule
       :moduleData="modulesData.hero"
      />
@@ -44,7 +44,7 @@ export default {
           titleData:{
             text:"Lorem Ipsum",
             mobileColor: "#FFFFFF",
-            mobileFont: "Basetica-Bold",
+            mobileFont: "Basetica",
             desktopDropShadow: true,
             desktopColor: "#4D4D4D",
             desktopFont: "Basetica",
@@ -55,12 +55,11 @@ export default {
             mobileColor: "#00424a",
             mobileFont: "Basetica",
             desktopColor: "#FFFFFF",
-            desktopFont: "Basetica-Bold",
+            desktopFont: "Basetica",
             desktopHide: false
           },
           ctaData: {
             cta1: {
-              type: "skeleton",
               text:"CTA 1",
               href:"/cta-1",
               stackCtas: false,
@@ -72,7 +71,6 @@ export default {
               desktopBorderColor: "#00424a",
             },
             cta2: {
-              type: "skeleton",
               text:"CTA 2",
               href:"/cta-2",
               stackCtas: false,
