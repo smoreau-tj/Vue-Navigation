@@ -51,10 +51,12 @@ export default {
           },
           subtitleData:{
             text:"Lorem ipsum dolor sit amet, consectetur ipiscing elit.",
+            mobileHide: true,
             mobileColor: "#00424a",
             mobileFont: "Basetica",
             desktopColor: "#FFFFFF",
             desktopFont: "Basetica-Bold",
+            desktopHide: false
           },
           ctaData: {
             cta1: {

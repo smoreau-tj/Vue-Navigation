@@ -12,6 +12,7 @@
     <img
       :src="imageData.mobileUrl ? imageData.mobileUrl : 'https://placehold.it/800x700'"
       class="home-hero__image"
+      :alt="imageData.altText ? imageData.altText : 'Tommy John Image'"
     />
     </picture>
   </a>
