@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="vue-module-container three-panel-module">
   <h2>
     <strong>Three Panel Module</strong>
   </h2>

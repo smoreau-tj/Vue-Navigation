@@ -1,18 +1,23 @@
 <template>
-<div><h2><strong>Side-by-Side Module</strong></h2>
-  <div><h3>Side 1</h3>
-    <ImageElement />
-    <TitleElement />
-    <SubtitleElement />
-    <CtaElement />
+  <div class="vue-module-container side-by-side-module">
+    <h2>
+      <strong>Side-by-Side Module</strong>
+    </h2>
+    <div>
+      <h3>Side 1</h3>
+      <ImageElement />
+      <TitleElement />
+      <SubtitleElement />
+      <CtaElement />
+    </div>
+    <div>
+      <h3>Side 2</h3>
+      <ImageElement />
+      <TitleElement />
+      <SubtitleElement />
+      <CtaElement />
+    </div>
   </div>
-  <div><h3>Side 2</h3>
-    <ImageElement />
-    <TitleElement />
-    <SubtitleElement />
-    <CtaElement />
-  </div>
-</div>
 </template>
 
 <script>

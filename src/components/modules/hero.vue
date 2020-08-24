@@ -1,22 +1,22 @@
 <template>
   <div 
-    class="module-container"
-    :class="contentAlignment"
+    class="vue-module-container hero-module"
+    :class="moduleData.contentAlignment"
   >
     <h2>
       <strong>Hero Module</strong>
     </h2>
     <ImageElement 
-      :elementData="imageData"
+      :elementData="moduleData.imageData"
     />
     <TitleElement
-      :elementData="titleData"
+      :elementData="moduleData.titleData"
     />
     <SubtitleElement
-      :elementData="subtitleData"
+      :elementData="moduleData.subtitleData"
     />
     <CtaElement
-      v-for="(cta, index) in ctaData"
+      v-for="(cta, index) in moduleData.ctaData"
       :key="index"
       :elementData="cta"
      />
@@ -39,15 +39,6 @@ export default {
   },
   props : {
     moduleData: Object
-  },
-  data (){
-    return {
-      contentAlignment: this.moduleData.contentAlignment,
-      imageData: this.moduleData.imageData,
-      titleData: this.moduleData.titleData,
-      subtitleData: this.moduleData.subtitleData,
-      ctaData: this.moduleData.ctaData
-    }
   }
 }
 </script>

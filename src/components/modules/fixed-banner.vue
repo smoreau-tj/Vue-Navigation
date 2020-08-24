@@ -1,5 +1,8 @@
 <template>
-<div><h2><strong>Fixed Banner Module</strong></h2>
+  <div class="vue-module-container fixed-banner-module">
+    <h2>
+      <strong>Fixed Banner Module</strong>
+    </h2>
     <ImageElement />
     <TitleElement />
     <SubtitleElement />

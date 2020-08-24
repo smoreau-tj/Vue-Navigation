@@ -43,9 +43,9 @@ export default {
           },
           titleData:{
             text:"Lorem Ipsum",
-            dropShadow: true,
             mobileColor: "#FFFFFF",
             mobileFont: "Basetica-Bold",
+            desktopDropShadow: true,
             desktopColor: "#4D4D4D",
             desktopFont: "Basetica",
           },
