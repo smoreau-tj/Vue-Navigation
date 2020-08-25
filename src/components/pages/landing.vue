@@ -35,6 +35,8 @@ export default {
       modulesData: {
         hero: {
           contentAlignment: "left",
+          paddingLeft: '48px',
+          paddingRight: '48px',
           imageData: {
             href: "/image-link",
             mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/6Bs7Vjnxr3xMBa8oVe8XDq/aebdcb3f414721b55af06eaa75a5e4a3/Hero_3_4.jpg",

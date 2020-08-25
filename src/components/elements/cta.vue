@@ -24,7 +24,6 @@ export default {
         '--desktop-color': this.elementData.desktopColor ? this.elementData.desktopColor : '#4D4D4D',
         '--desktop-background-color': this.elementData.desktopBackgroundColor ? this.elementData.desktopBackgroundColor : '#FFFFFF',
         '--desktop-border-color': this.elementData.desktopBorderColor ? this.elementData.desktopBorderColor : '#FFFFFF',
-        '--desktop-stack-ctas': this.elementData.stackCtas ? 'block' : 'inline-block',
       }
     }
   }
@@ -41,13 +40,12 @@ export default {
   font-size: 14px;
   font-family: 'Basetica Bold';
   display: block;
-  width: calc(100% - 48px);
-  margin-left: 24px;
+  width: 270px;
+  margin: 0 auto;
   height: 45px;
   line-height: 45px;
   text-decoration: none;
   text-align: center;
-  margin-bottom: 16px;
 
   @media screen and (min-width: 512px) {
     color: var(--desktop-color);
@@ -58,12 +56,6 @@ export default {
     width: 250px;
     height: 45px;
     line-height: 45px;
-    display: var(--desktop-stack-ctas);
-    margin-left: 0;
-  }
-
-  &:nth-child(2){
-    margin-left: 8px;
   }
 }
 
