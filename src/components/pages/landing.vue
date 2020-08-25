@@ -34,7 +34,7 @@ export default {
     return {
       modulesData: {
         hero: {
-          contentAlignment: "left",
+          contentAlignment: "right",
           paddingLeft: '48px',
           paddingRight: '48px',
           imageData: {

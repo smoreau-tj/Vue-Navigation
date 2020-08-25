@@ -11,6 +11,11 @@
     </div>
     <div 
       class="hero-module_text-container"
+      :class="[
+        {'left': moduleData.contentAlignment === 'left'},
+        {'center': moduleData.contentAlignment === 'center'},
+        {'right': moduleData.contentAlignment === 'right'},
+      ]"
     >
       <TitleElement
         :elementData="moduleData.titleData"
@@ -49,9 +54,8 @@ export default {
       return { 
         '--desktop-stack-ctas': this.moduleData.ctaData.cta1.stackCtas ? 'block' : 'inline-block',
         '--desktop-ctas-margin': this.moduleData.ctaData.cta1.stackCtas ? '16px auto 0 auto' : '0 0 0 8px',
-        '--desktop-padding-left': this.moduleData.paddingLeft ? this.moduleData.paddingLeft : '120px',
-        '--desktop-padding-right': this.moduleData.paddingRight ? this.moduleData.paddingRight : '0',
-        '--desktop-content-align': this.moduleData.contentAlignment ? this.moduleData.contentAlignment  : 'left',
+        '--desktop-padding-left': this.moduleData.paddingLeft ? this.moduleData.paddingLeft : '0',
+        '--desktop-padding-right': this.moduleData.paddingRight ? this.moduleData.paddingRight : '0',        
       }
     }
   }
@@ -63,8 +67,6 @@ export default {
 .hero-module-container {
   position: relative;
   overflow: hidden;
-  // padding-left: var(--desktop-padding-left);
-  // padding-right: var(--desktop-padding-right);
 
   .hero-module_text-container {
     position: absolute;
@@ -79,7 +81,41 @@ export default {
       transform: translateY(-50%);
       padding-bottom: unset;
       bottom: unset;
-      text-align: var(--desktop-content-align);
+      left: 24px;
+      right: 24px;
+      width: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      left: var(--desktop-padding-left);
+      right: var(--desktop-padding-right);
+    }
+
+    &.left {
+      @media screen and (min-width: 512px) {
+        text-align: left;
+      }
+    }
+
+    &.center {
+      @media screen and (min-width: 512px) {
+        text-align: center;
+      }
+
+      @media screen and (min-width: 768px) {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &.right {
+      @media screen and (min-width: 512px) {
+        text-align: left;
+      }
+
+      @media screen and (min-width: 768px) {
+        left: auto;
+      }
     }
 
     .vue-cta {
