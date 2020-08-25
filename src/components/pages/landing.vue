@@ -3,7 +3,9 @@
     <HeroModule
       :moduleData="modulesData.hero"
      />
-    <FixedBannerModule />
+    <FixedBannerModule
+      :moduleData="modulesData.fixedBanner"
+    />
     <SideBySideModule />
     <ThreePanelModule />
   </div>
@@ -34,7 +36,7 @@ export default {
     return {
       modulesData: {
         hero: {
-          contentAlignment: "right",
+          contentAlignment: "left",
           paddingLeft: '48px',
           paddingRight: '48px',
           imageData: {
@@ -62,7 +64,7 @@ export default {
           },
           ctaData: {
             cta1: {
-              text:"CTA 1",
+              text:"Hero CTA 1",
               href:"/cta-1",
               stackCtas: false,
               mobileBackgroundColor:"#FFFFFF",
@@ -73,7 +75,59 @@ export default {
               desktopBorderColor: "#00424a",
             },
             cta2: {
-              text:"CTA 2",
+              text:"Hero CTA 2",
+              href:"/cta-2",
+              stackCtas: true,
+              mobileBackgroundColor:"#4D4D4D",
+              mobileColor: "#FFFFFF",
+              mobileBorderColor: "#4D4D4D",
+              desktopBackgroundColor:"#FFFFFF",
+              desktopColor: "#00424a",
+              desktopBorderColor: "#00424a",
+            },
+          }
+        },
+        fixedBanner: {
+          contentAlignment: "left",
+          mobileUnderImage: false,
+          desktopUnderImage: false,
+          imageData: {
+            href: "/image-link",
+            mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/5kazCVxwlxbv0CKQmMmtQX/7575bd9445277225dd59c5f6cdcfe462/Screen_Shot_2019-11-12_at_4.41.55_PM.png",
+            desktopUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/1R4iLotc1Z2o3hb7K90Qz1/05b7793771739724552df68d82958c2a/Banner_16_7.png",
+            altText:"Tommy John Underwear"
+          },
+          titleData:{
+            text:"Lorem Ipsum",
+            mobileColor: "#FFFFFF",
+            mobileFont: "Basetica",
+            desktopDropShadow: true,
+            desktopColor: "#4D4D4D",
+            desktopFont: "Basetica",
+          },
+          subtitleData:{
+            text:"Lorem ipsum dolor sit amet, consectetur ipiscing elit.",
+            mobileHide: true,
+            mobileColor: "#00424a",
+            mobileFont: "Basetica",
+            desktopColor: "#4D4D4D",
+            desktopFont: "Basetica",
+            desktopHide: false
+          },
+          ctaData: {
+            cta1: {
+              text:"Banner CTA 1",
+              href:"/cta-1",
+              stackCtas: false,
+              mobileBackgroundColor:"#FFFFFF",
+              mobileColor: "#4D4D4D",
+              mobileBorderColor: "#4D4D4D",
+              desktopBackgroundColor:"#00424a",
+              desktopColor: "#FFFFFF",
+              desktopBorderColor: "#00424a",
+            },
+            cta2: {
+              text:"Banner CTA 2",
               href:"/cta-2",
               stackCtas: false,
               mobileBackgroundColor:"#4D4D4D",

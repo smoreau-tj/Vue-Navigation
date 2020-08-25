@@ -1,7 +1,6 @@
 <template>
   <div 
     class="vue-module-container hero-module-container"
-    :class="moduleData.contentAlignment"
     :style="cssVars"
   >
     <div class="hero-module_image-container">
@@ -15,6 +14,7 @@
         {'left': moduleData.contentAlignment === 'left'},
         {'center': moduleData.contentAlignment === 'center'},
         {'right': moduleData.contentAlignment === 'right'},
+        {'stacked-cta' : moduleData.ctaData.cta1.stackCtas }
       ]"
     >
       <TitleElement
@@ -52,8 +52,6 @@ export default {
   computed: {
     cssVars () {
       return { 
-        '--desktop-stack-ctas': this.moduleData.ctaData.cta1.stackCtas ? 'block' : 'inline-block',
-        '--desktop-ctas-margin': this.moduleData.ctaData.cta1.stackCtas ? '16px auto 0 auto' : '0 0 0 8px',
         '--desktop-padding-left': this.moduleData.paddingLeft ? this.moduleData.paddingLeft : '0',
         '--desktop-padding-right': this.moduleData.paddingRight ? this.moduleData.paddingRight : '0',        
       }
@@ -67,6 +65,11 @@ export default {
 .hero-module-container {
   position: relative;
   overflow: hidden;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 512px) {
+    margin-bottom: 48px;
+  }
 
   .hero-module_text-container {
     position: absolute;
@@ -95,6 +98,14 @@ export default {
       @media screen and (min-width: 512px) {
         text-align: left;
       }
+
+      &.stacked-cta {
+        @media screen and (min-width: 512px) {
+          .vue-cta {
+            margin-left: 0;
+          }
+        }
+      }
     }
 
     &.center {
@@ -116,18 +127,41 @@ export default {
       @media screen and (min-width: 768px) {
         left: auto;
       }
+
+      &.stacked-cta {
+        @media screen and (min-width: 512px) {
+          .vue-cta {
+            margin-left: 0;
+          }
+        }
+      }
     }
 
-    .vue-cta {
-      @media screen and (min-width: 512px) {
-        display: var(--desktop-stack-ctas);
-      }
-
-      &:nth-of-type(2){
-        margin-top: 16px;
-
+    &.stacked-cta {
+      .vue-cta {
         @media screen and (min-width: 512px) {
-          margin: var(--desktop-ctas-margin);
+          display: block;
+        }
+
+        &:nth-of-type(2){
+          margin-top: 16px;
+        }
+      }
+    }
+
+    &:not(.stacked-cta) {
+      .vue-cta {
+        @media screen and (min-width: 512px) {
+          display: inline-block;
+        }
+
+        &:nth-of-type(2){
+          margin-top: 16px;
+
+          @media screen and (min-width: 568px) {
+            margin-left: 8px;
+            margin-top: 0;
+          }
         }
       }
     }
