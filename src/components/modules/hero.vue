@@ -68,7 +68,7 @@ export default {
   overflow: hidden;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 512px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 48px;
   }
 

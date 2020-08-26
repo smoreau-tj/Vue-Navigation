@@ -1,6 +1,7 @@
 <template>
   <div 
     class="vue-module-container fixed-banner-module-container"
+    :class="{'desktop-right-under-image': moduleData.contentAlignment === 'right' && moduleData.desktopUnderImage }"
   >
     <div class="fixed-banner-module_image-container">
       <ImageElement
@@ -90,22 +91,35 @@ export default {
     }
 
     &.mobile-under-image {
-      position: relative;
-      transform: unset;
-      padding-top: 24px;
-
-      @media screen and (min-width: 768px) {
-        position: unset;
-        transform: unset;
-        padding-top: unset;
-      }
-    }
-
-    &.desktop-under-image {
-      @media screen and (min-width: 768px) {
+      &.desktop-under-image{
         position: relative;
         transform: unset;
         padding-top: 24px;
+      }
+    }
+
+    &.mobile-under-image {
+      &:not(.desktop-under-image){
+        position: relative;
+        transform: unset;
+        padding-top: 24px;
+
+        @media screen and (min-width: 512px) {
+          position: absolute;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          padding-top: 0;
+        }
+      }
+    }
+
+    &.desktop-under-image{
+      &:not(.mobile-under-image){
+        @media screen and (min-width: 512px) {
+          position: relative;
+          transform: unset;
+          padding-top: 24px;
+        }
       }
     }
 
@@ -145,13 +159,14 @@ export default {
       }
     }
 
-    &.right {
+    &.right {      
       @media screen and (min-width: 512px) {
         text-align: left;
+        right: 24px;
+        left: auto;
       }
 
       @media screen and (min-width: 768px) {
-        left: auto;
         right: 56px;
         margin-right: 0;
       }
@@ -199,6 +214,21 @@ export default {
         }
       }
     }
+  }
+
+  &.desktop-right-under-image {
+    @media screen and (min-width: 512px) {
+      text-align: right;
+    }
+
+    .right {
+      &.desktop-under-image {
+        @media screen and (min-width: 512px) {
+          display: inline-block;
+        }
+      }
+    }
+
   }
 }
 
