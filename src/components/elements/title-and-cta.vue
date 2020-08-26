@@ -1,49 +1,38 @@
 <template>
-  <div 
-    class="vue-module-container fixed-banner-module-container"
-    :class="{'desktop-right-under-image': moduleData.contentAlignment === 'right' && moduleData.desktopUnderImage }"
-  >
-    <div class="fixed-banner-module_image-container">
-      <ImageElement
-        :elementData="moduleData.imageData" 
-      />
-    </div>
-    <div 
-      class="fixed-banner-module_text-container"
-      :class="[
-        {'left': moduleData.contentAlignment === 'left'},
-        {'center': moduleData.contentAlignment === 'center'},
-        {'right': moduleData.contentAlignment === 'right'},
-        {'stacked-cta' : moduleData.ctaData.cta1.stackCtas },
-        {'mobile-under-image' : moduleData.mobileUnderImage },
-        {'desktop-under-image' : moduleData.desktopUnderImage },
-      ]"
-    >
-      <TitleElement
-        :elementData="moduleData.titleData"
-      />
-      <SubtitleElement
-        :elementData="moduleData.subtitleData"
-      />
-      <CtaElement
-        v-for="(cta, index) in moduleData.ctaData"
-        :key="index"
-        :elementData="cta"
-      />
-    </div>
-  </div>
+<div 
+  class="vue-module_text-container"
+  :class="[
+    {'left': moduleData.contentAlignment === 'left'},
+    {'center': moduleData.contentAlignment === 'center'},
+    {'right': moduleData.contentAlignment === 'right'},
+    {'stacked-cta' : moduleData.ctaData.cta1.stackCtas },
+    {'mobile-under-image' : moduleData.mobileUnderImage },
+    {'desktop-under-image' : moduleData.desktopUnderImage },
+  ]"
+>
+  <TitleElement
+    :elementData="moduleData.titleData"
+  />
+  <SubtitleElement
+    :elementData="moduleData.subtitleData"
+  />
+  <CtaElement
+    v-for="(cta, index) in moduleData.ctaData"
+    :key="index"
+    :elementData="cta"
+  />
+</div>
+
 </template>
 
 <script>
-import ImageElement from '../elements/image.vue'
-import TitleElement from '../elements/title.vue'
-import SubtitleElement from '../elements/subtitle.vue'
-import CtaElement from '../elements/cta.vue'
+import TitleElement from '../title.vue'
+import SubtitleElement from '../subtitle.vue'
+import CtaElement from '../cta.vue'
 
 export default {
-  name:"FixedBannerModule",
+  name:"titleAndCtaElement",
   components: {
-    ImageElement,
     TitleElement,
     SubtitleElement,
     CtaElement
@@ -55,18 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fixed-banner-module-container {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 40px;
-  max-width: 1184px;
-
-  @media screen and (min-width: 768px) {
-    width: calc(100% - 96px);
-    margin: 0 auto 48px auto;
-  }
-
-  .fixed-banner-module_text-container {
+  .vue--module_text-container {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -208,23 +186,4 @@ export default {
       }
     }
   }
-
-  //Module container class styling to 
-  //solve for desktop edge case of right justifed content below image.
-  &.desktop-right-under-image {
-    @media screen and (min-width: 512px) {
-      text-align: right;
-    }
-
-    .right {
-      &.desktop-under-image {
-        @media screen and (min-width: 512px) {
-          display: inline-block;
-        }
-      }
-    }
-
-  }
-}
-
 </style>

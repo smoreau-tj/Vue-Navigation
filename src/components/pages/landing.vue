@@ -90,7 +90,7 @@ export default {
           }
         },
         fixedBanner: {
-          contentAlignment: "right",
+          contentAlignment: "left",
           mobileUnderImage: false,
           desktopUnderImage: true,
           imageData: {

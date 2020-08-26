@@ -66,12 +66,11 @@ export default {
 .side-by-side-module-container {
   position: relative;
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   max-width: 1184px;
-  display: flex;
-
 
   @media screen and (min-width: 512px) {
+    display: flex;
     width: calc(100% - 48px);
     margin: 0 auto;
     margin-bottom: 48px;
@@ -82,14 +81,17 @@ export default {
   }
 
   .side-container {
+    margin-bottom: 40px;
+
     @media screen and (min-width: 512px) {
       width: 50%;
       display: inline-block;
+      margin-bottom: 0;
     }
 
     &.side-one-container {
       @media screen and (min-width: 512px) {
-        margin-right: 8px;
+        margin-right: 4px;
       }
 
       @media screen and (min-width: 768px) {
@@ -98,13 +100,19 @@ export default {
     }
 
     &.side-two-container {
+      margin-bottom: 0;
+
       @media screen and (min-width: 512px) {
-        margin-left: 8px;
+        margin-left: 4px;
       }
 
       @media screen and (min-width: 768px) {
         margin-left: 12px;
       }
+    }
+
+    .side-module_text-container {
+      padding-top: 24px;
     }
   }
 

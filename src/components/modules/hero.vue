@@ -150,6 +150,7 @@ export default {
       }
     }
 
+    //styling for break in responsive grid between 512 and 568px
     &:not(.stacked-cta) {
       .vue-cta {
         @media screen and (min-width: 512px) {
