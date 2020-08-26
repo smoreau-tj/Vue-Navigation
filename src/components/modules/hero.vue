@@ -19,6 +19,7 @@
     >
       <TitleElement
         :elementData="moduleData.titleData"
+        class="hero-module__title"
       />
       <SubtitleElement
         :elementData="moduleData.subtitleData"

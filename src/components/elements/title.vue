@@ -31,19 +31,31 @@ export default {
 
 <style lang="scss" scoped>
 
-.vue-title_text {
-  color: var(--mobile-color);
-  font-family: var(--mobile-font);
-  font-size: 28px;
-  display: block;
+.vue-title-container {
+  .vue-title_text {
+    color: var(--mobile-color);
+    font-family: var(--mobile-font);
+    font-size: 24px;
+    display: block;
 
-  @media screen and (min-width: 512px) {
-    color: var(--desktop-color);
-    font-family: var(--desktop-font);
-    text-shadow: var(--desktop-drop-shadow);
-    font-size: 40px;
-    line-height: 46px;
-    margin-bottom: 8px;
+    @media screen and (min-width: 512px) {
+      color: var(--desktop-color);
+      font-family: var(--desktop-font);
+      text-shadow: var(--desktop-drop-shadow);
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &.hero-module__title {
+    .vue-title_text {
+      font-size: 28px;
+
+      @media screen and (min-width: 512px) {
+        font-size: 40px;
+        line-height: 46px;
+      }
+    }
   }
 }
 

@@ -88,9 +88,9 @@ export default {
           }
         },
         fixedBanner: {
-          contentAlignment: "left",
+          contentAlignment: "center",
           mobileUnderImage: false,
-          desktopUnderImage: false,
+          desktopUnderImage: true,
           imageData: {
             href: "/image-link",
             mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/5kazCVxwlxbv0CKQmMmtQX/7575bd9445277225dd59c5f6cdcfe462/Screen_Shot_2019-11-12_at_4.41.55_PM.png",

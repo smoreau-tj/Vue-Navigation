@@ -70,15 +70,6 @@ export default {
     margin: 0 auto;
   }
 
-  // .fixed-banner-module_image-container {
-  //   max-width: 1184px;
-
-  //   @media screen and (min-width: 768px) {
-  //     width: calc(100% - 96px);
-  //     margin: 0 auto;
-  //   }
-  // }
-
   .fixed-banner-module_text-container {
     position: absolute;
     width: 100%;
