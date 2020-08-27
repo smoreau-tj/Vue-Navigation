@@ -9,7 +9,9 @@
     <SideBySideModule
       :moduleData="modulesData.sideBySide"
    />
-    <ThreePanelModule />
+    <ThreePanelModule
+      :moduleData="modulesData.threePanel"
+    />
   </div>
 </template>
 
@@ -145,7 +147,7 @@ export default {
           side1: {
             contentAlignment: "right",
             mobileUnderImage: false,
-            desktopUnderImage: true,
+            desktopUnderImage: false,
             imageData: {
               href: "/image-link",
               mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/3G8wFRVOhTtK7d5tS2Id0Z/c7eb76e5a5c55e0a6508ba25beffbad2/Left_Side.png",
@@ -197,7 +199,7 @@ export default {
           side2: {
             contentAlignment: "right",
             mobileUnderImage: false,
-            desktopUnderImage: true,
+            desktopUnderImage: false,
             imageData: {
               href: "/image-link",
               mobileUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/1PClV52g9XwIwyz4knaYnM/3072a66bae5e1069293c542ae4e10ce3/Right_Side.png",
@@ -244,6 +246,61 @@ export default {
                 desktopColor: "#00424a",
                 desktopBorderColor: "#00424a",
               },
+            }
+          }
+        },
+        threePanel: {
+          mainTitle: {
+            text: "But wait, there's more...",
+            mobileColor: "#FFFFFF",
+            mobileFont: "Basetica",
+            desktopDropShadow: true,
+            desktopColor: "#4D4D4D",
+            desktopFont: "Basetica",
+          },
+          panel1: {
+            imageData: {
+              href: "/image-link",
+              desktopUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/1PClV52g9XwIwyz4knaYnM/3072a66bae5e1069293c542ae4e10ce3/Right_Side.png",
+              altText:"Tommy John Underwear"
+            },
+            titleData:{
+              text: "Leggings Draft",
+              mobileColor: "#FFFFFF",
+              mobileFont: "Basetica",
+              desktopDropShadow: true,
+              desktopColor: "#4D4D4D",
+              desktopFont: "Basetica",
+            }
+          },
+          panel2: {
+            imageData: {
+              href: "/image-link",
+              desktopUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/1PClV52g9XwIwyz4knaYnM/3072a66bae5e1069293c542ae4e10ce3/Right_Side.png",
+              altText:"Tommy John Underwear"
+            },
+            titleData:{
+              text: "Leggings Draft",
+              mobileColor: "#FFFFFF",
+              mobileFont: "Basetica",
+              desktopDropShadow: true,
+              desktopColor: "#4D4D4D",
+              desktopFont: "Basetica",
+            }
+          },
+          panel3: {
+            imageData: {
+              href: "/image-link",
+              desktopUrl:"https://images.ctfassets.net/d2y5sh3u3ysc/1PClV52g9XwIwyz4knaYnM/3072a66bae5e1069293c542ae4e10ce3/Right_Side.png",
+              altText:"Tommy John Underwear"
+            },
+            titleData:{
+              text: "Leggings Draft",
+              mobileColor: "#FFFFFF",
+              mobileFont: "Basetica",
+              desktopDropShadow: true,
+              desktopColor: "#4D4D4D",
+              desktopFont: "Basetica",
             }
           }
         }

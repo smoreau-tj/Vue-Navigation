@@ -1,19 +1,47 @@
 <template>
-<div class="vue-module-container three-panel-module">
-  <h2>
-    <strong>Three Panel Module</strong>
-  </h2>
-  <div><h3>Panel 1</h3>
-    <ImageElement />
-    <TitleElement />
+<div class="vue-module-container three-panel-module-container">
+  <div class="three-panel_title">
+    <TitleElement
+      :elementData="moduleData.mainTitle" 
+   />
   </div>
-  <div><h3>Panel 2</h3>
-    <ImageElement />
-    <TitleElement />
-  </div>
-  <div><h3>Panel 3</h3>
-    <ImageElement />
-    <TitleElement />
+  <div class="panels-wrapper">
+    <div class="panel-container panel-one-container">
+      <div class="panel_image-container">
+        <ImageElement
+          :elementData="moduleData.panel1.imageData" 
+        />
+      </div>
+      <div class="panel_text-container">
+        <TitleElement
+          :elementData="moduleData.panel1.titleData" 
+        />
+      </div>
+    </div>
+    <div class="panel-container panel-two-container">
+      <div class="panel_image-container">
+        <ImageElement
+          :elementData="moduleData.panel2.imageData" 
+        />
+      </div>
+      <div class="panel_text-container">
+        <TitleElement
+          :elementData="moduleData.panel2.titleData" 
+        />
+      </div>
+    </div>
+    <div class="panel-container panel-three-container">
+      <div class="panel_image-container">
+        <ImageElement
+          :elementData="moduleData.panel3.imageData" 
+        />
+      </div>
+      <div class="panel_text-container">
+        <TitleElement
+          :elementData="moduleData.panel3.titleData" 
+        />
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -27,6 +55,9 @@ export default {
   components: {
     ImageElement,
     TitleElement,
+  },
+  props : {
+    moduleData: Object
   }
 }
 </script>
