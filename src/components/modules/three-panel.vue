@@ -1,10 +1,9 @@
 <template>
 <div class="vue-module-container three-panel-module-container">
-  <div class="three-panel_title">
     <TitleElement
+      class="three-panel_title"
       :elementData="moduleData.mainTitle" 
    />
-  </div>
   <div class="panels-wrapper">
     <div class="panel-container panel-one-container">
       <div class="panel_image-container">
@@ -14,6 +13,7 @@
       </div>
       <div class="panel_text-container">
         <TitleElement
+          class="panel_title"
           :elementData="moduleData.panel1.titleData" 
         />
       </div>
@@ -26,6 +26,7 @@
       </div>
       <div class="panel_text-container">
         <TitleElement
+          class="panel_title"
           :elementData="moduleData.panel2.titleData" 
         />
       </div>
@@ -38,6 +39,7 @@
       </div>
       <div class="panel_text-container">
         <TitleElement
+          class="panel_title"
           :elementData="moduleData.panel3.titleData" 
         />
       </div>
@@ -64,4 +66,52 @@ export default {
 
 <style lang="scss" scoped>
 
+.three-panel-module-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  max-width: 1184px;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100% - 96px);
+    margin: 0 auto 48px auto;
+  }
+
+  .panels-wrapper {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+     -webkit-overflow-scrolling: touch;
+
+     &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .panel-container {
+    display: inline-block;
+    margin: 0 auto;
+    width: calc(33.333333% - 16px);
+    min-width: 215px;
+
+    @media screen and (min-width: 512px) {
+      min-width: unset;
+    }
+
+
+    &:nth-of-type(1){
+      margin-right: 12px;
+    }
+    &:nth-of-type(2){
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    &:nth-of-type(3){
+      margin-left: 12px;
+    }
+  }
+}
+
 </style>
+

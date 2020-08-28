@@ -57,6 +57,39 @@ export default {
       }
     }
   }
+
+  &.three-panel_title {
+    .vue-title_text {
+      font-size: 20px;
+      margin-bottom: 16px;
+      line-height: 1;
+
+      @media screen and (min-width: 512px) {
+        font-size: 24px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 28px;
+      }
+    }
+  }
+
+  &.panel_title {
+    .vue-title_text {
+      font-size: 16px;
+      line-height: 1;
+      margin-top: 16px;
+      text-align: left;
+
+      @media screen and (min-width: 512px) {
+        font-size: 14px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 20px;
+      }
+    }
+  }
 }
 
 </style>
