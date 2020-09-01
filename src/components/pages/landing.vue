@@ -12,10 +12,17 @@
     <ThreePanelModule
       :moduleData="modulesData.threePanel"
     />
+    <template v-for="(module, index) in exampleData">
+      <HeroModule v-if="module.name === 'hero'" :key="index" :data-position="'p' + (index + 1)" />
+      <FixedBannerModule v-if="module.name==='fixedBanner'" :data-position="'p' + (index + 1)" :key="index"/>
+      <SideBySideModule v-if="module.name==='sideBySide'" :data-position="'p' + (index + 1)" :key="index"/>
+      <ThreePanelModule v-if="module.name==='footer'" :data-position="'p' + (index + 1)" :key="index"/>
+    </template>
   </div>
 </template>
 
 <script>
+// import {client} from '../../lib/sanity.js';
 import HeroModule from '../modules/hero.vue'
 import FixedBannerModule from '../modules/fixed-banner.vue'
 import SideBySideModule from '../modules/side-by-side.vue'
@@ -33,6 +40,7 @@ export default {
   mounted() {
     // const queryString = "*[_type=='navigation' && isNavLive == true]";
     // client(this.$store.getters.getNavEnvironment).fetch(queryString).then(data => {
+    // client.fetch(queryString).then(data => {
     // }).catch( error => {console.log(error)});
    
   },
@@ -307,7 +315,21 @@ export default {
             }
           }
         }
-      }
+      },
+      exampleData : [
+        {
+        name: 'footer'
+      },
+      {
+        name: 'sideBySide'
+      },
+      {
+        name: 'fixedBanner'
+      },
+      {
+        name: 'hero'
+      },
+      ]
     }
   }
 }
