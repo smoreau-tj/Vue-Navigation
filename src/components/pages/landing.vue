@@ -1,28 +1,36 @@
 <template>
   <div>
-    <HeroModule
-      :moduleData="modulesData.hero"
-     />
-    <FixedBannerModule
-      :moduleData="modulesData.fixedBanner"
-    />
-    <SideBySideModule
-      :moduleData="modulesData.sideBySide"
-   />
-    <ThreePanelModule
-      :moduleData="modulesData.threePanel"
-    />
-    <template v-for="(module, index) in exampleData">
-      <HeroModule v-if="module.name === 'hero'" :key="index" :data-position="'p' + (index + 1)" />
-      <FixedBannerModule v-if="module.name==='fixedBanner'" :data-position="'p' + (index + 1)" :key="index"/>
-      <SideBySideModule v-if="module.name==='sideBySide'" :data-position="'p' + (index + 1)" :key="index"/>
-      <ThreePanelModule v-if="module.name==='footer'" :data-position="'p' + (index + 1)" :key="index"/>
+    <template v-for="(module, index) in modulesData">
+      <HeroModule 
+        v-if="module.type === 'heroModule'" 
+        :key="index" 
+        :data-position="'p' + (index + 1)"
+        :moduleData ="module"
+       />
+      <FixedBannerModule 
+        v-if="module.type==='fixedBannerModule'" 
+        :data-position="'p' + (index + 1)" 
+        :key="index"
+        :moduleData ="module"
+      />
+      <SideBySideModule 
+        v-if="module.type==='sideBySideModule'" 
+        :data-position="'p' + (index + 1)" 
+        :key="index"
+        :moduleData ="module"
+      />
+      <ThreePanelModule 
+        v-if="module.type ==='threePanelModule'" 
+        :data-position="'p' + (index + 1)" 
+        :key="index"
+        :moduleData ="module"
+      />
     </template>
   </div>
 </template>
 
 <script>
-// import {client} from '../../lib/sanity.js';
+import {client} from '../../lib/sanity.js';
 import HeroModule from '../modules/hero.vue'
 import FixedBannerModule from '../modules/fixed-banner.vue'
 import SideBySideModule from '../modules/side-by-side.vue'
@@ -38,16 +46,17 @@ export default {
     ThreePanelModule
   },
   mounted() {
-    // const queryString = "*[_type=='navigation' && isNavLive == true]";
-    // client(this.$store.getters.getNavEnvironment).fetch(queryString).then(data => {
-    // client.fetch(queryString).then(data => {
-    // }).catch( error => {console.log(error)});
+    const queryString = "*[_type=='landingPage']";
+    client.fetch(queryString).then(data => {
+      console.log('data landing page', data);
+    }).catch( error => {console.log(error)});
    
   },
   data () {
     return {
-      modulesData: {
-        hero: {
+      modulesData: [
+        {
+          type: 'heroModule',
           contentAlignment: "left",
           paddingLeft: '48px',
           paddingRight: '48px',
@@ -99,7 +108,8 @@ export default {
             },
           }
         },
-        fixedBanner: {
+        {
+          type: 'fixedBannerModule',
           contentAlignment: "left",
           mobileUnderImage: false,
           desktopUnderImage: true,
@@ -151,7 +161,8 @@ export default {
             },
           }
         },
-        sideBySide: {
+        {
+          type: 'sideBySideModule',
           side1: {
             contentAlignment: "right",
             mobileUnderImage: false,
@@ -257,7 +268,8 @@ export default {
             }
           }
         },
-        threePanel: {
+        {
+          type: 'threePanelModule',
           mainTitle: {
             text: "But wait, there's more...",
             mobileColor: "#4D4D4D",
@@ -315,20 +327,6 @@ export default {
             }
           }
         }
-      },
-      exampleData : [
-        {
-        name: 'footer'
-      },
-      {
-        name: 'sideBySide'
-      },
-      {
-        name: 'fixedBanner'
-      },
-      {
-        name: 'hero'
-      },
       ]
     }
   }
