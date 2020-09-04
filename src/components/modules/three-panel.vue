@@ -1,5 +1,5 @@
 <template>
-<div class="vue-module-container three-panel-module-container">
+<div class="three-panel-module-container">
     <TitleElement
       class="three-panel_title"
       :elementData="moduleData.mainTitle" 
@@ -69,12 +69,11 @@ export default {
 .three-panel-module-container {
   position: relative;
   overflow: hidden;
-  margin-bottom: 40px;
   max-width: 1184px;
 
   @media screen and (min-width: 768px) {
     width: calc(100% - 96px);
-    margin: 0 auto 48px auto;
+    margin: 0 auto;
   }
 
   .panels-wrapper {

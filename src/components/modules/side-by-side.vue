@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-module-container side-by-side-module-container">
+  <div class="side-by-side-module-container">
     <div 
       class="side-container side-one-container"
       :class="{'desktop-right-under-image': moduleData.side1.contentAlignment === 'right' && moduleData.side1.desktopUnderImage }"
@@ -92,14 +92,12 @@ export default {
 .side-by-side-module-container {
   position: relative;
   overflow: hidden;
-  margin-bottom: 40px;
   max-width: 1184px;
 
   @media screen and (min-width: 512px) {
     display: flex;
     width: calc(100% - 48px);
     margin: 0 auto;
-    margin-bottom: 48px;
   }
 
   @media screen and (min-width: 768px) {

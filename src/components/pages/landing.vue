@@ -1,29 +1,37 @@
 <template>
-  <div>
+  <div class="vue-modules-container">
     <template v-for="(module, index) in modulesData">
       <HeroModule 
         v-if="module.type === 'heroModule'" 
         :key="index" 
-        :data-position="'p' + (index + 1)"
         :moduleData ="module"
+        :data-position="'p' + (index + 1)"
+        :data-tj-page-section="'hero'"
+        class="vue-module-container"
        />
       <FixedBannerModule 
-        v-if="module.type==='fixedBannerModule'" 
-        :data-position="'p' + (index + 1)" 
+        v-else-if="module.type==='fixedBannerModule'" 
         :key="index"
         :moduleData ="module"
+        :data-position="'p' + (index + 1)" 
+        :data-tj-page-section="'fixed-banner'"
+        class="vue-module-container"
       />
       <SideBySideModule 
-        v-if="module.type==='sideBySideModule'" 
-        :data-position="'p' + (index + 1)" 
+        v-else-if="module.type==='sideBySideModule'" 
         :key="index"
         :moduleData ="module"
+        :data-position="'p' + (index + 1)" 
+        :data-tj-page-section="'halfwidth'"
+        class="vue-module-container"
       />
       <ThreePanelModule 
-        v-if="module.type ==='threePanelModule'" 
-        :data-position="'p' + (index + 1)" 
+        v-else-if="module.type ==='threePanelModule'" 
         :key="index"
         :moduleData ="module"
+        :data-position="'p' + (index + 1)" 
+        :data-tj-page-section="'hompage-footer'"
+        class="vue-module-container"
       />
     </template>
   </div>
@@ -334,5 +342,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .vue-modules-container {
+    .vue-module-container {
+      margin-bottom: 32px;
+      
+      @media screen and (min-width: 512px) {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
 
 </style>

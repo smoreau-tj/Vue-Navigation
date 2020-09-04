@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="vue-module-container hero-module-container"
+    class="hero-module-container"
     :style="cssVars"
   >
     <div class="hero-module_image-container">
@@ -66,11 +66,6 @@ export default {
 .hero-module-container {
   position: relative;
   overflow: hidden;
-  margin-bottom: 24px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
-  }
 
   .hero-module_text-container {
     position: absolute;

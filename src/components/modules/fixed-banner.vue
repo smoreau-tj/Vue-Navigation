@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="vue-module-container fixed-banner-module-container"
+    class="fixed-banner-module-container"
     :class="{'desktop-right-under-image': moduleData.contentAlignment === 'right' && moduleData.desktopUnderImage }"
   >
     <div class="fixed-banner-module_image-container">
@@ -58,12 +58,11 @@ export default {
 .fixed-banner-module-container {
   position: relative;
   overflow: hidden;
-  margin-bottom: 40px;
   max-width: 1184px;
 
   @media screen and (min-width: 768px) {
     width: calc(100% - 96px);
-    margin: 0 auto 48px auto;
+    margin: 0 auto;
   }
 
   .fixed-banner-module_text-container {
