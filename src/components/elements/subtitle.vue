@@ -4,7 +4,7 @@
     class="vue-subtitle_text"
     :style="cssVars"
   >
-    {{elementData.text}}
+    {{elementData.title}}
   </div>
 </div>
 </template>
@@ -18,12 +18,12 @@ export default {
   computed: {
     cssVars () {
       return {
-        '--mobile-hide': this.elementData.mobileHide ? 'none' : 'block',
-        '--mobile-color': this.elementData.mobileColor ? this.elementData.mobileColor : '#FFFFFF',
-        '--mobile-font': this.elementData.mobileFont ? this.elementData.mobileFont : 'Basetica',
-        '--desktop-color': this.elementData.desktopColor ? this.elementData.desktopColor : '#FFFFFF' ,
-        '--desktop-font': this.elementData.desktopFont ? this.elementData.desktopFont : 'Basetica',
-        '--desktop-hide': this.elementData.desktopHide ? 'none' : 'block',
+        '--mobile-hide': this.elementData.displaySubtitle === 'Desktop Only' || this.elementData.displaySubtitle === 'None' ? 'none' : 'block',
+        '--mobile-color': this.elementData.subTextOptions.mobileTextColor ? this.elementData.subTextOptions.mobileTextColor.hex : '#FFFFFF',
+        '--mobile-font': this.elementData.subTextOptions.mobileFont ? this.elementData.subTextOptions.mobileFont : 'Basetica',
+        '--desktop-color': this.elementData.subTextOptions.desktopTextColor ? this.elementData.subTextOptions.desktopTextColor.hex : '#FFFFFF' ,
+        '--desktop-font': this.elementData.subTextOptions.desktopFont ? this.elementData.subTextOptions.desktopFont : 'Basetica',
+        '--desktop-hide': this.elementData.displaySubtitle === 'Mobile Only' || this.elementData.displaySubtitle === 'None' ? 'none' : 'block',
       }
     }
   }

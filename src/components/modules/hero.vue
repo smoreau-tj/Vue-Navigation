@@ -5,27 +5,27 @@
   >
     <div class="hero-module_image-container">
       <ImageElement 
-        :elementData="moduleData.imageData"
+        :elementData="moduleData.image"
       />
     </div>
     <div 
       class="hero-module_text-container"
       :class="[
-        {'left': moduleData.contentAlignment === 'left'},
-        {'center': moduleData.contentAlignment === 'center'},
-        {'right': moduleData.contentAlignment === 'right'},
-        {'stacked-cta' : moduleData.ctaData.cta1.stackCtas }
+        {'left': moduleData.contentAlignmentDesktop === 'left'},
+        {'center': moduleData.contentAlignmentDesktop === 'center'},
+        {'right': moduleData.contentAlignmentDesktop === 'right'},
+        {'stacked-cta' : moduleData.stackCtas }
       ]"
     >
       <TitleElement
-        :elementData="moduleData.titleData"
+        :elementData="moduleData.titleText"
         class="hero-module__title"
       />
       <SubtitleElement
-        :elementData="moduleData.subtitleData"
+        :elementData="moduleData.subtitle"
       />
       <CtaElement
-        v-for="(cta, index) in moduleData.ctaData"
+        v-for="(cta, index) in moduleData.cta"
         :key="index"
         :elementData="cta"
       />
@@ -53,8 +53,8 @@ export default {
   computed: {
     cssVars () {
       return { 
-        '--desktop-padding-left': this.moduleData.paddingLeft ? this.moduleData.paddingLeft : '0',
-        '--desktop-padding-right': this.moduleData.paddingRight ? this.moduleData.paddingRight : '0',        
+        '--desktop-padding-left': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px' : '0',
+        '--desktop-padding-right': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px': '0',        
       }
     }
   }
@@ -156,7 +156,7 @@ export default {
           margin-top: 16px;
 
           @media screen and (min-width: 568px) {
-            margin-left: 8px;
+            margin-left: 16px;
             margin-top: 0;
           }
         }

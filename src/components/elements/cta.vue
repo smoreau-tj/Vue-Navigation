@@ -1,6 +1,6 @@
 <template>
 <a 
-  :href="elementData.href" 
+  :href="elementData.url" 
   class="vue-cta"
   :style="cssVars"
   type="button"
@@ -18,12 +18,14 @@ export default {
   computed: {
     cssVars () {
       return {
-        '--mobile-color': this.elementData.mobileColor ? this.elementData.mobileColor : '#4D4D4D',
-        '--mobile-background-color': this.elementData.mobileBackgroundColor ? this.elementData.mobileBackgroundColor : '#FFFFFF',
-        '--mobile-border-color': this.elementData.mobileBorderColor ? this.elementData.mobileBorderColor : '#FFFFFF',
-        '--desktop-color': this.elementData.desktopColor ? this.elementData.desktopColor : '#4D4D4D',
-        '--desktop-background-color': this.elementData.desktopBackgroundColor ? this.elementData.desktopBackgroundColor : '#FFFFFF',
-        '--desktop-border-color': this.elementData.desktopBorderColor ? this.elementData.desktopBorderColor : '#FFFFFF',
+        '--mobile-color': this.elementData.textColorMobile ? this.elementData.textColorMobile.hex : '#4D4D4D',
+        '--mobile-font': this.elementData.mobileFont ? this.elementData.mobileFont : 'Basetica Bold',        
+        '--mobile-background-color': this.elementData.backgroundColorMobile ? this.elementData.backgroundColorMobile.hex : 'transparent',
+        '--mobile-border-color': this.elementData.borderColorMobile ? this.elementData.borderColorMobile.hex : '#FFFFFF',
+        '--desktop-color': this.elementData.textColorDesktop ? this.elementData.textColorDesktop.hex : '#4D4D4D',
+        '--desktop-font': this.elementData.desktopFont ? this.elementData.desktopFont : 'Basetica Bold',        
+        '--desktop-background-color': this.elementData.backgroundColorDesktop ? this.elementData.backgroundColorDesktop.hex : 'transparent',
+        '--desktop-border-color': this.elementData.borderColorDesktop ? this.elementData.borderColorDesktop.hex : '#FFFFFF',
       }
     }
   }
@@ -39,12 +41,12 @@ export default {
   box-shadow: 0 2px 2px 0 rgba(200,200,200,0.45);
   border-radius: 2px;
   font-size: 14px;
-  font-family: 'Basetica Bold';
+  font-family: var(--mobile-font);
   display: block;
   width: 266px;
   margin: 0 auto;
-  height: 48px;
-  line-height: 48px;
+  height: 43px;
+  line-height: 42px;
   text-decoration: none;
   text-align: center;
   transition: opacity 0.2s ease-in-out;
@@ -53,6 +55,7 @@ export default {
 
   @media screen and (min-width: 512px) {
     color: var(--desktop-color);
+    font-family: var(--desktop-font);
     background-color: var(--desktop-background-color);
     border: 2px solid var(--desktop-border-color);
     border-radius: 2px;

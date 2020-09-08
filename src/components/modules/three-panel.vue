@@ -1,46 +1,24 @@
 <template>
 <div class="three-panel-module-container">
-    <TitleElement
+    <!-- <TitleElement
       class="three-panel_title"
       :elementData="moduleData.mainTitle" 
-   />
+   /> -->
   <div class="panels-wrapper">
-    <div class="panel-container panel-one-container">
+    <div class="panel-container"
+      v-for="(panel, index) in moduleData.panels"
+      :key="index"
+    >
       <div class="panel_image-container">
         <ImageElement
-          :elementData="moduleData.panel1.imageData" 
+          :elementData="panel.image" 
         />
       </div>
-      <div class="panel_text-container">
-        <TitleElement
-          class="panel_title"
-          :elementData="moduleData.panel1.titleData" 
-        />
-      </div>
-    </div>
-    <div class="panel-container panel-two-container">
-      <div class="panel_image-container">
-        <ImageElement
-          :elementData="moduleData.panel2.imageData" 
-        />
-      </div>
-      <div class="panel_text-container">
-        <TitleElement
-          class="panel_title"
-          :elementData="moduleData.panel2.titleData" 
-        />
-      </div>
-    </div>
-    <div class="panel-container panel-three-container">
-      <div class="panel_image-container">
-        <ImageElement
-          :elementData="moduleData.panel3.imageData" 
-        />
-      </div>
-      <div class="panel_text-container">
-        <TitleElement
-          class="panel_title"
-          :elementData="moduleData.panel3.titleData" 
+      <div class="panel_cta-container">
+        <CtaElement
+          v-for="(cta, index) in panel.cta"
+          :key="index"
+          :elementData="cta"
         />
       </div>
     </div>
@@ -50,13 +28,16 @@
 
 <script>
 import ImageElement from '../elements/image.vue'
-import TitleElement from '../elements/title.vue'
+import CtaElement from '../elements/cta.vue'
+
+// import TitleElement from '../elements/title.vue'
 
 export default {
   name:"ThreePanelModule",
   components: {
     ImageElement,
-    TitleElement,
+    CtaElement
+    // TitleElement,
   },
   props : {
     moduleData: Object
@@ -97,7 +78,6 @@ export default {
     @media screen and (min-width: 512px) {
       min-width: unset;
     }
-
 
     &:nth-of-type(1){
       margin-right: 12px;

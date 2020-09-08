@@ -2,31 +2,31 @@
   <div class="side-by-side-module-container">
     <div 
       class="side-container side-one-container"
-      :class="{'desktop-right-under-image': moduleData.side1.contentAlignment === 'right' && moduleData.side1.desktopUnderImage }"
+      :class="{'desktop-right-under-image': moduleData.leftSide[0].contentAlignment === 'right' && moduleData.leftSide[0].desktopUnderImage }"
     >
       <div class="side-module_image-container">
         <ImageElement
-        :elementData="moduleData.side1.imageData" />
+        :elementData="moduleData.leftSide[0].image" />
       </div>
       <div 
         class="side-module_text-container"
         :class="[
-          {'left': moduleData.side1.contentAlignment === 'left'},
-          {'center': moduleData.side1.contentAlignment === 'center'},
-          {'right': moduleData.side1.contentAlignment === 'right'},
-          {'stacked-cta' : moduleData.side1.ctaData.cta1.stackCtas },
-          {'mobile-under-image' : moduleData.side1.mobileUnderImage },
-          {'desktop-under-image' : moduleData.side1.desktopUnderImage },
+          {'left': moduleData.leftSide[0].contentAlignment === 'left'},
+          {'center': moduleData.leftSide[0].contentAlignment === 'center'},
+          {'right': moduleData.leftSide[0].contentAlignment === 'right'},
+          {'stacked-cta' : moduleData.leftSide[0].stackCtas },
+          {'mobile-under-image' : moduleData.leftSide[0].mobileUnderImage },
+          {'desktop-under-image' : moduleData.leftSide[0].desktopUnderImage },
         ]"
       >
         <TitleElement
-          :elementData="moduleData.side1.titleData"
+          :elementData="moduleData.leftSide[0].titleText"
         />
         <SubtitleElement
-          :elementData="moduleData.side1.subtitleData"
+          :elementData="moduleData.leftSide[0].subtitle"
         />
         <CtaElement
-          v-for="(cta, index) in moduleData.side1.ctaData"
+          v-for="(cta, index) in moduleData.leftSide[0].cta"
           :key="index"
           :elementData="cta"     
         />
@@ -34,31 +34,31 @@
     </div>
     <div 
       class="side-container side-two-container"
-      :class="{'desktop-right-under-image': moduleData.side2.contentAlignment === 'right' && moduleData.side2.desktopUnderImage }"
+      :class="{'desktop-right-under-image': moduleData.rightSide[0].contentAlignment === 'right' && moduleData.rightSide[0].desktopUnderImage }"
     >
       <div class="side-module_image-container">
         <ImageElement
-        :elementData="moduleData.side2.imageData" />
+        :elementData="moduleData.rightSide[0].image" />
       </div>
       <div 
         class="side-module_text-container"
         :class="[
-          {'left': moduleData.side2.contentAlignment === 'left'},
-          {'center': moduleData.side2.contentAlignment === 'center'},
-          {'right': moduleData.side2.contentAlignment === 'right'},
-          {'stacked-cta' : moduleData.side2.ctaData.cta1.stackCtas },
-          {'mobile-under-image' : moduleData.side2.mobileUnderImage },
-          {'desktop-under-image' : moduleData.side2.desktopUnderImage },
+          {'left': moduleData.rightSide[0].contentAlignment === 'left'},
+          {'center': moduleData.rightSide[0].contentAlignment === 'center'},
+          {'right': moduleData.rightSide[0].contentAlignment === 'right'},
+          {'stacked-cta' : moduleData.rightSide[0].stackCtas },
+          {'mobile-under-image' : moduleData.rightSide[0].mobileUnderImage },
+          {'desktop-under-image' : moduleData.rightSide[0].desktopUnderImage },
         ]"
       >
         <TitleElement
-          :elementData="moduleData.side2.titleData"
+          :elementData="moduleData.rightSide[0].titleText"
         />
         <SubtitleElement
-          :elementData="moduleData.side2.subtitleData"
+          :elementData="moduleData.rightSide[0].subtitle"
         />
         <CtaElement
-          v-for="(cta, index) in moduleData.side2.ctaData"
+          v-for="(cta, index) in moduleData.rightSide[0].cta"
           :key="index"
           :elementData="cta"     
         />
