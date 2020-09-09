@@ -45,7 +45,7 @@ export default {
   color: var(--mobile-color);
   background-color: var(--mobile-background-color);
   border: 1px solid var(--mobile-border-color);
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: 14px;
   font-family: var(--mobile-font);
   display: block;
@@ -63,12 +63,12 @@ export default {
     color: var(--desktop-color);
     font-family: var(--desktop-font);
     background-color: var(--desktop-background-color);
-    border: 2px solid var(--desktop-border-color);
-    border-radius: 2px;
+    border: 1px solid var(--desktop-border-color);
+    border-radius: 4px;
     font-size: 16px;
     width: 246px;
-    height: 46px;
-    line-height: 45px;
+    height: 48px;
+    line-height: 47px;
   }
 
   &:hover {
@@ -77,14 +77,31 @@ export default {
 
   &.skeleton {
     background-color: transparent;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      box-shadow: inset 0 0 0 1px var(--mobile-border-color);
+      opacity: unset;
+      background-color: transparent;
+
+      @media screen and (min-width: 512px) {
+        box-shadow: inset 0 0 0 1px var(--desktop-border-color);
+      }
+    }
   }
 
   &.text-link {
     border-top: none;
     border-left: none;
     border-right: none;
+    border-bottom: 2px solid var(--mobile-border-color);
     width: auto;
     display: inline-block;
+    border-radius: 0;
+
+    @media screen and (min-width: 512px) {
+      border-bottom: 2px solid var(--desktop-border-color);
+    }
   }
 }
 
