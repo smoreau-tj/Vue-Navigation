@@ -11,6 +11,7 @@
     <img
       :src="elementData.mobileImage ? convertImageRef(elementData.mobileImage) : 'https://placehold.it/800x700'"
       class="vue-image"
+      loading="lazy"
       :alt="elementData.desktopAltText ? elementData.desktopAltText : 'Tommy John Image'"
     />
     </picture>
@@ -31,7 +32,8 @@ export default {
         function urlFor(source) {
           return builder.image(source)
         }
-      return urlFor(imageRef).url()
+      let responsiveUrl = urlFor(imageRef).url() + '?auto=format'
+      return responsiveUrl
     }
   },
 }

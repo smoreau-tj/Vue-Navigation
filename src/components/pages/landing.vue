@@ -10,7 +10,7 @@
         class="vue-module-container"
        />
       <FixedBannerModule 
-        v-else-if="module._type==='fullWidthBanner'" 
+        v-else-if="module._type === 'fullWidthBanner'" 
         :key="index"
         :moduleData ="module"
         :data-position="'p' + (index + 1)" 
@@ -18,7 +18,7 @@
         class="vue-module-container"
       />
       <SideBySideModule 
-        v-else-if="module._type==='sideBySide'" 
+        v-else-if="module._type === 'sideBySide'" 
         :key="index"
         :moduleData ="module"
         :data-position="'p' + (index + 1)" 
@@ -26,7 +26,7 @@
         class="vue-module-container"
       />
       <ThreePanelModule 
-        v-else-if="module._type ==='threePanel'" 
+        v-else-if="module._type === 'threePanel'" 
         :key="index"
         :moduleData ="module"
         :data-position="'p' + (index + 1)" 

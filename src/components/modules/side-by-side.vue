@@ -28,7 +28,8 @@
         <CtaElement
           v-for="(cta, index) in moduleData.leftSide[0].cta"
           :key="index"
-          :elementData="cta"     
+          :elementData="cta"
+          :class="'index-' + index"
         />
       </div>
     </div>
@@ -60,7 +61,8 @@
         <CtaElement
           v-for="(cta, index) in moduleData.rightSide[0].cta"
           :key="index"
-          :elementData="cta"     
+          :elementData="cta"
+          :class="'index-' + index"
         />
       </div>
     </div>
@@ -184,7 +186,7 @@ export default {
 
         &.stacked-cta {
           @media screen and (min-width: 512px) {
-            .vue-cta {
+            .vue-cta-container {
               margin-left: 0;
             }
           }
@@ -220,7 +222,7 @@ export default {
 
         &.stacked-cta {
           @media screen and (min-width: 512px) {
-            .vue-cta {
+            .vue-cta-container {
               margin-left: 0;
             }
           }
@@ -228,24 +230,24 @@ export default {
       }
 
       &.stacked-cta {
-        .vue-cta {
+        .vue-cta-container {
           @media screen and (min-width: 512px) {
             display: block;
           }
 
-          &:nth-of-type(2){
+          &.index-1{
             margin-top: 16px;
           }
         }
       }
 
       &:not(.stacked-cta) {
-        .vue-cta {
+        .vue-cta-container {
           @media screen and (min-width: 512px) {
             display: inline-block;
           }
 
-          &:nth-of-type(2){
+          &.index-1{
             margin-top: 16px;
 
             @media screen and (min-width: 568px) {

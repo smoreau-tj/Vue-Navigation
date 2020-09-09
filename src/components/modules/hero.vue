@@ -28,6 +28,7 @@
         v-for="(cta, index) in moduleData.cta"
         :key="index"
         :elementData="cta"
+        :class="'index-' + index"
       />
     </div>
   </div>
@@ -53,8 +54,8 @@ export default {
   computed: {
     cssVars () {
       return { 
-        '--desktop-padding-left': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px' : '0',
-        '--desktop-padding-right': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px': '0',        
+        '--desktop-padding-left': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px' : '120px',
+        '--desktop-padding-right': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px': '120px',        
       }
     }
   }
@@ -86,6 +87,11 @@ export default {
     }
 
     @media screen and (min-width: 768px) {
+      left: 48px;
+      right: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
       left: var(--desktop-padding-left);
       right: var(--desktop-padding-right);
     }
@@ -97,7 +103,7 @@ export default {
 
       &.stacked-cta {
         @media screen and (min-width: 512px) {
-          .vue-cta {
+          .vue-cta-container {
             margin-left: 0;
           }
         }
@@ -126,7 +132,7 @@ export default {
 
       &.stacked-cta {
         @media screen and (min-width: 512px) {
-          .vue-cta {
+          .vue-cta-container {
             margin-left: 0;
           }
         }
@@ -134,12 +140,12 @@ export default {
     }
 
     &.stacked-cta {
-      .vue-cta {
+      .vue-cta-container {
         @media screen and (min-width: 512px) {
           display: block;
         }
 
-        &:nth-of-type(2){
+        &.index-1{
           margin-top: 16px;
         }
       }
@@ -147,12 +153,12 @@ export default {
 
     //styling for break in responsive grid between 512 and 568px
     &:not(.stacked-cta) {
-      .vue-cta {
+      .vue-cta-container {
         @media screen and (min-width: 512px) {
           display: inline-block;
         }
 
-        &:nth-of-type(2){
+        &.index-1{
           margin-top: 16px;
 
           @media screen and (min-width: 568px) {

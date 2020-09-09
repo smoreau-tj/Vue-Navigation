@@ -1,12 +1,19 @@
 <template>
-<a 
-  :href="elementData.url" 
-  class="vue-cta"
-  :style="cssVars"
-  type="button"
->  
-  {{elementData.text}}
-</a>
+<div class="vue-cta-container">
+  <a 
+    :href="elementData.url" 
+    class="vue-cta"
+    type="button"
+    :style="cssVars"
+    :class="[
+      {'regular' : elementData._type === 'regularCta'},
+      {'skeleton' : elementData._type === 'skeletonCtaButton'},
+      {'text-link' : elementData._type === 'textCta'}
+    ]"
+  >  
+    {{elementData.text}}
+  </a>
+</div>
 </template>
 
 <script>
@@ -38,7 +45,6 @@ export default {
   color: var(--mobile-color);
   background-color: var(--mobile-background-color);
   border: 1px solid var(--mobile-border-color);
-  box-shadow: 0 2px 2px 0 rgba(200,200,200,0.45);
   border-radius: 2px;
   font-size: 14px;
   font-family: var(--mobile-font);
@@ -67,6 +73,18 @@ export default {
 
   &:hover {
     opacity: .85;
+  }
+
+  &.skeleton {
+    background-color: transparent;
+  }
+
+  &.text-link {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: auto;
+    display: inline-block;
   }
 }
 

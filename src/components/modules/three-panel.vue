@@ -11,7 +11,7 @@
     >
       <div class="panel_image-container">
         <ImageElement
-          :elementData="panel.image" 
+          :elementData="panel.image"
         />
       </div>
       <div class="panel_cta-container">
@@ -19,6 +19,7 @@
           v-for="(cta, index) in panel.cta"
           :key="index"
           :elementData="cta"
+          :class="'index-' + index"
         />
       </div>
     </div>
@@ -29,7 +30,6 @@
 <script>
 import ImageElement from '../elements/image.vue'
 import CtaElement from '../elements/cta.vue'
-
 // import TitleElement from '../elements/title.vue'
 
 export default {
