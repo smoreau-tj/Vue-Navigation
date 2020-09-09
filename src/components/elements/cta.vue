@@ -55,8 +55,8 @@ export default {
   line-height: 42px;
   text-decoration: none;
   text-align: center;
-  transition: opacity 0.2s ease-in-out;
-  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
   opacity: 1;
 
   @media screen and (min-width: 512px) {

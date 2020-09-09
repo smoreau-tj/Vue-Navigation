@@ -5,7 +5,7 @@
         v-if="module._type === 'heroModule'" 
         :key="index" 
         :moduleData ="module"
-        :data-position="'p' + (index + 1)"
+        :data-position="module.position ? module.position : 'p' + (index + 1)"
         :data-tj-page-section="'hero'"
         class="vue-module-container"
        />
@@ -13,7 +13,7 @@
         v-else-if="module._type === 'fullWidthBanner'" 
         :key="index"
         :moduleData ="module"
-        :data-position="'p' + (index + 1)" 
+        :data-position="module.position ? module.position : 'p' + (index + 1)" 
         :data-tj-page-section="'fixed-banner'"
         class="vue-module-container"
       />
@@ -21,7 +21,7 @@
         v-else-if="module._type === 'sideBySide'" 
         :key="index"
         :moduleData ="module"
-        :data-position="'p' + (index + 1)" 
+        :data-position="module.position ? module.position : 'p' + (index + 1)" 
         :data-tj-page-section="'halfwidth'"
         class="vue-module-container"
       />
@@ -29,7 +29,7 @@
         v-else-if="module._type === 'threePanel'" 
         :key="index"
         :moduleData ="module"
-        :data-position="'p' + (index + 1)" 
+        :data-position="module.position ? module.position : 'p' + (index + 1)" 
         :data-tj-page-section="'hompage-footer'"
         class="vue-module-container"
       />

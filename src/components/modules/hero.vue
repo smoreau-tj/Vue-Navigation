@@ -31,11 +31,17 @@
         :class="'index-' + index"
       />
     </div>
+      <VideoElement
+        v-if="moduleData.image.desktopFormat === 'MP4'"
+        class="vue-video"
+        :elementData="moduleData.image"
+      />
   </div>
 </template>
 
 <script>
 import ImageElement from '../elements/image.vue'
+import VideoElement from '../elements/video.vue'
 import TitleElement from '../elements/title.vue'
 import SubtitleElement from '../elements/subtitle.vue'
 import CtaElement from '../elements/cta.vue'
@@ -44,6 +50,7 @@ export default {
   name:"HeroModule",
   components: {
     ImageElement,
+    VideoElement,
     TitleElement,
     SubtitleElement,
     CtaElement
@@ -168,6 +175,10 @@ export default {
         }
       }
     }
+  }
+
+  .vue-video {
+    height: 0;;
   }
 }
 
