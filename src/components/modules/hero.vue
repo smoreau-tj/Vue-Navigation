@@ -24,12 +24,14 @@
       <SubtitleElement
         :elementData="moduleData.subtitle"
       />
-      <CtaElement
+      <div 
+        class="vue-cta-container"
         v-for="(cta, index) in moduleData.cta"
         :key="index"
-        :elementData="cta"
         :class="'index-' + index"
-      />
+      >
+        <CtaElement :elementData="cta"/>
+      </div>
     </div>
       <VideoElement
         v-if="moduleData.image.desktopFormat === 'MP4'"
@@ -178,7 +180,7 @@ export default {
   }
 
   .vue-video {
-    height: 0;;
+    display: none;
   }
 }
 

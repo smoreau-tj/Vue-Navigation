@@ -1,5 +1,9 @@
 <template>
-  <div class="side-by-side-module-container">
+  <div 
+    class="side-by-side-module-container"
+    :class="{'mobile-reverse-sides' : moduleData.prioritizedSide === 'rightSide'}"
+
+  >
     <div 
       class="side-container side-one-container"
       :class="{'desktop-right-under-image': moduleData.leftSide[0].contentAlignment === 'right' && moduleData.leftSide[0].desktopUnderImage }"
@@ -14,9 +18,9 @@
           {'left': moduleData.leftSide[0].contentAlignment === 'left'},
           {'center': moduleData.leftSide[0].contentAlignment === 'center'},
           {'right': moduleData.leftSide[0].contentAlignment === 'right'},
-          {'stacked-cta' : moduleData.leftSide[0].stackCtas },
-          {'mobile-under-image' : moduleData.leftSide[0].mobileUnderImage },
-          {'desktop-under-image' : moduleData.leftSide[0].desktopUnderImage },
+          {'stacked-cta' : !moduleData.leftSide[0].stackCtas },
+          {'desktop-under-image' : !moduleData },
+          {'over-bottom-image' : !moduleData },
         ]"
       >
         <TitleElement
@@ -25,12 +29,17 @@
         <SubtitleElement
           :elementData="moduleData.leftSide[0].subtitle"
         />
-        <CtaElement
+        <div 
+          class="vue-cta-container"
           v-for="(cta, index) in moduleData.leftSide[0].cta"
           :key="index"
-          :elementData="cta"
           :class="'index-' + index"
-        />
+        >
+          <CtaElement 
+            :elementData="cta"
+            class="side-module__cta"
+          />
+        </div>
       </div>
     </div>
     <div 
@@ -48,8 +57,8 @@
           {'center': moduleData.rightSide[0].contentAlignment === 'center'},
           {'right': moduleData.rightSide[0].contentAlignment === 'right'},
           {'stacked-cta' : moduleData.rightSide[0].stackCtas },
-          {'mobile-under-image' : moduleData.rightSide[0].mobileUnderImage },
-          {'desktop-under-image' : moduleData.rightSide[0].desktopUnderImage },
+          {'desktop-under-image' : !moduleData },
+          {'over-bottom-image' : !moduleData },
         ]"
       >
         <TitleElement
@@ -58,12 +67,17 @@
         <SubtitleElement
           :elementData="moduleData.rightSide[0].subtitle"
         />
-        <CtaElement
+        <div 
+          class="vue-cta-container"
           v-for="(cta, index) in moduleData.rightSide[0].cta"
           :key="index"
-          :elementData="cta"
           :class="'index-' + index"
-        />
+        >
+          <CtaElement 
+            :elementData="cta"
+            class="side-module__cta"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -106,6 +120,37 @@ export default {
     width: calc(100% - 96px);
   }
 
+  &.mobile-reverse-sides {
+    display: flex;
+    flex-flow: column;
+
+    @media screen and (min-width: 512px) {
+      flex-flow: unset;
+    }
+
+    .side-container {
+      &.side-two-container {
+        order: 1;
+        margin-bottom: 32px;
+
+        @media screen and (min-width: 512px) {
+          order: unset;
+          margin-bottom: unset;
+        }
+      }
+
+      &.side-one-container {
+        order: 2;
+        margin-bottom: 0;
+
+        @media screen and (min-width: 512px) {
+          order: unset;
+          margin-bottom: unset;
+        }
+      }
+    }
+  }
+
   .side-container {
     margin-bottom: 40px;
     position: relative;
@@ -117,54 +162,113 @@ export default {
     }
 
     .side-module_text-container {
-      position: absolute;
+      position: relative;
       width: 100%;
-      bottom: 0;
-      padding-bottom: 48px;
+      padding-top: 24px;
       max-width: 1088px;
 
-      @media screen and (min-width: 512px) {
+      @media screen and (min-width: 1024px) {
+        position: absolute;
         margin: 0 auto;
+        padding-top: 0;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        padding-bottom: unset;
-        bottom: unset;
         left: 24px;
         right: 24px;
         width: auto;
       }
 
-      &.mobile-under-image {
-        &.desktop-under-image{
-          position: relative;
-          transform: unset;
-          padding-top: 24px;
+      //extensive styling for text over bottom of image
+      &.over-bottom-image {
+        position: absolute;
+        bottom: 24px;
+        top: unset;
+        transform: unset;
+        width: calc(100% - 48px);
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+
+        @media screen and (min-width: 512px) {
+          bottom: 16px;
+          width: calc(100% - 16px);
         }
-      }
 
-      &.mobile-under-image {
-        &:not(.desktop-under-image){
-          position: relative;
-          transform: unset;
-          padding-top: 24px;
+        @media screen and (min-width: 768px) {
+          bottom: 24px;
+          width: calc(100% - 32px);
+        }
 
-          @media screen and (min-width: 512px) {
-            position: absolute;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            padding-top: 0;
+        @media screen and (min-width: 1024px) {
+          width: calc(100% - 64px);
+        }
+
+        &.stacked-cta,
+        &:not(.stacked-cta) {
+          .vue-cta-container {
+            @media screen and (min-width: 512px) {
+              display: inline-block;
+              width: calc(50% - 2px);
+            }
+
+            @media screen and (min-width: 768px) {
+              width: calc(50% - 4px);
+            }
+
+            @media screen and (min-width: 1024px) {
+              width: calc(50% - 8px);
+            }
+
+            &.index-1 {
+              margin-top: 8px;
+
+              @media screen and (min-width: 512px) {
+                margin-top: 0;
+                margin-left: 4px;
+              } 
+
+              @media screen and (min-width: 768px) {
+                margin-left: 8px;
+              }
+
+              @media screen and (min-width: 1024px) {
+                margin-left: 16px;
+              }
+            }
+
+            .side-module__cta {
+              width: auto;
+              font-size: 14px;
+
+              @media screen and (min-width: 512px) {
+                font-size: 10px;
+              }
+
+              @media screen and (min-width: 768px) {
+                font-size: 12px;
+              }
+
+              @media screen and (min-width: 1024px) {
+                font-size: 14px;
+              }
+
+              @media screen and (min-width: 1280px) {
+                font-size: 16px;
+              }
+            }
           }
         }
       }
+      
 
       &.desktop-under-image{
-        &:not(.mobile-under-image){
-          @media screen and (min-width: 512px) {
-            position: relative;
-            transform: unset;
-            padding-top: 24px;
-          }
+        @media screen and (min-width: 1024px) {
+          position: relative;
+          top: unset;
+          transform: unset;
+          padding-top: 24px;
+          left: 0;
         }
       }
 
@@ -185,7 +289,7 @@ export default {
         }
 
         &.stacked-cta {
-          @media screen and (min-width: 512px) {
+          @media screen and (min-width: 1280px) {
             .vue-cta-container {
               margin-left: 0;
             }
@@ -221,38 +325,45 @@ export default {
         }
 
         &.stacked-cta {
-          @media screen and (min-width: 512px) {
-            .vue-cta-container {
+          .vue-cta-container {
+            @media screen and (min-width: 1280px) {
               margin-left: 0;
             }
           }
+          
         }
       }
 
       &.stacked-cta {
         .vue-cta-container {
-          @media screen and (min-width: 512px) {
+          @media screen and (min-width: 1280px) {
             display: block;
           }
 
           &.index-1{
-            margin-top: 16px;
+            @media screen and (min-width: 1280px) {
+              margin-top: 16px;
+            }
           }
         }
       }
 
-      &:not(.stacked-cta) {
-        .vue-cta-container {
-          @media screen and (min-width: 512px) {
-            display: inline-block;
-          }
+      &:not(.stack-cta) {
+        &:not(.over-bottom-image) {
+          .vue-cta-container {
+            display: block;
 
-          &.index-1{
-            margin-top: 16px;
+            @media screen and (min-width: 1280px) {
+              display: inline-block;
+            }
 
-            @media screen and (min-width: 568px) {
-              margin-left: 8px;
-              margin-top: 0;
+            &.index-1{
+              margin-top: 16px;
+
+              @media screen and (min-width: 1280px) {
+                margin-left: 8px;
+                margin-top: 0;
+              }
             }
           }
         }
@@ -281,6 +392,8 @@ export default {
       }
     }
 
+    //Module container class styling to 
+    //solve for desktop edge case of right justifed content below image.
     &.desktop-right-under-image {
       @media screen and (min-width: 512px) {
         text-align: right;

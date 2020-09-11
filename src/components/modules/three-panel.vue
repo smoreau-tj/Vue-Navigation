@@ -9,19 +9,20 @@
       v-for="(panel, index) in moduleData.panels"
       :key="index"
     >
+      <a :href="panel.url">
       <div class="panel_image-container">
         <ImageElement
           :elementData="panel.image"
         />
       </div>
-      <div class="panel_cta-container">
+      </a>
         <CtaElement
           v-for="(cta, index) in panel.cta"
           :key="index"
           :elementData="cta"
           :class="'index-' + index"
+          class="left-align-cta"
         />
-      </div>
     </div>
   </div>
 </div>
@@ -88,6 +89,16 @@ export default {
     }
     &:nth-of-type(3){
       margin-left: 12px;
+    }
+  }
+
+  .left-align-cta {
+    text-align: left;
+    width: auto;
+    font-size: 14px;
+
+    @media screen and (min-width: 512px) {
+      font-size: 16px;
     }
   }
 }

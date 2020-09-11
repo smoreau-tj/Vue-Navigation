@@ -1,5 +1,4 @@
 <template>
-<div class="vue-cta-container">
   <a 
     :href="elementData.url" 
     class="vue-cta"
@@ -13,7 +12,6 @@
   >  
     {{elementData.text}}
   </a>
-</div>
 </template>
 
 <script>
@@ -66,7 +64,7 @@ export default {
     border: 1px solid var(--desktop-border-color);
     border-radius: 4px;
     font-size: 16px;
-    width: 246px;
+    width: 248px;
     height: 48px;
     line-height: 47px;
   }

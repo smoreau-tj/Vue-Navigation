@@ -1,5 +1,5 @@
 <template>
-  <video class="vue-video video" autoplay muted playsinline preload loop>
+  <video class="video" autoplay muted playsinline preload loop>
     <source data-min-width="768" :data-src="elementData.videoUrlDesktop" type="video/mp4">
     <source data-max-width="767" :data-src="elementData.videoUrlMobile" type="video/mp4">
   </video>

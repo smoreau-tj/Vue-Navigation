@@ -15,7 +15,6 @@
         {'center': moduleData.contentAlignmentDesktop === 'center'},
         {'right': moduleData.contentAlignmentDesktop === 'right'},
         {'stacked-cta' : moduleData.stackCtas },
-        {'mobile-under-image' : moduleData.mobileUnderImage },
         {'desktop-under-image' : moduleData.desktopUnderImage },
       ]"
     >
@@ -25,12 +24,14 @@
       <SubtitleElement
         :elementData="moduleData.subtitle"
       />
-      <CtaElement
+      <div 
+        class="vue-cta-container"
         v-for="(cta, index) in moduleData.cta"
         :key="index"
-        :elementData="cta"
         :class="'index-' + index"
-      />
+      >
+        <CtaElement :elementData="cta"/>
+      </div>
     </div>
   </div>
 </template>
@@ -61,61 +62,41 @@ export default {
   overflow: hidden;
   max-width: 1184px;
 
+  @media screen and (min-width: 512px) {
+    width: calc(100% - 48px);
+    margin: 0 auto;
+  }
+
+
   @media screen and (min-width: 768px) {
     width: calc(100% - 96px);
     margin: 0 auto;
   }
 
   .fixed-banner-module_text-container {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    padding-bottom: 48px;
+    position: relative;
+    padding: 24px 24px 0 24px;
     max-width: 1088px;
 
-    @media screen and (min-width: 512px) {
+    @media screen and (min-width: 1024px) {
+      position: absolute;
       margin: 0 auto;
       top: 50%;
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-      padding-bottom: unset;
-      bottom: unset;
+      padding: 0;
+      // padding-bottom: unset;
+      // bottom: unset;
       left: 24px;
       right: 24px;
       width: auto;
     }
 
-    &.mobile-under-image {
-      &.desktop-under-image{
-        position: relative;
-        transform: unset;
-        padding-top: 24px;
-      }
-    }
-
-    &.mobile-under-image {
-      &:not(.desktop-under-image){
-        position: relative;
-        transform: unset;
-        padding-top: 24px;
-
-        @media screen and (min-width: 512px) {
-          position: absolute;
-          -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-          padding-top: 0;
-        }
-      }
-    }
-
+  
     &.desktop-under-image{
-      &:not(.mobile-under-image){
-        @media screen and (min-width: 512px) {
-          position: relative;
-          transform: unset;
-          padding-top: 24px;
-        }
-      }
+      position: relative;
+      transform: unset;
+      padding-top: 24px;
     }
 
     &.left {
