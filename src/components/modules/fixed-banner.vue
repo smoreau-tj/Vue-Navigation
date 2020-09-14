@@ -1,7 +1,12 @@
 <template>
   <div 
     class="fixed-banner-module-container"
-    :class="{'desktop-right-under-image': moduleData.contentAlignmentDesktop === 'right' && moduleData.desktopUnderImage }"
+    :class="[
+      {'left': moduleData.contentAlignmentDesktop === 'left'},
+      {'right': moduleData.contentAlignmentDesktop === 'right'},
+      {'stacked-cta' : moduleData.stackCtas },
+      {'desktop-under-image' : moduleData.desktopUnderImage },
+    ]"
   >
     <div class="fixed-banner-module_image-container">
       <ImageElement
@@ -10,13 +15,6 @@
     </div>
     <div 
       class="fixed-banner-module_text-container"
-      :class="[
-        {'left': moduleData.contentAlignmentDesktop === 'left'},
-        {'center': moduleData.contentAlignmentDesktop === 'center'},
-        {'right': moduleData.contentAlignmentDesktop === 'right'},
-        {'stacked-cta' : moduleData.stackCtas },
-        {'desktop-under-image' : moduleData.desktopUnderImage },
-      ]"
     >
       <TitleElement
         :elementData="moduleData.titleText"
@@ -78,6 +76,15 @@ export default {
     padding: 24px 24px 0 24px;
     max-width: 1088px;
 
+    @media screen and (min-width: 512px) {
+      padding: 24px 0 0 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 516px;
+    }
+
+
     @media screen and (min-width: 1024px) {
       position: absolute;
       margin: 0 auto;
@@ -85,126 +92,126 @@ export default {
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       padding: 0;
-      // padding-bottom: unset;
-      // bottom: unset;
       left: 24px;
       right: 24px;
       width: auto;
     }
+  }
 
-  
-    &.desktop-under-image{
-      position: relative;
-      transform: unset;
-      padding-top: 24px;
+  &.desktop-under-image{
+    .fixed-banner-module_text-container {
+      @media screen and (min-width: 1024px) {
+        position: relative;
+        transform: unset;
+        padding-top: 24px;
+        left: 0;
+        right: 0;
+      }
     }
+  }
 
-    &.left {
+  &.left {
+    .fixed-banner-module_text-container {
       @media screen and (min-width: 512px) {
         text-align: left;
       }
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         left: 56px;
         margin-left: 0;
       }
 
-      &.desktop-under-image {
-        @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1280px) {
+        left: 80px;
+        margin-left: 0;
+      }
+
+    }
+
+    &.desktop-under-image {
+      .fixed-banner-module_text-container {
+        @media screen and (min-width: 1024px) {
           left: 0;
-        }
-      }
-
-      &.stacked-cta {
-        @media screen and (min-width: 512px) {
-          .vue-cta-container {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-
-    &.center {
-      @media screen and (min-width: 512px) {
-        text-align: center;
-        left: 0;
-        right: 0;
-
-      }
-    }
-
-    &.right {      
-      @media screen and (min-width: 512px) {
-        text-align: left;
-        right: 24px;
-        left: auto;
-      }
-
-      @media screen and (min-width: 768px) {
-        right: 56px;
-        margin-right: 0;
-      }
-
-      &.desktop-under-image {
-        @media screen and (min-width: 768px) {
-          right: 0;
-        }
-      }
-
-      &.stacked-cta {
-        @media screen and (min-width: 512px) {
-          .vue-cta-container {
-            margin-left: 0;
-          }
         }
       }
     }
 
     &.stacked-cta {
-      .vue-cta-container {
-        @media screen and (min-width: 512px) {
-          display: block;
-        }
-
-        &.index-1{
-          margin-top: 16px;
-        }
-      }
-    }
-
-    &:not(.stacked-cta) {
-      .vue-cta-container {
-        @media screen and (min-width: 512px) {
-          display: inline-block;
-        }
-
-        &.index-1{
-          margin-top: 16px;
-
-          @media screen and (min-width: 568px) {
-            margin-left: 16px;
-            margin-top: 0;
-          }
+      @media screen and (min-width: 512px) {
+        .vue-cta-container {
+          margin-left: 0;
         }
       }
     }
   }
 
-  //Module container class styling to 
-  //solve for desktop edge case of right justifed content below image.
-  &.desktop-right-under-image {
+  &.right { 
     @media screen and (min-width: 512px) {
       text-align: right;
     }
 
-    .right {
-      &.desktop-under-image {
-        @media screen and (min-width: 512px) {
-          display: inline-block;
+    .fixed-banner-module_text-container {
+      @media screen and (min-width: 512px) {
+        text-align: left;
+        right: 0;
+        left: auto;
+        display: inline-block;
+      }
+
+      @media screen and (min-width: 1024px) {
+        right: 56px;
+        margin-right: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        right: 80px;
+      }
+    }
+
+    &.desktop-under-image {
+      .fixed-banner-module_text-container {
+        @media screen and (min-width: 1024px) {
+          right: 0;
         }
       }
     }
 
+    &.stacked-cta {
+      @media screen and (min-width: 512px) {
+        .vue-cta-container {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &.stacked-cta {
+    .vue-cta-container {
+      @media screen and (min-width: 512px) {
+        display: block;
+      }
+
+      &.index-1{
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &:not(.stacked-cta) {
+    .vue-cta-container {
+      @media screen and (min-width: 512px) {
+        display: inline-block;
+      }
+
+      &.index-1{
+        margin-top: 16px;
+
+        @media screen and (min-width: 568px) {
+          margin-left: 16px;
+          margin-top: 0;
+        }
+      }
+    }
   }
 }
 

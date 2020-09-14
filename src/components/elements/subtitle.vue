@@ -34,12 +34,10 @@ export default {
 
 
 .vue-subtitle-container {
-  max-width: 270px;
   margin: 0 auto 16px auto;
 
   @media screen and (min-width: 512px) {
-    max-width: 516px;
-    margin: 0 0 24px 0;
+    margin: 0 auto 24px auto;
   }
 }
 
