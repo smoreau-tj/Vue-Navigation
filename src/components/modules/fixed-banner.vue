@@ -5,7 +5,7 @@
       {'left': moduleData.contentAlignmentDesktop === 'left'},
       {'right': moduleData.contentAlignmentDesktop === 'right'},
       {'stacked-cta' : moduleData.stackCtas },
-      {'desktop-under-image' : moduleData.desktopUnderImage },
+      {'desktop-under-image' : moduleData.contentPosition === 'below image' },
     ]"
   >
     <div class="fixed-banner-module_image-container">
@@ -137,11 +137,18 @@ export default {
     }
 
     &.stacked-cta {
-      @media screen and (min-width: 512px) {
         .vue-cta-container {
-          margin-left: 0;
+          @media screen and (min-width: 512px) {
+            margin-left: 0;
+          }
+
+          .vue-cta {
+            @media screen and (min-width: 512px) {
+              margin-left: 0;
+            }
+          }
         }
-      }
+      
     }
   }
 

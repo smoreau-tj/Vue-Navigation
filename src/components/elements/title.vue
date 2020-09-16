@@ -19,13 +19,12 @@ export default {
     cssVars () {
       return {
         '--mobile-hide': this.elementData.displaytitle === 'Desktop Only' || this.elementData.displaytitle === 'None' ? 'none' : 'block',
-        '--mobile-color': this.elementData.modulesOptions.mobileTextColor ? this.elementData.modulesOptions.mobileTextColor.hex : '#FFFFFF',
-        '--mobile-font': this.elementData.modulesOptions.mobileFont ? this.elementData.modulesOptions.mobileFont : 'Basetica',
-        '--desktop-color': this.elementData.modulesOptions.desktopTextColor ? this.elementData.modulesOptions.desktopTextColor.hex : '#FFFFFF',
-        '--desktop-font': this.elementData.modulesOptions.desktopFont ? this.elementData.modulesOptions.desktopFont : 'Basetica',
+        '--mobile-color': this.elementData.modulesOptions.mobileTextColor ? this.elementData.modulesOptions.mobileTextColor.hex : '#4D4D4D',
+        '--mobile-font': this.elementData.modulesOptions.mobileFont ? this.elementData.modulesOptions.mobileFont : 'Basetica-Regular',
+        '--desktop-color': this.elementData.modulesOptions.desktopTextColor ? this.elementData.modulesOptions.desktopTextColor.hex : '#4D4D4D',
+        '--desktop-font': this.elementData.modulesOptions.desktopFont ? this.elementData.modulesOptions.desktopFont : 'Basetica-Regular',
         '--desktop-drop-shadow': this.elementData.modulesOptions.dropShadow ? '0 0 90px rgba(0,0,0,0.50)' : 'none',
         '--desktop-hide': this.elementData.displaytitle === 'Mobile Only' || this.elementData.displaytitle === 'None' ? 'none' : 'block',
-
       }
     }
   }

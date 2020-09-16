@@ -11,9 +11,9 @@
     <div 
       class="hero-module_text-container"
       :class="[
-        {'left': moduleData.contentAlignmentDesktop === 'left'},
-        {'center': moduleData.contentAlignmentDesktop === 'center'},
-        {'right': moduleData.contentAlignmentDesktop === 'right'},
+        {'left': moduleData.contentAlignment === 'left'},
+        {'center': moduleData.contentAlignment === 'center'},
+        {'right': moduleData.contentAlignment === 'right'},
         {'stacked-cta' : moduleData.stackCtas }
       ]"
     >
@@ -63,8 +63,8 @@ export default {
   computed: {
     cssVars () {
       return { 
-        '--desktop-padding-left': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px' : '120px',
-        '--desktop-padding-right': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px': '120px',        
+        '--desktop-padding-left': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px' : '80px',
+        '--desktop-padding-right': this.moduleData.paddingRange ? this.moduleData.paddingRange + 'px': '80px',        
       }
     }
   }

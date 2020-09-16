@@ -24,13 +24,13 @@ export default {
     cssVars () {
       return {
         '--mobile-color': this.elementData.textColorMobile ? this.elementData.textColorMobile.hex : '#4D4D4D',
-        '--mobile-font': this.elementData.mobileFont ? this.elementData.mobileFont : 'Basetica Bold',        
-        '--mobile-background-color': this.elementData.backgroundColorMobile ? this.elementData.backgroundColorMobile.hex : 'transparent',
-        '--mobile-border-color': this.elementData.borderColorMobile ? this.elementData.borderColorMobile.hex : '#FFFFFF',
+        '--mobile-font': this.elementData.mobileFont ? this.elementData.mobileFont : 'Basetica-Bold',        
+        '--mobile-background-color': this.elementData.backgroundColorMobile ? this.elementData.backgroundColorMobile.hex : '#FFFFFF',
+        '--mobile-border-color': this.elementData.borderColorMobile ? this.elementData.borderColorMobile.hex : '#808080',
         '--desktop-color': this.elementData.textColorDesktop ? this.elementData.textColorDesktop.hex : '#4D4D4D',
-        '--desktop-font': this.elementData.desktopFont ? this.elementData.desktopFont : 'Basetica Bold',        
-        '--desktop-background-color': this.elementData.backgroundColorDesktop ? this.elementData.backgroundColorDesktop.hex : 'transparent',
-        '--desktop-border-color': this.elementData.borderColorDesktop ? this.elementData.borderColorDesktop.hex : '#FFFFFF',
+        '--desktop-font': this.elementData.desktopFont ? this.elementData.desktopFont : 'Basetica-Bold',        
+        '--desktop-background-color': this.elementData.backgroundColorDesktop ? this.elementData.backgroundColorDesktop.hex : '#FFFFFF',
+        '--desktop-border-color': this.elementData.borderColorDesktop ? this.elementData.borderColorDesktop.hex : '#808080',
       }
     }
   }
@@ -96,6 +96,9 @@ export default {
     width: auto;
     display: inline-block;
     border-radius: 0;
+    background-color: transparent;
+    height: 20px;
+    line-height: 19px;
 
     @media screen and (min-width: 512px) {
       border-bottom: 2px solid var(--desktop-border-color);

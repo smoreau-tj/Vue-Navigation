@@ -6,7 +6,7 @@
   >
     <div 
       class="side-container side-one-container"
-      :class="{'desktop-right-under-image': moduleData.leftSide[0].contentAlignment === 'right' && moduleData.leftSide[0].desktopUnderImage }"
+      :class="{'desktop-right-under-image': moduleData.leftSide[0].contentAlignment === 'right' && moduleData.leftSide[0].contentPosition === 'below image' }"
     >
       <div class="side-module_image-container">
         <ImageElement
@@ -18,9 +18,9 @@
           {'left': moduleData.leftSide[0].contentAlignment === 'left'},
           {'center': moduleData.leftSide[0].contentAlignment === 'center'},
           {'right': moduleData.leftSide[0].contentAlignment === 'right'},
-          {'stacked-cta' : !moduleData.leftSide[0].stackCtas },
-          {'desktop-under-image' : !moduleData },
-          {'over-bottom-image' : !moduleData },
+          {'stacked-cta' : moduleData.leftSide[0].stackCtas },
+          {'desktop-under-image' : moduleData.leftSide[0].contentPosition === 'below image' },
+          {'over-bottom-image' : moduleData.leftSide[0].contentPosition === 'over bottom image' },
         ]"
       >
         <TitleElement
@@ -44,7 +44,7 @@
     </div>
     <div 
       class="side-container side-two-container"
-      :class="{'desktop-right-under-image': moduleData.rightSide[0].contentAlignment === 'right' && moduleData.rightSide[0].desktopUnderImage }"
+      :class="{'desktop-right-under-image': moduleData.rightSide[0].contentAlignment === 'right' && moduleData.rightSide[0].contentPosition === 'below image' }"
     >
       <div class="side-module_image-container">
         <ImageElement
@@ -57,8 +57,8 @@
           {'center': moduleData.rightSide[0].contentAlignment === 'center'},
           {'right': moduleData.rightSide[0].contentAlignment === 'right'},
           {'stacked-cta' : moduleData.rightSide[0].stackCtas },
-          {'desktop-under-image' : !moduleData },
-          {'over-bottom-image' : !moduleData },
+          {'desktop-under-image' : moduleData.rightSide[0].contentPosition === 'below image' },
+          {'over-bottom-image' : moduleData.rightSide[0].contentPosition === 'over bottom image' },
         ]"
       >
         <TitleElement

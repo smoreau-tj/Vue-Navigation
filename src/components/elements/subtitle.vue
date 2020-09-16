@@ -19,10 +19,10 @@ export default {
     cssVars () {
       return {
         '--mobile-hide': this.elementData.displaySubtitle === 'Desktop Only' || this.elementData.displaySubtitle === 'None' ? 'none' : 'block',
-        '--mobile-color': this.elementData.subTextOptions.mobileTextColor ? this.elementData.subTextOptions.mobileTextColor.hex : '#FFFFFF',
-        '--mobile-font': this.elementData.subTextOptions.mobileFont ? this.elementData.subTextOptions.mobileFont : 'Basetica',
-        '--desktop-color': this.elementData.subTextOptions.desktopTextColor ? this.elementData.subTextOptions.desktopTextColor.hex : '#FFFFFF' ,
-        '--desktop-font': this.elementData.subTextOptions.desktopFont ? this.elementData.subTextOptions.desktopFont : 'Basetica',
+        '--mobile-color': this.elementData.subTextOptions.mobileTextColor ? this.elementData.subTextOptions.mobileTextColor.hex : '#737373',
+        '--mobile-font': this.elementData.subTextOptions.mobileFont ? this.elementData.subTextOptions.mobileFont : 'Basetica-Regular',
+        '--desktop-color': this.elementData.subTextOptions.desktopTextColor ? this.elementData.subTextOptions.desktopTextColor.hex : '#737373' ,
+        '--desktop-font': this.elementData.subTextOptions.desktopFont ? this.elementData.subTextOptions.desktopFont : 'Basetica-Regular',
         '--desktop-hide': this.elementData.displaySubtitle === 'Mobile Only' || this.elementData.displaySubtitle === 'None' ? 'none' : 'block',
       }
     }

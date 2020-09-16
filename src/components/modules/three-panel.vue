@@ -1,9 +1,10 @@
 <template>
 <div class="three-panel-module-container">
-    <!-- <TitleElement
+    <TitleElement
+      v-if="moduleData.titleText"
       class="three-panel_title"
-      :elementData="moduleData.mainTitle" 
-   /> -->
+      :elementData="moduleData.titleText" 
+   />
   <div class="panels-wrapper">
     <div class="panel-container"
       v-for="(panel, index) in moduleData.panels"
@@ -31,14 +32,14 @@
 <script>
 import ImageElement from '../elements/image.vue'
 import CtaElement from '../elements/cta.vue'
-// import TitleElement from '../elements/title.vue'
+import TitleElement from '../elements/title.vue'
 
 export default {
   name:"ThreePanelModule",
   components: {
     ImageElement,
-    CtaElement
-    // TitleElement,
+    CtaElement,
+    TitleElement,
   },
   props : {
     moduleData: Object
@@ -71,6 +72,7 @@ export default {
   }
 
   .panel-container {
+    text-align: left;
     display: inline-block;
     margin: 0 auto;
     width: calc(33.333333% - 16px);
@@ -93,6 +95,7 @@ export default {
   }
 
   .left-align-cta {
+    margin-top: 16px;
     text-align: left;
     width: auto;
     font-size: 14px;
