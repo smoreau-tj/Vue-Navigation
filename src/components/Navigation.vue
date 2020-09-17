@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import {client} from '../lib/sanity.js';
+// import {client} from '../lib/sanity.js';
 import NavLevelZero from './NavLevelZero.vue'
 import NavHeaderCenter from './NavHeaderCenter.vue'
 import NavHeaderRight from './NavHeaderRight.vue'
@@ -53,11 +53,11 @@ export default {
     NavHeaderRight
   },
   mounted() {
-    const queryString = "*[_type=='navigation' && isNavLive == true]";
-    client.fetch(queryString).then(data => {
-      console.log('data', data);
-      this.navData = data[0].navigationType;
-    }).catch( error => {console.log(error)});
+    // const queryString = "*[_type=='navigation' && isNavLive == true]";
+    // client.fetch(queryString).then(data => {
+    //   console.log('data', data);
+    //   this.navData = data[0].navigationType;
+    // }).catch( error => {console.log(error)});
   },
   data () {
     return {
